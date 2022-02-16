@@ -1,0 +1,85 @@
+{% load i18n %}
+{% load main_partial %}
+{% footer as var %}
+
+<!-- Begin footer -->
+<footer class="text-off-white" id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row wow bounceInLeft" data-wow-delay="0.4s">
+                <div class="col-sm-6 col-md-3">
+                    <h4>{% translate 'Operstyle' %}</h4>
+                    <ul class="imp-links p-0">
+                        <li><a href="{% url 'pages' slug='about-us' %}">
+                            {% translate 'About us' %}</a></li>
+                        <li><a href="{% url 'account:index' %}">
+                            {% translate 'My account' %}</a></li>
+                        <li><a href="{% url 'main:store_agent' %}">
+                            {% translate 'Find a store' %}</a></li>
+                        <li><a href="{% url 'news:list' %}">
+                            {% translate 'The news' %}</a></li>
+                        <li><a href="{% url 'pages' slug='contact-us' %}">
+                            {% translate 'Contact us' %}</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h4>{% translate 'Guide' %}</h4>
+                    <ul class="imp-links p-0">
+                        <li><a href="{% url 'pages' slug='product-care' %}">
+                            {% translate 'Product care' %}</a></li>
+                        <li><a href="{% url 'main:size_guide' %}">{% translate 'Size guide' %}</a></li>
+                        <li><a href="{% url 'pages' slug='privacy-policy' %}">
+                            {% translate 'Privacy & Policy' %}</a></li>
+                        <li><a href="{% url 'pages' slug='terms-and-conditions' %}">
+                            {% translate 'Terms & Conditions' %}</a></li>
+                        <li><a href="{% url 'pages' slug='cookie-policy' %}">
+                            {% translate 'Cookie Policy' %}</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h4>{% translate 'Cooperation' %}</h4>
+                    <ul class="imp-links p-0">
+                        <li><a href="{% url 'pages' slug='personalization' %}">
+                            {% translate 'Personalization' %}</a></li>
+                        <li><a href="{% url 'pages' slug='customization' %}">
+                            {% translate 'Customization' %}</a></li>
+                        <li><a href="{% url 'pages' slug='corporute-gifting' %}">
+                            {% translate 'Corporate gifting' %}</a></li>
+                        <li><a href="{% url 'pages' slug='wholesale-enquiries' %}">
+                            {% translate 'Wholesale enquiries' %}</a></li>
+                        <li><a href="{% url 'main:become_retailer' %}">
+                            {% translate 'Become a retailer' %}</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h4>{% translate 'Follow us' %}</h4>
+                    <div class="d-flex justify-content-around mt-4">
+                        {% for social_media in var.social_medias %}
+                        <a href="{{ social_media.link }}" title="{{ social_media.title }}" class="footer-icon">
+                            <i class="fa fa-{{ social_media.icon_code }}"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+    <div class="footer">
+        <div class="container text-center wow fadeIn" data-wow-delay="0.4s">
+            <p class="copyright">Copyright &copy; 2021 - Licensed By <a href="javascript:void(0);"
+                                                                        class="theme-author">Coilaco
+            </a>
+            </p>
+        </div>
+    </div>
+
+</footer>
+<!-- End footer -->
+<div class="go-top" id="go-top">
+    <a href="javascript:void(0)" onclick=" document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+Thank you | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="container my-5">
+    <div class="m-auto">
+        <div class="alert alert-success">
+            <h3>
+                {% translate 'CONGRATULATION' %}
+            </h3>
+            <p>
+                {% translate 'Your information has been registered Our experts will contact you soon to cooperation' %}
+            </p>
+        </div>
+        <a href="{% url 'main:index' %}" class="btn btn-secondary">{% translate 'Back' %}</a>
+    </div>
+</div>
+<script>
+    {% get_current_language as LANGUAGE_CODE %}
+    setTimeout(function(){
+        window.location.href = "/{{ LANGUAGE_CODE }}/";
+    }, 3000);
+
+</script>
+{% endblock main %}

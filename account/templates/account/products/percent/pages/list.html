@@ -1,0 +1,54 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+    {% translate 'Product price percent' %} | PicoStyle
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3" id="categoryTable">
+                                <thead>
+                                <tr>
+                                    <th>{% translate 'value' %}</th>
+                                    <th>{% translate 'slug' %}</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in items %}
+                                    <tr>
+                                        <td>{{ item.value }} %</td>
+                                        <td>
+                                            {{ item.slug }}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'account:ppp_update' pk=item.pk %}"
+                                               class="btn btn-warning" style="font-size: 12px;">
+                                                <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

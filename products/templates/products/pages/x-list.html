@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% block title %}
+{{ cat.title }} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row" style="background: #edf1f7;">
+        {% include 'products/sections/sidebar.html' %}
+        <div class="col-md-9 col-12 my-5 mt-7">
+            <div class="row">
+                <div class="col-12">
+                    <form method="get">
+                        {{ products.form.as_p }}
+                        <input type="submit"/>
+                    </form>
+                </div>
+                {% for product in products.qs %}
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img class="product-img" src="{{ product.image.url }}" alt="{{ product.title }}"
+                                 loading="lazy">
+                        </a>
+                        <div class="p-2">
+                            <div class="product-title">
+                                <a href="{{ product.get_absolute_url }}">
+                                    {{ product.title }}
+                                </a>
+                            </div>
+                            <p class="product-desc">
+                                {{ product.description|safe|truncatewords:10 }}
+                            </p>
+                            <p class="product-price">
+                                {{ product.price }} $
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center my-4">
+                    <h3>
+                        {% translate 'There are currently no products' %}
+                    </h3>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+{% block custom_js %}
+<script>
+    // This code show list of category from parent
+    let cats = document.getElementsByClassName("parent{{ cat.id }}");
+    for (let i = 0; i < cats.length; i++) {
+        let a_tag = cats[i].querySelectorAll("a");
+        for (let j = 0; j < a_tag.length; j++) {
+            let active_list = a_tag[j].classList;
+            if (Object.values(active_list).indexOf('active') > -1) {
+                cats[i].classList.add("active");
+            }
+        }
+    }
+
+
+</script>
+{% endblock custom_js %}

@@ -1,0 +1,68 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+    {% translate 'Categories' %} | PicoStyle
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-right mb-4">
+                        <a href="{% url 'account:nc_create' %}"
+                           class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>{% translate 'Add Category' %}
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3" id="categoryTable">
+                                <thead>
+                                <tr>
+                                    <th>{% translate 'title' %}</th>
+                                    <th>{% translate 'status' %}</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for category in categories %}
+                                    <tr>
+                                        <td>{{ category }}</td>
+                                        <td>
+                                            {% if category.active %}
+                                                <h5 class="badge badge-success">{% translate 'Active' %}</h5>
+                                            {% else %}
+                                                <h5 class="badge badge-danger">{% translate 'Inactive' %}</h5>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'account:nc_update' pk=category.pk %}"
+                                               class="btn btn-warning" style="font-size: 12px;">
+                                                <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                            </a>
+                                            <a href="{% url 'account:nc_delete' pk=category.pk %}"
+                                               class="btn btn-danger" style="font-size: 12px;">
+                                                <i class="fa fa-trash"></i> {% translate 'Delete' %}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

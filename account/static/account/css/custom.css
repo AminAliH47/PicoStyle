@@ -1,0 +1,99 @@
+br {
+    display: none;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px 0;
+    color: #3a3a3a;
+    font-weight: 500;
+}
+
+.helptext {
+    color: #afafaf;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+textarea {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:focus {
+    border-color: #424242;
+    box-shadow: 0 0 0 3px #ff842170;
+}
+
+input[type=text]:disabled,
+input[type=number]:disabled,
+input[type=email]:disabled,
+input[type=password]:disabled {
+    background: #e7e7e7;
+    color: #969696;
+}
+
+textarea {
+    height: 90px;
+}
+
+textarea:focus {
+    border-color: #424242 !important;
+    box-shadow: 0 0 0 3px #ff842170 !important;
+}
+
+select {
+    padding: 5px;
+    border: 1px solid #b2b2b2;
+    background: #fff;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+select:active {
+    border: 1px solid #000;
+}
+
+#id_phone_number {
+    padding-left: 25px;
+}
+
+.phonenumber-plus {
+    position: absolute;
+    bottom: 1px;
+    font-size: 22px;
+    left: 22px;
+}
+
+.tooltip-btn {
+    color: #252525;
+    font-size: 20px;
+}
+
+.tooltip-btn:hover {
+    color: #626262;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #363636;
+}
+
+.bag-field, .shoe-field {
+    display: none;
+}

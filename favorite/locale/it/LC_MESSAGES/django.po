@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: favorite/templates/favorite/pages/detail.html:6
+msgid "Favorite List"
+msgstr "Elenco dei preferiti"
+
+#: favorite/templates/favorite/pages/detail.html:15
+msgid "Image"
+msgstr "Immagine"
+
+#: favorite/templates/favorite/pages/detail.html:16
+msgid "Model"
+msgstr "Modello"
+
+#: favorite/templates/favorite/pages/detail.html:17
+msgid "Brand"
+msgstr "Marca"
+
+#: favorite/templates/favorite/pages/detail.html:18
+msgid "Price"
+msgstr "Prezzo"
+
+#: favorite/templates/favorite/pages/detail.html:19
+msgid "Quantity"
+msgstr "Quantità"
+
+#: favorite/templates/favorite/pages/detail.html:45
+msgid "Remove"
+msgstr "Rimuovere"
+
+#: favorite/templates/favorite/pages/detail.html:54
+msgid "There are no products in your favorites list"
+msgstr "Non ci sono prodotti nella tua lista dei preferiti"

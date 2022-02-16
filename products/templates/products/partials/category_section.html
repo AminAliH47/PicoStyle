@@ -1,0 +1,12 @@
+<ul class="sub-category-tabs {% if cat.id == category.id %}active{% endif %} parent{{ cat.id }}">
+    {% for category in category.children.get_active_category %}
+    <li>
+        <a href="{{ category.get_absolute_url }}?page=1"
+           class="{% if cat.id == category.id %}active{% endif %}">
+            {{ category.title }}</a>
+        {% if category.children.get_active_category %}
+        {% include 'products/partials/category_section.html' %}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

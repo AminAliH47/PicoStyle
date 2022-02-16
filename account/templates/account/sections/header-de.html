@@ -1,0 +1,122 @@
+{% load static %}
+{% load i18n %}
+{% load account_partial %}
+{% header as var %}
+
+<!-- HEADER DESKTOP-->
+<header class="header-desktop">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="header-wrap">
+                <div class="form-header">
+                </div>
+                <div class="header-button">
+                    <div class="noti-wrap">
+                        <div class="noti__item js-item-menu">
+                            <i class="zmdi zmdi-comment-more"></i>
+                            {% if var.not_read_messages != 0 %}
+                                <span class="quantity">{{ var.not_read_messages }}</span>
+                            {% endif %}
+                            <div class="mess-dropdown js-dropdown">
+                                {% for message in var.h_messages %}
+                                    <div class="mess__item">
+                                        <div class="content">
+                                            <a href="{{ message.get_absolute_url }}">
+                                                <h6>{{ message.subject }}</h6>
+                                                <p>{% translate 'See more' %}</p>
+                                                <span class="time">
+                                                {{ message.created_at|timesince }} {% translate 'ago' %}</span>
+                                            </a>
+                                            {% if message.is_read %}
+                                                <h5 class="badge badge-primary">{% translate 'Read' %}</h5>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% empty %}
+                                    <p class="ml-3 mt-2">{% translate "You don't have any message" %}</p>
+                                {% endfor %}
+                                <div class="mess__footer">
+                                    <a href="{% url 'account:mm_list' %}">{% translate 'View all messages' %}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-wrap">
+                        <div class="account-item clearfix js-item-menu">
+                            <div class="image">
+                                <img src="{% static 'account/img/avatar-01.jpg' %}"
+                                     alt="{{ request.user.get_full_name }}"/>
+                            </div>
+                            <div class="content">
+                                <a class="js-acc-btn" href="#">{{ request.user.get_full_name }}</a>
+                            </div>
+                            <div class="account-dropdown js-dropdown">
+                                <div class="info clearfix">
+                                    <div class="image">
+                                        <a href="#">
+                                            <img src="{% static 'account/img/avatar-01.jpg' %}"
+                                                 alt="{{ request.user.get_full_name }}"/>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="name">
+                                            <a href="#">{{ request.user.get_full_name }}</a>
+                                        </h5>
+                                        <span class="email">{{ request.user.email }}</span>
+                                    </div>
+                                </div>
+                                <div class="account-dropdown__body">
+                                    <div class="account-dropdown__item">
+                                        <a href="{% url 'account:s_detail' pk=request.user.pk %}">
+                                            <i class="zmdi zmdi-account"></i>
+                                            {% translate 'Account' %}</a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="{% url 'account:s_update' pk=request.user.pk %}">
+                                            <i class="zmdi zmdi-settings"></i>
+                                            {% translate 'Setting' %}
+                                        </a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="{% url 'account:p_list' %}"
+                                           data-toggle="modal" data-target="#logoutModal">
+                                            <i class="zmdi zmdi-money-box"></i>
+                                            {% translate 'Products' %}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="account-dropdown__footer">
+                                    <a type="button" onclick="$('#logoutModal').modal('show')">
+                                        <i class="zmdi zmdi-power"></i>
+                                        {% translate 'Logout' %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER DESKTOP-->
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">{% translate 'Logout' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% translate 'Dou you want to logout ?' %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{% translate 'Close' %}</button>
+                <a href="{% url 'account:logout' %}" class="btn btn-danger">{% translate 'Logout' %}</a>
+            </div>
+        </div>
+    </div>
+</div>

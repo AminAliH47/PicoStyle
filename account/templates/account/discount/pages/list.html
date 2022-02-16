@@ -1,0 +1,122 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+    {% translate 'Discounts' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-right mb-4">
+                        <a href="{% url 'account:d_create' %}"
+                           class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>{% translate 'Add request' %}
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
+                                <tr>
+                                    <th>{% translate 'Wholesale value' %}</th>
+                                    <th>{% translate 'Retail value' %}</th>
+                                    <th>{% translate 'created at' %}</th>
+                                    <th>{% translate 'status' %}</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for discount in discounts %}
+                                    <tr>
+                                        <td>
+                                            {{ discount.wholesale_value }} %
+                                        </td>
+                                        <td>
+                                            {{ discount.retail_value }} %
+                                        </td>
+                                        <td>{{ discount.created_at }}</td>
+                                        <td>
+                                            {% if discount.status == "accepted" %}
+                                                <p class="badge badge-success">
+                                                    {{ discount.status }}
+                                                </p>
+                                            {% elif discount.status == "pending" %}
+                                                <p class="badge badge-warning">
+                                                    {{ discount.status }}
+                                                </p>
+                                            {% elif discount.status == "rejected" %}
+                                                <p class="badge badge-danger">
+                                                    {{ discount.status }}
+                                                </p>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'account:d_update' pk=discount.pk %}"
+                                               class="btn btn-warning" style="font-size: 12px;">
+                                                <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                            </a>
+                                            {% if request.user.is_superuser %}
+                                                <a href="{% url 'account:d_delete' pk=discount.pk %}"
+                                                   class="btn btn-danger" style="font-size: 12px;">
+                                                    <i class="fa fa-trash"></i> {% translate 'Delete' %}
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.previous_page_number %}"
+                                           aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">{% translate 'Previous' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == page %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                               href="?{% param_replace page=page %}">
+                                                {{ page }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.next_page_number %}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">{% translate 'Next' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

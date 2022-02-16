@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+    {{ request.GET.q }} {% translate 'Result' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div style="background: #edf1f7;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-12 my-5 mt-7">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h1>{% translate 'Result for' %} "{{ request.GET.q }}"</h1>
+                        </div>
+                        {% for product in products %}
+                            <div class="col-md-3 col-6">
+                                <div class="product-card">
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <img class="product-img"
+                                             src="{{ product.image.url }}"
+                                             alt="{{ product.seller.brand_name }}"
+                                             loading="lazy"
+                                             data-img="{{ product.image.url }}"
+                                             data-img2="
+                                                     {% if product.images.all %}{{ product.images.first.image.url }}{% else %}{{ product.image.url }}{% endif %}">
+                                    </a>
+                                    <div class="p-2">
+                                        <div class="product-title">
+                                            <a href="{{ product.get_absolute_url }}">
+                                                {{ product.code2 }}
+                                            </a>
+                                        </div>
+                                        <p class="product-price">
+                                            {% if product.show_price %}
+                                                {{ product.retail_price_USD }}
+                                            {% else %}
+                                                {% translate 'Read more ...' %}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="col-12 text-center my-4">
+                                <h3>
+                                    {% translate 'There are currently no products' %}
+                                </h3>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center">
+                    <nav>
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="?{% param_replace page=page_obj.previous_page_number %}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">{% translate 'Previous' %}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% for page in page_obj.paginator.page_range %}
+                                {% if page_obj.number == page %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page %}">
+                                            {{ page }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="?{% param_replace page=page_obj.next_page_number %}"
+                                       aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">{% translate 'Next' %}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block custom_js %}
+    <script src="{% static 'js/custom.js' %}"></script>
+{% endblock custom_js %}

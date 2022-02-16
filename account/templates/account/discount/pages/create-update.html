@@ -1,0 +1,263 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% if "create" in request.resolver_match.url_name %}
+        {% translate 'Create' %} | PicoStyle
+    {% else %}
+        {% translate 'Update' %} "{{ discount }}" | PicoStyle
+    {% endif %}
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                {% if "create" in request.resolver_match.url_name %}
+                                    <strong>{% translate 'Add New Item' %}</strong>
+                                {% else %}
+                                    <strong>{% translate 'Update' %} {{ discount.title }}</strong>
+                                {% endif %}
+                            </div>
+                            <div class="card-body card-block">
+                                <form method="post" enctype="multipart/form-data" class="row" onsubmit="showSpinner()"
+                                      id="form">{% csrf_token %}
+                                    <div class="col-6">
+                                        <label for="id_wholesale_value">
+                                            {% translate 'Wholesale price value' %}
+                                        </label>
+                                        {{ form.wholesale_value }}
+                                        <p>%</p>
+
+                                        {% for error in form.wholesale_value.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="id_retail_value">
+                                            {% translate 'Retail price value' %}
+                                        </label>
+                                        {{ form.retail_value }}
+                                        <p>%</p>
+
+                                        {% for error in form.retail_value.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_all_products">
+                                            {% translate 'Discount on all the products' %}?
+                                        </label>
+                                        <label class="switch">
+                                            {{ form.all_products }}
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-12" id="product_section">
+                                        <label for="id_category">
+                                            {% translate 'Category' %}
+                                        </label>
+                                        {{ form.category }}
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_seller">
+                                            {% translate 'Supplier' %}
+                                        </label>
+                                        {{ form.seller }}
+                                        {% for error in form.seller.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_status">
+                                            {% translate 'Status' %}
+                                        </label>
+                                        {{ form.status }}
+                                    </div>
+                                    <div class="col-12">
+                                        <hr>
+                                        <div class="d-flex align-items-center" id="bottom-section">
+                                            {% if "create" in request.resolver_match.url_name %}
+                                                <button class="btn btn-success mr-2" type="submit">
+                                                    {% translate 'Create' %}
+                                                </button>
+                                            {% else %}
+                                                <button class="btn btn-warning mr-2" type="button" onclick="reject()">
+                                                    {% translate 'Update' %}
+                                                </button>
+                                            {% endif %}
+                                            <a href="javascript:void(0)" onclick="history.back()"
+                                               class="btn btn-secondary mr-2">
+                                                {% translate 'Back' %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MessageModalTitle">
+                        {% translate 'Do you want to send message to' %} {{ discount.seller.brand_name }}?
+                    </h5>
+                    <button type="button" class="close text-danger" data-dismiss="modal" id="close_modal1"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{% translate 'Do you want to send a message rejecting the supplier request?' %}</p>
+                    {% csrf_token %}
+                    <label for="id_message_subject">{% translate "Message Subject" %}</label>
+                    <input type="text" id="id_message_subject" required>
+                    <label for="id_message_text">{% translate "Message Text" %}</label>
+                    <textarea id="id_message_text" required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal" id="close_modal2">{% translate 'Close' %}</button>
+                    <button type="button" class="btn btn-warning" id="submit_msg">{% translate 'Send' %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block custom_js %}
+    <script src="{% static 'js/select2/select2.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2();
+        });
+
+        function showSpinner() {
+            let bottom_section = document.getElementById("bottom-section");
+            let show_spinner = document.getElementById("spinner");
+            if (!show_spinner) {
+                let spinner = document.createElement("div");
+                spinner.id = "spinner";
+                spinner.classList.add("spinner-border");
+                spinner.classList.add("mx-2");
+                bottom_section.appendChild(spinner);
+            }
+        }
+
+        let input = document.getElementsByTagName("input");
+        for (let i = 0; i < input.length; i++) {
+            if (input[i].required == false) {
+                if (input[i].labels != null) {
+                    input[i].labels.forEach((item) => {
+                        if (!item.id === "id_all_products") {
+                            item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                        }
+                    })
+                }
+            }
+        }
+        let textarea = document.getElementsByTagName("textarea");
+        for (let i = 0; i < textarea.length; i++) {
+            if (textarea[i].required == false) {
+                if (textarea[i].labels != null) {
+                    textarea[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        let select = document.getElementsByTagName("select");
+        for (let i = 0; i < select.length; i++) {
+            if (select[i].required == false) {
+                if (select[i].labels != null) {
+                    select[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        {% if request.user.is_superuser %}
+            function reject() {
+                let form = document.getElementById("form");
+                let status = document.getElementById("id_status");
+                if (status.value == "rejected") {
+                    $("#MessageModal").modal("show");
+                    document.getElementById("submit_msg").addEventListener('click', () => {
+                        let subject = document.getElementById("id_message_subject").value;
+                        let text = document.getElementById("id_message_text").value;
+                        let seller_id {% if discount %} = {{ discount.seller.id }}{% endif %};
+                        let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+                        $.ajax({
+                            url: "/en/account/messages/create-ajax",
+                            type: "post",
+                            data: {
+                                subject: subject,
+                                message: text,
+                                seller: seller_id,
+                                csrfmiddlewaretoken: csrf,
+                            },
+                            success: function () {
+                                $("#MessageModal").modal("hide");
+                                showSpinner();
+                                form.submit();
+                            },
+                            error: function () {
+                                alert("Error")
+                            }
+                        })
+                    })
+                    document.getElementById("close_modal2").addEventListener('click', () => {
+                        showSpinner();
+                        form.submit();
+                    })
+                } else {
+                    showSpinner();
+                    form.submit()
+                }
+            }
+        {% endif %}
+        window.addEventListener('load', () => {
+            let all_products = document.getElementById("id_all_products")
+            let product_section = document.getElementById("product_section");
+            let product = document.getElementById("id_category");
+            if (all_products.checked) {
+                product_section.style.display = "none";
+                product.querySelectorAll('option').forEach((item) => {
+                    item.selected = false;
+                })
+            } else {
+                product_section.style.display = "";
+            }
+        })
+        document.getElementById("id_all_products").addEventListener('change', (el) => {
+            let product_section = document.getElementById("product_section");
+            let product = document.getElementById("id_category");
+            if (el.target.checked) {
+                product_section.style.display = "none";
+                product.querySelectorAll('option').forEach((item) => {
+                    console.log(item.selected)
+                    item.selected = false;
+                })
+            } else {
+                product_section.style.display = "";
+            }
+        });
+    </script>
+{% endblock custom_js %}

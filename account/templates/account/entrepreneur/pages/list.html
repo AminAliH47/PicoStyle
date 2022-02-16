@@ -1,0 +1,80 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {% translate 'Brands' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-right mb-4">
+                        <a href="{% url 'account:b_create' %}"
+                           class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>{% translate 'Add Brand' %}
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
+                                <tr>
+                                    <th>{% translate 'title' %}</th>
+                                    <th>{% translate 'published at' %}</th>
+                                    <th>{% translate 'status' %}</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for brand in brands %}
+                                    <tr>
+                                        <td>
+                                            {% if brand.active %}
+                                                <a href="{{ brand.get_absolute_url }}" target="_blank">
+                                                    {{ brand.title }}
+                                                </a>
+                                            {% else %}
+                                                <a href="{% url 'account:n_preview' pk=brand.pk %}" target="_blank">
+                                                    {{ brand.title }}
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ brand.publish }}</td>
+                                        <td>
+                                            {% if brand.active %}
+                                                <p class="badge badge-success">
+                                                    {% translate 'Active' %}
+                                                </p>
+                                            {% else %}
+                                                <p class="badge badge-danger">
+                                                    {% translate 'Inactive' %}
+                                                </p>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'account:b_update' pk=brand.pk %}"
+                                               class="btn btn-warning" style="font-size: 12px;">
+                                                <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                            </a>
+                                            {% if request.user.is_superuser %}
+                                                <a href="{% url 'account:b_delete' pk=brand.pk %}"
+                                                   class="btn btn-danger" style="font-size: 12px;">
+                                                    <i class="fa fa-trash"></i> {% translate 'Delete' %}
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

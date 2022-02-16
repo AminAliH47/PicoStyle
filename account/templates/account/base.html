@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="account page">
+    <meta name="author" content="coilaco.com">
+    <meta name="keywords" content="account, {{ site_setting.title }}">
+
+    <!-- Title Page-->
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% include 'account/refs/header_refs.html' %}
+    {% block custom_css %}{% endblock custom_css %}
+</head>
+
+<body class="animsition">
+<div class="page-wrapper">
+    {% include 'account/sections/header-mo.html' %}
+
+    {% include 'account/sections/sidebar.html' %}
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        {% include 'account/sections/header-de.html' %}
+
+        {% block main %}
+        {% endblock main %}
+        <!-- END PAGE CONTAINER-->
+    </div>
+</div>
+
+{% include 'account/refs/footer_refs.html' %}
+{% block custom_js %}{% endblock custom_js %}
+</body>
+
+</html>
+<!-- end document-->

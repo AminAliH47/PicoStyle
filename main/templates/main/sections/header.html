@@ -1,0 +1,227 @@
+{% load static %}
+{% load i18n %}
+{% load main_partial %}
+{% header as var %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% url 'main:index' as home %}
+<!--========== BEGIN HEADER ==========-->
+<header class="oper-dark-bg" id="header">
+    <div class="container-fluid">
+        <div class="nav-de">
+            <div class="row">
+                <div class="col-lg-12 text-center mt-2">
+                    <div class="row">
+                        <div class="col-md-4 text-left d-flex justify-content-start align-items-center nav-icons">
+                            <a href="{% url 'main:store_agent' %}" class="mr-4" id="store">
+                                <svg width="30" height="30" fill="#fff" viewBox="0 0 315 315"
+                                     style="enable-background:new 0 0 315 315" xml:space="preserve"><path d="M157.5 0C93.319 0 41.103 52.215 41.103 116.397c0 62.138 106.113 190.466 110.63 195.898a7.502 7.502 0 0 0 11.534 0c4.518-5.433 110.63-133.76 110.63-195.898C273.897 52.215 221.682 0 157.5 0zm0 295.598c-9.409-11.749-28.958-36.781-48.303-65.397-34.734-51.379-53.094-90.732-53.094-113.804C56.103 60.486 101.59 15 157.5 15c55.91 0 101.397 45.486 101.397 101.397 0 23.071-18.359 62.424-53.094 113.804-19.346 28.616-38.894 53.648-48.303 65.397z"/>
+                                    <path d="M195.657 213.956a7.5 7.5 0 0 0-10.413 2.017c-10.121 14.982-21.459 30.684-33.699 46.67a7.5 7.5 0 0 0 1.395 10.514 7.463 7.463 0 0 0 4.554 1.546 7.489 7.489 0 0 0 5.96-2.941c12.42-16.22 23.933-32.165 34.219-47.392a7.5 7.5 0 0 0-2.016-10.414zM157.5 57.5C123.589 57.5 96 85.089 96 119s27.589 61.5 61.5 61.5S219 152.911 219 119s-27.589-61.5-61.5-61.5zm0 108c-25.64 0-46.5-20.86-46.5-46.5s20.86-46.5 46.5-46.5c25.641 0 46.5 20.86 46.5 46.5s-20.859 46.5-46.5 46.5z"/></svg>
+
+                            </a>
+                            <a href="{% url 'pages' slug='work-with-us' %}/" id="work">
+                                <svg width="30" height="30" fill="#fff" viewBox="0 0 207.586 207.586"
+                                     style="enable-background:new 0 0 207.586 207.586" xml:space="preserve"><path d="m204.539 80.265-63.92-63.92c-4.051-4.055-10.654-4.048-14.716.014l-9.838 9.837a10.364 10.364 0 0 0-3.061 7.37 10.31 10.31 0 0 0 3.047 7.346l2.879 2.879c-3.473 1.371-8.345 3.524-13.851 6.588a955.701 955.701 0 0 0-13.208-9.893c3.663-4.075 3.565-10.361-.363-14.289l-9.838-9.84c-4.066-4.055-10.667-4.059-14.715-.011l-63.92 63.92c-4.053 4.051-4.046 10.654.015 14.716l9.838 9.84a10.41 10.41 0 0 0 7.372 3.047c2.479 0 4.938-.916 6.901-2.676a843.202 843.202 0 0 0 10.514 14.138l-10.052 10.05a3.474 3.474 0 0 0 0 4.914l12.286 12.286-.001.001 4.913 4.913.001-.001 7.371 7.371 4.913 4.913 9.829 9.829-.001.001 4.915 4.913 14.74 14.74c.679.679 1.568 1.018 2.457 1.018s1.778-.339 2.457-1.018l10.742-10.74a744.315 744.315 0 0 0 11.809 8.653 3.47 3.47 0 0 0 4.475-.37l46.676-46.676.005-.003.003-.005 12.282-12.282a3.476 3.476 0 0 0 .371-4.476 776.798 776.798 0 0 0-9.618-13.095l7.033-14.126 4.69 4.69a10.348 10.348 0 0 0 7.346 3.037c2.667 0 5.337-1.018 7.37-3.05l9.838-9.837a10.364 10.364 0 0 0 3.061-7.37 10.307 10.307 0 0 0-3.047-7.346zM22.687 99.919c-1.36 1.37-3.51 1.36-4.887-.014l-9.837-9.837c-1.352-1.354-1.359-3.546-.015-4.889l63.92-63.92h.002a3.414 3.414 0 0 1 2.429-1.021c.882 0 1.768.346 2.458 1.035l9.837 9.837c1.352 1.354 1.359 3.546.015 4.889l-63.922 63.92zm12.306 31.919 6.949-6.947a537.876 537.876 0 0 0 8.709 10.946l-5.829 5.83-9.829-9.829zm22.112 22.113-7.371-7.372 5.381-5.382c2.408 2.827 4.747 5.459 6.949 7.795l-4.959 4.959zm14.742 14.74-9.827-9.827 4.959-4.959c3.055 2.881 6.64 6.006 10.461 9.191l-5.593 5.595zm17.198 17.199-12.284-12.284 6.08-6.083a627.81 627.81 0 0 0 13.799 10.773l-7.595 7.594zm81.444-56.875-7.738 7.737-31.938-31.941a3.473 3.473 0 1 0-4.913 4.913l31.938 31.941-9.827 9.827-31.939-31.939a3.473 3.473 0 1 0-4.913 4.913l31.939 31.939-9.827 9.827-31.94-31.94a3.473 3.473 0 1 0-4.913 4.913l31.94 31.94-12.65 12.65c-8.02-5.823-34.171-25.072-46.316-37.216-6.94-6.942-16.197-18.454-23.949-28.547-.164-.332-.345-.659-.621-.935-.057-.057-.132-.075-.191-.127a864.807 864.807 0 0 1-12.458-16.706l54.772-54.775a912.27 912.27 0 0 1 11.714 8.738c-5.524 3.558-11.313 7.95-16.7 13.338-8.317 8.313-13.805 14.394-16.779 18.584-1.462 2.06-4.885 6.885-1.615 10.149.763.763 2.185 2.185 15.744 3.461a3.539 3.539 0 0 0 1.804-.315c7.227-3.393 20.605-8.537 25.625-7.984 7.971.895 19.772-5.713 26.161-9.317.125.187.206.394.371.559 12.141 12.141 31.395 38.295 37.219 46.313zm-6.923-20.931c-8.019-10.483-17.874-22.787-25.383-30.296-.434-.434-.964-.678-1.515-.835-.068-.239-.093-.485-.216-.713a3.475 3.475 0 0 0-4.706-1.415c-.572.309-1.308.723-2.173 1.211-4.864 2.752-16.255 9.165-22.043 8.52-7.928-.913-24.186 6.219-28.497 8.191-3.252-.333-6.847-.818-9.099-1.262 1.464-2.368 5.561-7.631 16.939-19.008 14.104-14.104 31.676-21.212 37.457-23.289l45.771 45.771-6.535 13.125zm36.045-18.016-9.837 9.837a3.463 3.463 0 0 1-4.889.014l-56.877-56.877c-.066-.083-.146-.142-.218-.218l-6.825-6.825a3.416 3.416 0 0 1-1.011-2.433 3.46 3.46 0 0 1 1.026-2.457l9.837-9.837a3.465 3.465 0 0 1 4.89-.014l63.92 63.92a3.416 3.416 0 0 1 1.011 2.433 3.46 3.46 0 0 1-1.027 2.457z"/></svg>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{% url 'main:index' %}">
+                                {% if site_setting.logo %}
+                                <img src="{{ site_setting.logo.url }}" alt="PicoStyle" width="40%">
+                                {% else %}
+                                <img src="{% static 'img/logo.png' %}" alt="PicoStyle" width="40%">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-end align-items-center nav-icons">
+                            <button class="mr-3 search-btn" onclick="openSearch()">
+                                <i class="fa fa-search" style="font-size: 20px;"></i>
+                            </button>
+                            <a href="{% url 'favorite:detail' %}" class="mx-3">
+                                <i class="fa fa-heart" style="font-size: 20px;"></i>
+                            </a>
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'account:index' %}" class="mx-3">
+                                    <i class="fa fa-user" style="font-size: 25px;"></i>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'account:login' %}?next=/account/" class="mx-3">
+                                    <i class="fa fa-sign-in"
+                                       style="font-size: 25px;"></i>
+                                </a>
+                            {% endif %}
+                            <div class="dropdown mx-3">
+                                <a class="dropdown-toggle" href="javascript:void(0)" role="button" id="LangDropdown"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ LANGUAGE_CODE|upper }}
+                                </a>
+                                <div class="dropdown-menu lang-dp" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item {% if LANGUAGE_CODE == 'en' %}active{% endif %}"
+                                       href="{% url 'main:change_lang' %}?lang=en&next=/en/{{ request.path_info|slice:'4:' }}">
+                                        EN
+                                    </a>
+                                    <a class="dropdown-item {% if LANGUAGE_CODE == 'it' %}active{% endif %}"
+                                       href="{% url 'main:change_lang' %}?lang=en&next=/it/{{ request.path_info|slice:'4:' }}">
+                                        IT
+                                    </a>
+                                    <a class="dropdown-item {% if LANGUAGE_CODE == 'ru' %}active{% endif %}"
+                                       href="{% url 'main:change_lang' %}?lang=en&next=/ru/{{ request.path_info|slice:'4:' }}">
+                                        RU
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-1">
+                        <hr style="border-top: 1px solid #808080;">
+                    </div>
+                </div>
+                <div class="col-md-12 p-0 shadow" id="oper-nav">
+                    <div class="col-md-12 text-left pb-1" style="z-index: 9;">
+                        <div class="category-items my-2">
+                            {% for item in var.main_navbar %}
+                                <a class="mr-2 {% if item.slug in request.path %}active{% endif %}"
+                                   href="/{{ LANGUAGE_CODE }}{{ item.slug }}">{{ item.title }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 bg-light p-2 px-3">
+                        <div class="navbar-items position-relative">
+                            {% for item in var.sub_navbar %}
+                                <a class="mr-3 {% if item.slug in request.path %}active{% endif %}"
+                                   href="/{{ LANGUAGE_CODE }}{{ item.slug }}">{{ item.title }}</a>
+                            {% endfor %}
+                            <div class="header-category">
+                                <ul>
+                                    {% for category in var.h_categories %}
+                                        <li class="{% if cat.id == category.id %}active{% endif %}">
+                                            <a href="{{ category.get_absolute_url }}">
+                                                {{ category.title }}
+                                            </a>
+                                            {% include 'partials/category_section.html' %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-mo">
+        <div class="nav-mo-items">
+            <div>
+                <a href="{% url 'main:index' %}">
+                    <img src="{{ site_setting.logo.url }}" alt="PicoStyle">
+                </a>
+            </div>
+            <div>
+                <button class="opennav-btn" onclick="openNav()">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidenav-icons">
+            <button class="icon search-btn" onclick="openSearch()">
+                <i class="fa fa-search"></i>
+            </button>
+            <div class="dropdown icon">
+                <a class="dropdown-toggle icon" href="javascript:void(0)" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    {{ LANGUAGE_CODE|upper }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item {% if LANGUAGE_CODE == 'en' %}active{% endif %}"
+                       href="{% url 'main:change_lang' %}?lang=en&next=/en/{{ request.path_info|slice:'4:' }}">
+                        EN
+                    </a>
+                    <a class="dropdown-item {% if LANGUAGE_CODE == 'it' %}active{% endif %}"
+                       href="{% url 'main:change_lang' %}?lang=en&next=/it/{{ request.path_info|slice:'4:' }}">
+                        IT
+                    </a>
+                    <a class="dropdown-item {% if LANGUAGE_CODE == 'ru' %}active{% endif %}"
+                       href="{% url 'main:change_lang' %}?lang=en&next=/ru/{{ request.path_info|slice:'4:' }}">
+                        RU
+                    </a>
+                </div>
+            </div>
+            <a href="{% url 'favorite:detail' %}" class="mx-3 icon">
+                <i class="fa fa-heart" style="font-size: 20px;"></i>
+            </a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'account:index' %}" class="icon">
+                    <i class="fa fa-user"></i>
+                </a>
+            {% else %}
+                <a href="{% url 'account:login' %}?next=/account/" class="icon">
+                    <i class="fa fa-sign-in"></i>
+                </a>
+            {% endif %}
+        </div>
+        <div style="z-index: 999;">
+        </div>
+        <hr>
+        <div class="mt-3">
+                {% for item in main_navbar %}
+                    <a class="mr-3 {% if item.slug in request.path %}active{% endif %}"
+                       href="/{{ LANGUAGE_CODE }}{{ item.slug }}">{{ item.title }}</a>
+                {% endfor %}
+        </div>
+        <div class="mt-3 bg-light">
+            {% for item in sub_navbar %}
+                <a href="{{ item.slug }}" class="sidenav-item">{{ item }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</header>
+<div id="search-overlay" class="search-overlay">
+    <button class="closebtn" onclick="closeSearch()" title="Close Overlay">×</button>
+    <div class="search-overlay-content">
+        <form action="{% url 'products:search' %}" autocomplete="off">
+            <div class="dropdown">
+                <div id="myDropdown" class="">
+                    <input type="text" placeholder="Search our products ..." name="q" id="search"
+                           onkeyup="filterProduct(this)" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+                    <button type="submit" class="search"><i class="fa fa-search"></i></button>
+                    <div id="search-dropdown" class="dropdown-menu">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- ========= END HEADER =========-->
+
+{#<!-- Modal -->#}
+<div class="modal fade" id="soonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4>
+                    {% translate 'This page is under construction and will be unveiled soon' %}
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{% translate 'Close' %}</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">{% translate 'OK' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{#<!-- alert -->#}
+<div class="alert newsletter-alert" role="alert" id="newsletter-alert">
+    <strong class="mx-3">{% translate 'Thanks! you have been added to the site newsletter' %}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

@@ -1,0 +1,39 @@
+{% extends 'account/base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% translate 'Detail' %} "{{ message }}" | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>{{ message.subject }}</strong>
+                        </div>
+                        <div class="card-body card-block detail">
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ message.message|safe }}
+                                </div>
+                                <div class="col-12">
+                                    <hr>
+                                    <a href="javascript:history.back()" class="btn btn-secondary">
+                                        {% translate 'Back' %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

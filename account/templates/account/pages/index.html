@@ -1,0 +1,178 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {% translate 'account | PicoStyle' %}
+{% endblock title %}
+
+{% block main %}
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">{% translate 'overview' %}</h2>
+                            <div class="dropdown">
+                                <button class="au-btn au-btn-icon au-btn--blue dropdown-toggle"
+                                        type="button" id="addItemBtn"
+                                        data-toggle="dropdown" aria-expanded="false">
+                                    <i class="zmdi zmdi-plus"></i>{% translate 'add item' %}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    {% if request.user.is_superuser or request.user.is_seller %}
+                                        <a class="dropdown-item" href="{% url 'account:p_create' %}">
+                                            {% translate 'Add product' %}</a>
+                                    {% endif %}
+                                    {% if request.user.is_superuser or request.user.is_author %}
+                                        <a class="dropdown-item" href="{% url 'account:n_create' %}">
+                                            {% translate 'Add News' %}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-t-25">
+                    <div class="col-sm-6 col-lg-2">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'account:i_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-cog"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Manage site' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% elif request.user.is_seller %}
+                                        <a href="{% url 'account:s_update' pk=request.user.pk %}">
+                                            <div class="icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Account' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'account:s_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Suppliers' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% elif request.user.is_seller %}
+                                        <a href="{% url 'account:p_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Products' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'account:p_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Products' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% elif request.user.is_seller %}
+                                        <a href="{% url 'account:n_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-newspaper"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'News' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'account:nw_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-newspaper"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Newsletter' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% elif request.user.is_seller %}
+                                        <a href="{% url 'account:d_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-percent"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Discount' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'account:n_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-newspaper"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'News' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% elif request.user.is_seller %}
+                                        <a href="{% url 'account:mm_list' %}">
+                                            <div class="icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{% translate 'Messages' %}</h2>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+{% endblock main %}

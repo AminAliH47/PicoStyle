@@ -1,0 +1,834 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% if request.resolver_match.url_name == "p_create" %}
+{% translate 'Create' %} | PicoStyle
+{% else %}
+{% translate 'Update' %} "{{ product }}" | PicoStyle
+{% endif %}
+{% endblock title %}
+
+{% block custom_css %}
+<!-- Category refs-->
+<link rel="stylesheet" href="{% static 'account/css/category/x-tree-select.css' %}">
+<link rel="stylesheet" href="{% static 'account/css/category/xts-bootstrap-theme.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2/select2.min.css' %}">
+<link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+<style>
+        #id_currency {
+            display: flex;
+            list-style: none;
+        }
+
+        #id_currency li {
+            margin-right: 10px;
+        }
+
+
+
+
+</style>
+{% endblock custom_css %}
+
+{% block main %}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            {% if request.resolver_match.url_name == "p_create" %}
+                            <strong>{% translate 'Add New Product' %}</strong>
+                            {% else %}
+                            <strong>{% translate 'Update' %} {{ product.title }}</strong>
+                            {% endif %}
+                        </div>
+                        <div class="card-body card-block">
+                            <form method="post" id="form" enctype="multipart/form-data" onsubmit="showSpinner();"
+                                  class="row" autocomplete="off">{% csrf_token %}
+                                {% if request.user.is_superuser %}
+                                <div class="col-12">
+                                    <label for="id_seller" class="form-control-label mt-0">
+                                        {% translate 'Product Supplier' %}</label>
+                                    {{ form.seller }}
+                                    {% for error in form.seller.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+
+                                <div class="col-12">
+                                    <div class="bg-overlay--blue p-1 mt-4 text-light">
+                                        {% translate 'Main Information' %}
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_title" class="form-control-label">
+                                        {% translate 'Product Title' %}
+                                    </label>
+                                    {{ form.title }}
+                                    {% for error in form.title.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-12">
+                                    <label for="id_category" class="form-control-label">
+                                        {% translate 'Product Category' %}</label>
+                                    <input type="text"
+                                           id="id_category"
+                                           name="category"
+                                           required
+                                           placeholder="
+                                                   {% if request.resolver_match.url_name == 'p_create' %}
+                                                      {% translate 'Select product category' %}
+                                                   {% elif request.resolver_match.url_name == 'p_update' %}
+                                                   {{ product.category.last.title }}
+                                                   {% endif %}
+                                                   ">
+
+                                    {% for error in form.category.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="col-6">
+                                    <label for="id_model" class="form-control-label">
+                                        {% translate 'Product Model' %}
+                                    </label>
+                                    {{ form.model }}
+                                    {% for error in form.model.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_material" class="form-control-label">
+                                        {% translate 'Product Material' %}
+                                    </label>
+                                    {{ form.material }}
+                                    {% for error in form.material.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6"></div>
+                                <div class="col-6 shoe-field" id="size-field">
+                                    <label for="id_size" class="form-control-label">
+                                        {% translate 'Product Size' %}
+                                    </label>
+
+                                    <select name="size" id="id_size" class="select2-class" multiple>
+
+                                    </select>
+
+                                    <a href="{% url 'main:size_guide' %}" target="_blank">
+                                        {% translate 'Size guide' %}
+                                    </a>
+                                    {% if request.user.is_superuser %}
+                                    <button class="btn btn-dark d-block mt-2" id="add_size"
+                                            type="button">
+                                        <i class="fas fa-plus"></i>
+                                        {% translate 'Add new' %}
+                                    </button>
+                                    {% endif %}
+                                    {% for error in form.size.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="col-6 shoe-field" id="size-info-field">
+                                    <label for="id_size_info" class="form-control-label">
+                                        {% translate 'More Size information' %}
+                                    </label>
+                                    {{ form.size_info }}
+                                    <a href="{% url 'main:size_guide' %}" target="_blank">
+                                        {% translate 'Size guide' %}
+                                    </a>
+                                    {% for error in form.size_info.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-12">
+                                    <label for="id_description" class="form-control-label">
+                                        {% translate 'Description' %}</label>
+                                    {{ form.description }}
+                                    {% for error in form.description.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="bg-overlay--blue p-1 mt-4 text-light">
+                                        {% translate 'Details' %}
+                                    </div>
+                                </div>
+
+                                <div class="col-6 shoe-field">
+                                    <label for="id_heel" class="form-control-label">
+                                        {% translate 'Shoe heel (Just for shoe)' %}
+                                    </label>
+                                    {{ form.heel }}
+                                    <p>{{ form.heel.help_text }}</p>
+                                    {% for error in form.heel.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6 shoe-field">
+                                    <label for="id_sole" class="form-control-label">
+                                        {% translate 'Shoe sole (Just for shoe)' %}
+                                    </label>
+                                    {{ form.sole }}
+                                    {% for error in form.sole.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_weight" class="form-control-label">
+                                        {% translate 'Product Weight' %}
+                                    </label>
+                                    {{ form.weight }}
+                                    <p>{{ form.weight.help_text }}</p>
+                                    {% for error in form.weight.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6 bag-field">
+                                    <label class="form-control-label" for="id_dimensions">
+                                        {% translate 'Dimensions' %}
+                                    </label>
+                                    {{ form.dimensions }}
+                                    {% for error in form.dimensions.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_care_info" class="form-control-label">
+                                        {% translate 'Care information' %}
+                                        <a class="tooltip-btn" type="button" data-toggle="tooltip"
+                                           data-placement="right"
+                                           title="{% translate 'This is a test text' %}">
+                                            <i class="fas fa-question-circle"></i>
+                                        </a>
+                                    </label>
+                                    {{ form.care_info }}
+                                    {% for error in form.care_info.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_care_and_fabric" class="form-control-label">
+                                        {% translate 'Care & Fabric' %}
+                                    </label>
+                                    {{ form.care_and_fabric }}
+                                    {% for error in form.care_and_fabric.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_finer_detail" class="form-control-label">
+                                        {% translate 'Finer detail' %}
+                                    </label>
+                                    {{ form.finer_detail }}
+                                    {% for error in form.finer_detail.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_tag" class="form-control-label">
+                                        {% translate 'Product Tag' %}
+                                    </label>
+                                    {{ form.tag }}
+                                    {% for error in form.tag.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="bg-overlay--blue p-1 mt-4 text-light">
+                                        {% translate 'Price' %}
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="id_price" class="form-control-label">
+                                        {% translate 'Currency' %}</label>
+                                    {{ form.currency }}
+                                    {% for error in form.currency.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                    <p class="text-danger d-none" id="currency_error">
+                                        {% translate 'Please select currency' %}
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_exw_price" class="form-control-label">
+                                        {% translate 'EXW Price' %}</label>
+                                    {{ form.exw_price }}
+                                    <p id="id_exw_price_num"></p>
+                                    {% for error in form.exw_price.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_discount" class="form-control-label">
+                                        {% translate 'Discount' %}</label>
+                                    {{ form.discount }}
+                                    <span>%</span>
+                                    {% for error in form.discount.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                    <p class="text-danger d-none" id="discount_error">
+                                        {% translate 'Please enter number between 0 and 100' %}
+                                    </p>
+                                    <input type="hidden" class="d-none" id="id_w_discount"
+                                           value="{% if product.wholesale_discount %}
+                                               {{ product.wholesale_discount }}
+                                               {% else %}0{% endif %}">
+
+                                    <input type="hidden" class="d-none" id="id_r_discount"
+                                           value="{% if product.retail_discount %}
+                                               {{ product.retail_discount }}
+                                               {% else %}0{% endif %}">
+                                </div>
+                                {% if request.user.is_superuser %}
+                                <div class="col-7">
+                                    <label for="id_show_discount">
+                                        {% translate 'Show "discount" of this product?' %}
+                                    </label>
+                                    <label class="switch">
+                                        {{ form.show_discount }}
+                                        <span class="slider"></span>
+                                    </label>
+                                    {% for error in form.show_discount.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                <div class="col-6">
+                                    <label for="id_price" class="form-control-label">
+                                        {% translate 'Wholesale price' %}
+                                    </label>
+                                    {{ form.wholesale_price }}
+                                    {% for error in form.wholesale_price.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_price" class="form-control-label">
+                                        {% translate 'Retail price' %}
+                                    </label>
+                                    {{ form.retail_price_USD }}
+                                    <span>USD</span>
+                                    {% for error in form.retail_price_USD.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                {% if request.user.is_superuser %}
+                                <div class="col-6">
+                                    <label for="id_show_retail_price">
+                                        {% translate 'Show "retail" price of this product?' %}
+                                    </label>
+                                    <label class="switch">
+                                        {{ form.show_retail_price }}
+                                        <span class="slider"></span>
+                                    </label>
+                                    {% for error in form.show_retail_price.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-6">
+                                    <label for="id_show_wholesale_price">
+                                        {% translate 'Show "wholesale" price of this product?' %}
+                                    </label>
+                                    <label class="switch">
+                                        {{ form.show_wholesale_price }}
+                                        <span class="slider"></span>
+                                    </label>
+                                    {% for error in form.show_wholesale_price.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                <div class="col-12">
+                                    <div class="bg-overlay--blue p-1 mt-4 text-light">
+                                        {% translate 'Images' %}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-12">
+                                    <label for="id_image" class="form-control-label">
+                                        {% translate 'Main Image' %}</label>
+                                    <div class="img-wrapper">
+                                        <div class="file-upload">
+                                            {{ form.image }}
+                                            <i class="fa fa-arrow-up"></i>
+                                        </div>
+                                    </div>
+                                    {% for error in form.image.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-9 col-12 text-center mt-3">
+                                    <img src="{{ product.image.url }}" id="output" style="width: 50%;height: 200px; object-fit: scale-down;
+                                                            border: 1px solid #c9c9c9; border-radius: 5px;">
+                                </div>
+
+                                <div class="col-12">
+                                    <label>{% translate 'More images' %} ({% translate 'Optional' %})</label>
+                                    <div class="quote-imgs-thumbs row" id="img_preview"
+                                         aria-live="polite">
+                                        {% for img in product.images.all %}
+                                        <div class="position-relative col-md-2 col-6 p-0 my-1">
+                                            <button class="remove-image"
+                                                    data-id="{{ img.id }}"
+                                                    data-pId="{{ product.id }}" type="button"
+                                                    onclick="delete_img(this)">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <img src="{{ img.image.url }}" alt="{{ product.title }}"
+                                                 class="img-preview-thumb">
+                                        </div>
+                                        {% endfor %}
+
+                                        <div class="position-relative col-md-2 col-6 p-0 my-1">
+                                            <label for="upload_imgs" class="upload-image-btn">
+                                                {% translate 'Upload image' %}
+                                            </label>
+                                            <input type="file" class="d-none" accept="image/jpeg, image/png"
+                                                   name="images[]" id="upload_imgs" onchange="previewImgs(this)">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                {% if request.user.is_superuser %}
+                                <div class="col-12">
+                                    <label for="id_status" class="form-control-label">
+                                        {% translate 'Status' %}</label>
+                                    {{ form.status }}
+                                    {% for error in form.status.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                <div class="col-12 d-none">
+                                    <label for="id_type" class="form-control-label">
+                                        {% translate 'Type' %}</label>
+                                    {{ form.type }}
+                                    {% for error in form.type.errors %}
+                                    <p class="text-danger">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="col-12">
+                                    <hr class="mt-3">
+                                    <div class="d-flex align-items-center" id="bottom-section">
+                                        {% if request.resolver_match.url_name == "p_create" %}
+                                        <button class="btn btn-success mr-2"
+                                                type="submit">
+                                            {% translate 'Create' %}
+                                        </button>
+                                        {% else %}
+                                        <button class="btn btn-warning mr-2"
+                                                type="button" id="submit-btn"
+                                                onclick="reject()">
+                                            {% translate 'Update' %}
+                                        </button>
+                                        {% endif %}
+                                        <a href="{% url 'account:p_list' %}" class="btn btn-secondary mr-2">
+                                            {% translate 'Back' %}
+                                        </a>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="id_wPrice" name="name_wPrice">
+                                <input type="hidden" id="id_rPrice" name="name_rPrice">
+                                <input type="hidden" id="id_discount1" name="name_discount1">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="{{ retail_percent }}" id="retail_percent">
+<input type="hidden" value="{{ wholesale_percent }}" id="wholesale_percent">
+<input type="hidden" value="{{ product.type }}" id="product_type">
+
+<!-- Modal -->
+<div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="MessageModalTitle">
+                    {% translate 'Do you want to send message to' %} {{ product.seller.brand_name }}?
+                </h5>
+                <button type="button" class="close text-danger" data-dismiss="modal" id="close_modal1"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{% translate 'Do you want to send a message rejecting the supplier request?' %}</p>
+                {% csrf_token %}
+                <label for="id_message_subject">{% translate "Message Subject" %}</label>
+                <input type="text" id="id_message_subject" required>
+                <label for="id_message_text">{% translate "Message Text" %}</label>
+                <textarea id="id_message_text" required></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal" id="close_modal2">{% translate 'Close' %}
+                </button>
+                <button type="button" class="btn btn-warning" id="submit_msg">{% translate 'Send' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% csrf_token %}
+{% endblock main %}
+
+{% block custom_js %}
+<script src="{% static 'js/select2/select2.min.js' %}"></script>
+<script src="{% static 'account/js/category/x-tree-select.js' %}"></script>
+<script src="{% static 'account/js/custom/price_js.js' %}"></script>
+<script>
+        function showSpinner() {
+            let bottom_section = document.getElementById("bottom-section");
+            let show_spinner = document.getElementById("spinner");
+            if (!show_spinner) {
+                let spinner = document.createElement("div");
+                spinner.id = "spinner";
+                spinner.classList.add("spinner-border");
+                spinner.classList.add("mx-2");
+                bottom_section.appendChild(spinner);
+            }
+        }
+
+        let productType = document.getElementById("product_type").value.toLowerCase();
+
+        if (productType.includes("bag")) {
+            document.querySelectorAll('.bag-field').forEach((item) => {
+                item.style.display = 'block';
+            })
+        } else if (productType.includes("shoe")) {
+            document.querySelectorAll('.shoe-field').forEach((item) => {
+                item.style.display = 'block';
+            })
+        } else if (productType.includes("clothing")) {
+            document.querySelector('#size-field').style.display = "block";
+            document.querySelector('#size-info-field').style.display = "block";
+        } else if (productType.includes("accessories")) {
+            document.querySelector('#size-field').style.display = "block";
+            document.querySelector('#size-info-field').style.display = "block";
+        }
+
+        $("#id_category").treeSelect({
+            mainTitle: "Sub categories",
+            direction: "ltr",
+            datatree: {{ category|safe }},
+        });
+
+        $("#id_category").val({{ product.category.last.pk }})
+
+        $(document).ready(function () {
+            $(".select2-class").select2();
+        });
+
+        let input = document.getElementsByTagName("input");
+        for (let i = 0; i < input.length; i++) {
+            if (input[i].required == false) {
+                if (input[i].labels != null) {
+                    if (input[i].id !== "id_show_retail_price" && input[i].id !== "id_show_wholesale_price" && input[i].id !== "upload_imgs" && input[i].id !== "id_show_discount") {
+                        input[i].labels.forEach((item) => {
+                            item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                        })
+                    }
+                }
+            }
+        }
+        let textarea = document.getElementsByTagName("textarea");
+        for (let i = 0; i < textarea.length; i++) {
+            if (textarea[i].required == false) {
+                if (textarea[i].labels != null) {
+                    textarea[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        let select = document.getElementsByTagName("select");
+        for (let i = 0; i < select.length; i++) {
+            if (select[i].required == false) {
+                if (select[i].labels != null) {
+                    select[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        document.getElementById("id_image").setAttribute("onchange", "loadFile(event)");
+        const loadFile = function (event) {
+            let output = document.getElementById("output");
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src); // free memory
+            };
+        };
+        let imgUpload = document.getElementById("upload_imgs"),
+            imgPreview = document.getElementById("img_preview"),
+            imgUploadForm = document.getElementById("img-upload-form"),
+            totalFiles,
+            previewTitle,
+            previewTitleText,
+            img;
+
+
+        {#imgUpload.addEventListener("change", previewImgs, false);#}
+
+        function previewImgs(event) {
+            img = document.createElement("img");
+            //img.style.width = "20%";
+            //img.style.height = "80px";
+            //img.style.objectFit = "scale-down";
+            let div = event.parentElement;
+            img.src = URL.createObjectURL(event.files[0]);
+            img.classList.add("img-preview-thumb");
+            div.querySelector('label').remove();
+            event.id = "";
+
+            let buttonEl = document.createElement("button");
+            buttonEl.classList.add("remove-image");
+            buttonEl.type = "button";
+            buttonEl.setAttribute('onclick', 'remove_img(this)');
+            let iEl = document.createElement("i");
+            iEl.classList.add("fas");
+            iEl.classList.add("fa-times");
+            buttonEl.appendChild(iEl);
+
+            div.appendChild(buttonEl);
+            div.appendChild(img);
+
+            let divEl = document.createElement('div');
+            divEl.classList.add('position-relative');
+            divEl.classList.add('col-md-2');
+            divEl.classList.add('col-6');
+            divEl.classList.add('p-0');
+            divEl.classList.add('my-1');
+
+            let labelEl = document.createElement('label');
+            labelEl.setAttribute('for', "upload_imgs");
+            labelEl.classList.add("upload-image-btn");
+            labelEl.innerText = "{% translate 'Upload image' %}";
+            divEl.appendChild(labelEl);
+
+            let inputEl = document.createElement('input');
+            inputEl.type = "file";
+            inputEl.classList.add("d-none");
+            inputEl.accept = "image/jpeg, image/png";
+            inputEl.name = "images[]";
+            inputEl.id = "upload_imgs";
+            inputEl.setAttribute('onchange', 'previewImgs(this)');
+            divEl.appendChild(inputEl);
+
+            imgPreview.appendChild(divEl);
+        }
+
+        function remove_img(el) {
+            parent = el.parentElement;
+            parent.querySelector("img").style.display = 'none';
+            parent.querySelector("input").remove();
+            parent.classList.remove('col-md-2');
+            parent.classList.remove('col-6');
+            el.style.display = 'none';
+        }
+
+        function delete_img(el) {
+            let product_id = el.dataset.pid;
+            let id = el.dataset.id;
+            let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+            $.ajax({
+                type: 'post',
+                url: '/en/products/remove-img/',
+                data: {
+                    csrfmiddlewaretoken: csrf,
+                    product_id: product_id,
+                    id: id,
+                },
+                success: function () {
+                    parent = el.parentElement;
+                    parent.querySelector("img").style.display = 'none';
+                    parent.classList.remove('col-md-2');
+                    parent.classList.remove('col-6');
+                    el.style.display = 'none';
+                },
+                error: function () {
+                    alert("Error");
+                }
+            })
+        }
+        {% if request.user.is_superuser %}
+            function reject() {
+                let form = document.getElementById("form");
+                let status = document.getElementById("id_status");
+                if (status.value == "rejected") {
+                    $("#MessageModal").modal("show");
+                    document.getElementById("submit_msg").addEventListener('click', () => {
+                        let subject = document.getElementById("id_message_subject").value;
+                        let text = document.getElementById("id_message_text").value;
+                        let seller_id {% if product %} = {{ product.seller.id }}{% endif %};
+                        let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+                        $.ajax({
+                            url: "/en/account/messages/create-ajax",
+                            type: "post",
+                            data: {
+                                subject: subject,
+                                message: text,
+                                seller: seller_id,
+                                csrfmiddlewaretoken: csrf,
+                            },
+                            success: function () {
+                                $("#MessageModal").modal("hide");
+                                showSpinner();
+                                form.submit();
+                            },
+                            error: function () {
+                                alert("Error")
+                            }
+                        })
+                    })
+                    document.getElementById("close_modal2").addEventListener('click', () => {
+                        showSpinner();
+                        form.submit();
+                    })
+                } else {
+                    showSpinner();
+                    form.submit();
+                }
+            }
+        {% elif request.user.is_seller %}
+            let submit_btn = document.getElementById('submit-btn');
+            if (submit_btn !== null) {
+                submit_btn.addEventListener('click', () => {
+                    showSpinner();
+                    form.submit();
+                })
+            }
+        {% endif %}
+        let selected_sizes = [];
+
+        window.addEventListener('load', () => {
+            {% for size in product.size.all %}
+                selected_sizes[{{ size.pk }}] = {pk: {{ size.pk }}, title: "{{ size.title }}"};
+            {% endfor %}
+            $.ajax({
+                url: "/en/products/size-list/",
+                type: "get",
+                success: function (response) {
+                    let size_select = document.getElementById('id_size');
+                    response.forEach((item) => {
+                        let option = document.createElement('option');
+                        option.value = item.pk;
+                        option.innerText = item.fields.title;
+                        if (item.pk in selected_sizes) {
+                            option.selected = true;
+                        }
+                        size_select.appendChild(option);
+                    })
+                },
+                error: function () {
+                    alert("Error!")
+                }
+            })
+        })
+        let add_btn = document.getElementById('add_size');
+        if (add_btn !== null) {
+            add_btn.addEventListener('click', () => {
+                let size = prompt("Please enter size:", "");
+                let csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+                if (size) {
+                    $.ajax({
+                        url: "/en/products/create-size/",
+                        type: "post",
+                        data: {
+                            csrfmiddlewaretoken: csrf,
+                            title: size
+                        },
+                        success: function (response) {
+                            let size_select = document.getElementById('id_size');
+                            size_select.innerHTML = "";
+                            response.forEach((item) => {
+                                let option = document.createElement('option');
+                                option.value = item.pk;
+                                option.innerText = item.fields.title;
+                                if (item.pk in selected_sizes) {
+                                    option.selected = true;
+                                }
+                                size_select.appendChild(option);
+                            })
+                        },
+                        error: function () {
+                            alert("Error!")
+                        }
+                    })
+                }
+            })
+        }
+</script>
+{% endblock custom_js %}

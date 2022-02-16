@@ -1,0 +1,39 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% block title %}
+{% translate 'Delete' %} {{ brand.title }} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form method="post" class="card">{% csrf_token %}
+                        <div class="card-header">
+                            {% translate 'Delete' %}
+                            <strong class="card-title mb-3"> "{{ brand.title }}" </strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="mx-auto d-block">
+                                <h4 class="text-sm-center mt-2 mb-1">
+                                    {% translate 'Do you want to delete' %}
+                                    "{{ brand.title }}"
+                                </h4>
+                            </div>
+                            <hr>
+                            <button class="btn btn-danger" type="submit">
+                                {% translate 'Delete' %}
+                            </button>
+                            <a href="javascript:history.back()" class="btn btn-secondary">
+                                {% translate 'Back' %}
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    {% if site_setting.meta_description %}
+    <meta name="description" content="{{ site_setting.meta_description }}">
+    {% else %}
+    <meta name="description" content="PicoStyle is free, open source advance market place ecommerce">
+    {% endif %}
+    <meta name="keywords" content="{{ site_setting.site_title }}, fashion, bag, shoes, mod"/>
+    <meta name="author" content="coilaco.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'refs/header_refs.html' %}
+    {% block custom_css %}
+    {% endblock custom_css %}
+</head>
+
+<body>
+{% include 'main/sections/header.html' %}
+<div class="loading-overlay" id="loading-overlay">
+    <div class="spinner-border text-light" style="border-radius: 50% !important;" role="status" >
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+{% block main %}
+{% endblock main %}
+{% include 'main/sections/footer.html' %}
+{% include 'refs/footer_refs.html' %}
+{% block custom_js %}
+{% endblock custom_js %}
+</body>
+
+</html>

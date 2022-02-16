@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+PicoStyle
+{% endblock %}
+
+{% block main %}
+<div id="mainCarousel" class="carousel slide parallax" data-ride="carousel">
+    <ol class="carousel-indicators">
+        {% for slide in main_slider %}
+        <li data-target="#mainCarousel" data-slide-to="{{ slide.pk }}"
+            class="{% if forloop.first %}active{% endif %}"></li>
+        {% endfor %}
+    </ol>
+
+    <div class="carousel-inner">
+        {% get_current_language as LANGUAGE_CODE %}
+
+        {% for slide in main_slider %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <a href="/{{ LANGUAGE_CODE }}{{ slide.link }}">
+                {% if slide.cover %}
+                <div class="carousel-cover"></div>
+                {% endif %}
+                <img class="d-block carousel-img"
+                     src="{{ slide.image.url }}"
+                     alt="{{ slide.title }}">
+                {% if slide.title and slide.description %}
+                <h1>{{ slide.title }}</h1>
+                <h4>{{ slide.description }}</h4>
+                {% endif %}
+                {% if slide.button %}
+                <div class="w-100">
+                    <a href="{{ slide.button_link }}" class="btn-1 carousel-btn">{{ slide.button }}</a>
+                </div>
+                {% endif %}
+            </a>
+        </div>
+        {% empty %}
+        <h2 class="w-100 text-center text-secondary">
+            {% translate 'No slider added yet' %}
+        </h2>
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">{% translate 'Previous' %}</span>
+    </a>
+    <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">{% translate 'Next' %}</span>
+    </a>
+</div>
+<!-- End text carousel intro section -->
+
+<!-- Category Sectionn -->
+<section class="category-images">
+    <div class="container">
+        <div class="page-header-wrapper">
+            <div class="container">
+                <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                    <h2>{% translate 'Categories' %}</h2>
+                    <div class="devider"></div>
+                    <p class="subtitle">{% translate 'Discover our product in categories' %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="portfoloi_content_area">
+            <div class="portfolio_content">
+                <div class="row" id="portfolio">
+                    {% for category in m_categories %}
+                    <div class="col-xs-12 col-sm-6 appsDevelopment">
+                        <div class="portfolio_single_content">
+                            <img src="{{ category.image.url }}" alt="{{ category.title }}"
+                                 class="category-image">
+                            <div>
+                                <a href="{{ category.link }}">{{ category.title }}</a>
+                                <span>{% translate 'Discover Now' %}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center">
+                        <h2 class="text-secondary">
+                            {% translate 'There are no category to display ' %}
+                        </h2>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category Section End -->
+
+<!-- Brands carousel -->
+<section class="brands-carousel">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>{% translate 'Brands story' %}</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">{% translate 'Discover the brands' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 p-0">
+                <div id="brandsCarousel" class="carousel slide parallax" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for slide in brands_slider %}
+                        <li data-target="#brandsCarousel" data-slide-to="{{ slide.pk }}"
+                            class="{% if forloop.first %}active{% endif %}"></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        {% get_current_language as LANGUAGE_CODE %}
+
+                        {% for slide in brands_slider %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <a href="/{{ LANGUAGE_CODE }}{{ slide.link }}">
+                                {% if slide.cover %}
+                                <div class="carousel-cover"></div>
+                                {% endif %}
+                                <img class="d-block carousel-img"
+                                     src="{{ slide.image.url }}"
+                                     alt="{{ slide.title }}"
+                                     loading="lazy">
+                                {% if slide.title or slide.description %}
+                                <h1>{{ slide.title }}</h1>
+                                <h4>{{ slide.description }}</h4>
+                                {% endif %}
+                                {% if slide.button %}
+                                <div class="carousel-btn">
+                                    <a href="{{ slide.button_link }}" class="btn-1">{{ slide.button }}</a>
+                                </div>
+                                {% endif %}
+                            </a>
+                        </div>
+                        {% empty %}
+                        <h2 class="w-100 text-center text-secondary">
+                            {% translate 'No slider added yet' %}
+                        </h2>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#brandsCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#brandsCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">{% translate 'Next' %}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End brands carousel -->
+
+<!-- Begin Cooprerete -->
+<section class="join-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portfolio">
+                    <!-- Begin page header-->
+                    <div class="page-header-wrapper">
+                        <div class="container">
+                            <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                                <h2>
+                                    {% translate 'Cooperate with us' %}</h2>
+                                <div class="devider"></div>
+                                <p class="subtitle">
+                                    {% translate 'What we are proud of' %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End page header-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card coo-card">
+                                <a href="{% url 'main:work_with_us' %}">
+                                    <img src="{% static 'main/img/work.png' %}" class="card-img-top coo-img"
+                                         alt="Work with us" loading="lazy">
+                                </a>
+                                <div class="card-footer text-center">
+                                    <a href="{% url 'main:work_with_us' %}" class="btn btn-dark card-btn">
+                                        {% translate 'Work with us' %}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card coo-card">
+                                <a href="{% url 'main:special_projects' %}">
+                                    <img src="{% static 'main/img/special.png' %}" class="card-img-top coo-img"
+                                         alt="SPECIAL PROJECT" loading="lazy">
+                                </a>
+                                <div class="card-footer text-center">
+                                    <a href="{% url 'main:special_projects' %}"
+                                       class="btn btn-dark card-btn">
+                                        {% translate 'Special services' %}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Cooprerete -->
+
+<!-- Begin branches -->
+<section class="branch-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>{% translate 'Store and Agent' %}</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">{% translate 'Discover our branches' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="position-relative">
+                    <img class="d-block carousel-img w-100"
+                         src="{% static 'main/img/branch.jpg' %}"
+                         alt="PicoStyle branches">
+                    <div class="w-100">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        <a href="/{{ LANGUAGE_CODE }}/store-and-agent" class="btn btn-dark branch-btn">
+                            {% translate 'Store and Agent' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End branches -->
+
+<!-- Begin newsletter section -->
+<section id="contact-section" class="text-white parallax" data-stellar-background-ratio="0.5"
+         style="background-image: url({% static 'img/map-bg.jpg' %});">
+    <div class="cover"></div>
+
+    <div class="contact wow bounceInRight p-4" data-wow-delay="0.4s">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="contact-form">
+                        <h4>{% translate 'Subscribe' %}</h4>
+                        <div class="footer-subscribe">{% csrf_token %}
+                            <input type="email" placeholder="{% translate 'Enter email address' %}"
+                                   name="email" id="newsletter_email" data-validate="validate(required, email)"/>
+                            <input type="text" placeholder="{% translate 'Enter name' %}"
+                                   name="full_name" id="newsletter_full_name">
+
+                            <div class="w-100 my-2">
+                                <div class="d-inline mr-3">
+                                    <label for="women-input">
+                                        <input class="radio-input" type="radio" name="category"
+                                               id="women-input" value="Women">
+                                        {% translate 'Women' %}
+                                    </label>
+                                </div>
+                                <div class="d-inline mr-3">
+                                    <label for="men-input">
+                                        <input class="radio-input" type="radio" name="category"
+                                               id="men-input" value="Men">
+                                        {% translate 'Men' %}
+                                    </label>
+                                </div>
+                                <div class="d-inline mr-3">
+                                    <label for="raw-material-input">
+                                        <input class="radio-input" type="radio" name="category"
+                                               id="raw-material-input" value="Raw material">
+                                        {% translate 'Raw material' %}
+                                    </label>
+                                </div>
+                                <div class="d-inline mr-3">
+                                    <label for="life-style-input">
+                                        <input class="radio-input" type="radio" name="category"
+                                               id="life-style-input" value="Life style">
+                                        {% translate 'Life style' %}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button id="submit-subscriber">{% translate 'Submit' %}</button>
+                            <span id="result" class="section-description"></span>
+
+                            <p class="text-danger" id="n-email-error">{{ error }}</p>
+                        </div>
+                        <p class="text-center">{% translate 'Join to our Newsletters' %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+</section>
+<!-- End contact section -->
+{% endblock main %}

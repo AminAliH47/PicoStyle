@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% translate 'Work with us' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div class="container">
+        <div class="my-5">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h1>
+                        {% translate 'Work with us' %}
+                    </h1>
+                    <hr>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        {% for item in items %}
+                            {% get_current_language as LANG %}
+                            <div class="col">
+                                <div class="card coo-card">
+                                    <a href="/{{ LANG }}{{ item.link }}">
+                                        <img src="{{ item.image.url }}"
+                                             class="card-img-top coo-img" alt="{{ item.title }}"
+                                             loading="lazy">
+                                    </a>
+                                    <div class="card-footer text-center">
+                                        <a href="/{{ LANG }}{{ item.link }}"
+                                           class="btn btn-dark card-btn">{{ item.title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="saaModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="saaModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="saaBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

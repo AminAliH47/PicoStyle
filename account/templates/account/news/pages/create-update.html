@@ -1,0 +1,193 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% if request.resolver_match.url_name == "n_create" %}
+        {% translate 'Create news' %} | PicoStyle
+    {% else %}
+        {% translate 'Update' %} {{ news.title }} | PicoStyle
+    {% endif %}
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header">
+                            {% if request.resolver_match.url_name == "n_create" %}
+                                <strong>{% translate 'Add New News' %}</strong>
+                            {% else %}
+                                <strong>{% translate 'Update' %} {{ news.title }}</strong>
+                            {% endif %}
+                        </div>
+                        <div class="card-body card-block">
+                            <form method="post" enctype="multipart/form-data" class="row">{% csrf_token %}
+                                <div class="form-group col-12">
+                                    <label for="id_title" class=" form-control-label">
+                                        {% translate 'Title' %}</label>
+                                    {{ form.title }}
+                                </div>
+                                <div class="form-group col-12">
+                                    {{ form.media }}
+                                    <label for="id_body" class="d-block form-control-label">
+                                        {% translate 'News content' %}</label>
+                                    {{ form.body }}
+                                </div>
+                                <div class="form-group col-md-6 col-6">
+                                    <label for="id_category" class="d-block form-control-label">
+                                        {% translate 'Category' %}</label>
+                                    {{ form.category }}
+                                </div>
+                                <div class="form-group col-md-6 col-6">
+                                    <label for="id_tag" class="d-block form-control-label">
+                                        {% translate 'Tag' %}</label>
+                                    {{ form.tag }}
+                                </div>
+                                <div class="col-md-3 col-12">
+                                    <label for="id_image" class="form-control-label">
+                                        {% translate 'Image' %}</label>
+                                    <div class="img-wrapper">
+                                        <div class="file-upload">
+                                            {{ form.image }}
+                                            <i class="fa fa-arrow-up"></i>
+                                        </div>
+                                    </div>
+                                    {% for error in form.image.errors %}
+                                        <p class="text-danger">
+                                            {{ error }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-9 col-12 text-center mt-3">
+                                    <img src="{{ product.image.url }}" id="output" style="width: 50%;height: 200px; object-fit: scale-down;
+                                                            border: 1px solid #c9c9c9; border-radius: 5px;">
+                                </div>
+                                {% if request.user.is_superuser %}
+                                    <div class="form-group col-md-6 col-12">
+                                        <label for="id_status" class=" form-control-label">
+                                            {% translate 'Status' %}</label>
+                                        {{ form.status }}
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        <label for="id_author" class=" form-control-label">
+                                            {% translate 'Author' %}</label>
+                                        {{ form.author }}
+                                    </div>
+                                {% endif %}
+                                <div class="col-12">
+                                    {% if request.resolver_match.url_name == "n_create" %}
+                                        <button class="btn btn-success" type="submit">
+                                            {% translate 'Create' %}</button>
+                                    {% else %}
+                                        <button class="btn btn-warning" type="submit">
+                                            {% translate 'Update' %}</button>
+                                    {% endif %}
+                                    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block custom_js %}
+    <script src="{% static 'js/select2/select2.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2();
+        });
+        let input = document.getElementsByTagName("input");
+        for (let i = 0; i < input.length; i++) {
+            if (input[i].required == false) {
+                if (input[i].labels != null) {
+                    input[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        let textarea = document.getElementsByTagName("textarea");
+        for (let i = 0; i < textarea.length; i++) {
+            if (textarea[i].required == false) {
+                if (textarea[i].labels != null) {
+                    textarea[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        let select = document.getElementsByTagName("select");
+        for (let i = 0; i < select.length; i++) {
+            if (select[i].required == false) {
+                if (select[i].labels != null) {
+                    select[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+
+        document.getElementById("id_image").setAttribute("onchange", "loadFile(event)");
+        const loadFile = function (event) {
+            let output = document.getElementById("output");
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src); // free memory
+            };
+        };
+
+        {% if request.user.is_superuser %}
+            function reject() {
+                let form = document.getElementById("form");
+                let status = document.getElementById("id_status");
+                if (status.value == "rejected") {
+                    $("#MessageModal").modal("show");
+                    document.getElementById("submit_msg").addEventListener('click', () => {
+                        let subject = document.getElementById("id_message_subject").value;
+                        let text = document.getElementById("id_message_text").value;
+                        let seller_id {% if discount %} = {{ discount.seller.id }}{% endif %};
+                        let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+                        $.ajax({
+                            url: "/en/account/messages/create-ajax",
+                            type: "post",
+                            data: {
+                                subject: subject,
+                                message: text,
+                                seller: seller_id,
+                                csrfmiddlewaretoken: csrf,
+                            },
+                            success: function () {
+                                $("#MessageModal").modal("hide");
+                                form.submit();
+                            },
+                            error: function () {
+                                alert("Error")
+                            }
+                        })
+                    })
+                    document.getElementById("close_modal2").addEventListener('click', () => {
+                        form.submit();
+                    })
+                } else {
+                    form.submit()
+                }
+            }
+        {% endif %}
+
+    </script>
+{% endblock custom_js %}

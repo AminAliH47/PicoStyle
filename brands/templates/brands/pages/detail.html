@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{{ brand }} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="container detail">
+    <div class="my-5">
+        <div class="row">
+            <div class="col-12">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fa fa-arrow-left"></i> {% translate 'back' %}
+                </a>
+                <img src="{{ brand.brand_logo.url }}" alt="{{ brand.brand_name }}" class="brands-image">
+                <h3 class="news-title">{{ brand.brand_name }}</h3>
+                <hr>
+            </div>
+            <div class="col-12 mt-4">
+                {{ brand.about_brand|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

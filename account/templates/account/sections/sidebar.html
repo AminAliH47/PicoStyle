@@ -1,0 +1,250 @@
+{% load static %}
+{% load i18n %}
+{% url 'account:index' as home %}
+{% url 'account:i_list' as i_list %}
+{% url 'account:n_create' as n_create %}
+{% url 'account:nc_create' as nc_create %}
+{% url 'account:nc_create' as nc_list %}
+{% url 'account:n_list' as n_list %}
+{% url 'account:p_create' as p_create %}
+{% url 'account:p_list' as p_list %}
+{% url 'account:b_list' as b_list %}
+{% url 'account:s_list' as s_list %}
+{% url 'account:s_create' as s_create %}
+{% url 'account:nw_create' as nw_create %}
+{% url 'account:nw_list' as nw_list %}
+{% url 'account:nws_list' as nws_list %}
+{% url 'account:pc_list' as pc_list %}
+{% url 'account:pc_create' as pc_create %}
+{% url 'account:d_create' as d_create %}
+{% url 'account:d_list' as d_list %}
+{% url 'account:mm_list' as mm_list %}
+{% url 'account:mm_create' as mm_create %}
+{% url 'account:ppm_list' as ppm_list %}
+<!-- MENU SIDEBAR-->
+<section class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="{% url 'main:index' %}">
+            <img src="{% static 'account/img/logo.png' %}" alt="PicoStyle">
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <div class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li class="{% if request.path == home %}active{% endif %}">
+                    <a href="{% url 'account:index' %}">
+                        <i class="fas fa-tachometer-alt"></i>
+                        {% translate 'Dashboard' %}
+                    </a>
+                </li>
+                {% if request.user.is_superuser %}
+                    <li class="{% if request.path == i_list %}active{% endif %}">
+                        <a href="{% url 'account:i_list' %}">
+                            <i class="fas fa-cog"></i>
+                            {% translate 'Manage site' %}
+                        </a>
+                    </li>
+                    <li class="{% if request.path == s_create %}active{% endif %} has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-user"></i>
+                            {% translate 'Suppliers' %}
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class="{% if request.path == s_list %}active{% endif %}">
+                                <a href="{% url 'account:s_list' %}">
+                                    <i class="fas fa-list"></i>
+                                    {% translate 'List' %}
+                                </a>
+                            </li>
+                            <li class="{% if request.path == s_create %}active{% endif %}">
+                                <a href="{% url 'account:s_create' %}">
+                                    <i class="fas fa-edit"></i>
+                                    {% translate 'Create' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == nw_create %}active{% endif %} has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-newspaper"></i>
+                            {% translate 'Newsletter' %}
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class="{% if request.path == nw_list %}active{% endif %}">
+                                <a href="{% url 'account:nw_list' %}">
+                                    <i class="fas fa-list"></i>
+                                    {% translate 'List' %}
+                                </a>
+                            </li>
+                            <li class="{% if request.path == nw_create %}active{% endif %}">
+                                <a href="{% url 'account:nw_create' %}">
+                                    <i class="fas fa-edit"></i>
+                                    {% translate 'Create' %}
+                                </a>
+                            </li>
+                            <li class="{% if request.path == nws_list %}active{% endif %}">
+                                <a href="{% url 'account:nws_list' %}">
+                                    <i class="fas fa-list"></i>
+                                    {% translate 'Subscribers' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
+
+                {% if request.user.is_superuser or request.user.is_seller %}
+                    <li class="{% if request.path == p_create %}active{% endif %} has-sub">
+                        <p class="side-p">
+                            {% translate 'for Suppliers' %}
+                        </p>
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                            {% translate 'Products' %}
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class="{% if request.path == p_list %}active{% endif %}">
+                                <a href="{% url 'account:p_list' %}">
+                                    <i class="fas fa-list"></i>
+                                    {% translate 'List' %}
+                                </a>
+                            </li>
+                            <li class="{% if request.path == p_create %}active{% endif %}">
+                                <a href="{% url 'account:p_create' %}">
+                                    <i class="fas fa-edit"></i>
+                                    {% translate 'Create' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% if request.user.is_superuser %}
+                        <li class="{% if request.path == pc_create %}active{% endif %} has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-list-alt"></i>
+                                {% translate 'Categories' %}
+                                <i class="fas fa-angle-down ml-2"></i>
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li class="{% if request.path == pc_list %}active{% endif %}">
+                                    <a href="{% url 'account:pc_list' %}">
+                                        <i class="fas fa-list"></i>
+                                        {% translate 'List' %}
+                                    </a>
+                                </li>
+                                <li class="{% if request.path == pc_create %}active{% endif %}">
+                                    <a href="{% url 'account:pc_create' %}">
+                                        <i class="fas fa-edit"></i>
+                                        {% translate 'Create' %}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="{% if request.path == mm_create %}active{% endif %} has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-envelope-open"></i>
+                                {% translate 'Messages' %}
+                                <i class="fas fa-angle-down ml-2"></i>
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li class="{% if request.path == mm_list %}active{% endif %}">
+                                    <a href="{% url 'account:mm_list' %}">
+                                        <i class="fas fa-list"></i>
+                                        {% translate 'List' %}
+                                    </a>
+                                </li>
+                                <li class="{% if request.path == mm_create %}active{% endif %}">
+                                    <a href="{% url 'account:mm_create' %}">
+                                        <i class="fas fa-edit"></i>
+                                        {% translate 'Create' %}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endif %}
+
+                {% if request.user.is_superuser %}
+                    <li class="{% if request.path == ppm_list %}active{% endif %}">
+                        <a href="{% url 'account:ppm_list' %}">
+                            <i class="fas fa-cog"></i>
+                            {% translate 'Manage price' %}
+                        </a>
+                    </li>
+                {% elif request.user.is_seller %}
+                    <li class="{% if request.path == d_create %}active{% endif %} has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-percent"></i>
+                            {% translate 'Discount' %}
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class="{% if request.path == d_list %}active{% endif %}">
+                                <a href="{% url 'account:d_list' %}">
+                                    <i class="fas fa-list"></i>
+                                    {% translate 'List' %}
+                                </a>
+                            </li>
+                            <li class="{% if request.path == d_create %}active{% endif %}">
+                                <a href="{% url 'account:d_create' %}">
+                                    <i class="fas fa-edit"></i>
+                                    {% translate 'Add request' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
+
+                {% if request.user.is_superuser or request.user.is_author %}
+                    <li class="{% if request.path == n_create %}active{% endif %} has-sub">
+                        <p class="side-p">{% translate 'for authors' %}</p>
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-newspaper"></i>
+                            {% translate 'News' %}
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class="{% if request.path == n_list %}active{% endif %}">
+                                <a href="{% url 'account:n_list' %}">
+                                    <i class="fas fa-list"></i>
+                                    {% translate 'List' %}
+                                </a>
+                            </li>
+                            <li class="{% if request.path == n_create %}active{% endif %}">
+                                <a href="{% url 'account:n_create' %}">
+                                    <i class="fas fa-edit"></i>
+                                    {% translate 'Create' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% if request.user.is_superuser %}
+                        <li class="{% if request.path == nc_create %}active{% endif %} has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-list-alt"></i>
+                                {% translate 'Categories' %}
+                                <i class="fas fa-angle-down ml-2"></i>
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li class="{% if request.path == nc_list %}active{% endif %}">
+                                    <a href="{% url 'account:nc_list' %}">
+                                        <i class="fas fa-list"></i>
+                                        {% translate 'List' %}
+                                    </a>
+                                </li>
+                                <li class="{% if request.path == pc_create %}active{% endif %}">
+                                    <a href="{% url 'account:nc_create' %}">
+                                        <i class="fas fa-edit"></i>
+                                        {% translate 'Create' %}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- END MENU SIDEBAR-->

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% translate 'Size guide' %} | Operstyle
+{% endblock title %}
+
+{% block main %}
+    <section class="category-images">
+        <div class="container">
+            <div class="page-header-wrapper">
+                <div class="container">
+                    <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                        <h2>{% translate 'Size guide' %}</h2>
+                        <div class="devider"></div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="portfoloi_content_area">
+                <div class="portfolio_content">
+                    <div class="row" id="portfolio">
+                        {% for size in sizes %}
+                            {% get_current_language as LANG %}
+                            <div class="col-md col-12 appsDevelopment">
+                                <div class="portfolio_single_content">
+                                    <img src="{{ size.image.url }}" alt="{{ size.title }}"
+                                         class="category-image" loading="lazy">
+                                    <div>
+                                        <a href="/{{ LANG }}{{ size.link }}"
+                                           style="margin-top: 60%">{{ size.title }}</a>
+                                        <span>{% translate 'Discover Now' %}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock main %}

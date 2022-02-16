@@ -1,0 +1,19 @@
+{% load static %}
+{% if site_setting.favicon %}
+<link rel="icon" type="image/*" href="{{ site_setting.favicon.url }}">
+{% else %}
+<link rel="icon" type="image/*" href="{% static 'img/favicon.ico' %}">
+{% endif %}
+<!-- Libs and Plugins CSS -->
+<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome/font-awesome.min.css' %}">
+<!-- <link rel="stylesheet" href="css/reset.css"> -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+<!-- Skin CSS -->
+<link rel="stylesheet" href="{% static 'css/skin/cool-gray.css' %}">
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        $('#loading-overlay').fadeOut();
+    });
+</script>

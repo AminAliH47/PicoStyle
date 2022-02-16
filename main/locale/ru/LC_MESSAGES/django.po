@@ -1,0 +1,568 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 15:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: main/forms.py:19 main/templates/main/pages/become_retailer.html:97
+msgid "First name"
+msgstr "Имя"
+
+#: main/forms.py:22 main/templates/main/pages/become_retailer.html:107
+msgid "Last name"
+msgstr "Фамилия"
+
+#: main/forms.py:25 main/templates/main/pages/become_retailer.html:117
+msgid "Address"
+msgstr "Адрес"
+
+#: main/forms.py:28 main/templates/main/pages/become_retailer.html:127
+msgid "City"
+msgstr "Город"
+
+#: main/forms.py:31 main/templates/main/pages/become_retailer.html:137
+msgid "Country"
+msgstr "Страна"
+
+#: main/forms.py:34 main/templates/main/pages/become_retailer.html:147
+msgid "Email"
+msgstr "Эл. адрес"
+
+#: main/forms.py:37
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: main/forms.py:40 main/templates/main/pages/become_retailer.html:167
+msgid "Zip code"
+msgstr "Индекс"
+
+#: main/forms.py:59 main/templates/main/pages/become_retailer.html:198
+msgid "For how long?"
+msgstr "На сколько долго?"
+
+#: main/forms.py:63
+msgid "Most recent professional experience"
+msgstr "Самый последний профессиональный опыт"
+
+#: main/forms.py:66
+msgid "Experience in luxury goods"
+msgstr "Опыт работы с предметами роскоши"
+
+#: main/forms.py:69
+msgid "Which town/city would you like to open a store"
+msgstr "В каком городе вы бы хотели открыть магазин"
+
+#: main/forms.py:82
+msgid "Have previously a member of a franchise or a network?"
+msgstr "Были ранее участником франшизы или сети?"
+
+#: main/forms.py:85
+msgid "Wishing to join our network"
+msgstr "Желающие присоединиться к нашей сети"
+
+#: main/forms.py:88 main/templates/main/pages/become_retailer.html:300
+msgid "What equity do you have available for this project?"
+msgstr "Какой капитал у вас есть для этого проекта?"
+
+#: main/models.py:40 main/models.py:66 main/models.py:92 main/models.py:106
+#: main/models.py:147
+msgid "Which home page to display?"
+msgstr "Какую домашнюю страницу отображать?"
+
+#: main/models.py:41 main/models.py:67 main/models.py:93 main/models.py:107
+#: main/models.py:148
+msgid "Title"
+msgstr "Заголовок"
+
+#: main/models.py:44 main/models.py:70 main/models.py:205
+msgid "Description"
+msgstr "Описание"
+
+#: main/models.py:45 main/models.py:71
+msgid "Button"
+msgstr "Кнопка"
+
+#: main/models.py:47 main/models.py:73
+msgid "Have dark cover?"
+msgstr "Есть темная обложка?"
+
+#: main/models.py:202
+msgid "Name"
+msgstr "Имя"
+
+#: main/templates/main/pages/become_retailer.html:89
+msgid "You"
+msgstr "Ты"
+
+#: main/templates/main/pages/become_retailer.html:157
+msgid "Phone"
+msgstr "Телефон"
+
+#: main/templates/main/pages/become_retailer.html:181
+msgid "Your project"
+msgstr "Ваш проект"
+
+#: main/templates/main/pages/become_retailer.html:187
+msgid "Do you have any previous experience of managing a store?"
+msgstr "Был ли у вас предыдущий опыт управления магазином?"
+
+#: main/templates/main/pages/become_retailer.html:208
+msgid "How many people did you manage?"
+msgstr "Сколько человек вам удалось?"
+
+#: main/templates/main/pages/become_retailer.html:218
+msgid "What is your most recent professional experience?"
+msgstr "Каков ваш последний профессиональный опыт?"
+
+#: main/templates/main/pages/become_retailer.html:228
+msgid "What experience do you have in the luxury goods sector?"
+msgstr "Какой у вас опыт работы в сфере предметов роскоши?"
+
+#: main/templates/main/pages/become_retailer.html:238
+msgid "In which town/city would you like to open a store?"
+msgstr "В каком городе вы хотели бы открыть магазин?"
+
+#: main/templates/main/pages/become_retailer.html:249
+msgid "Do you currently have a store in this town/city?"
+msgstr "У вас сейчас есть магазин в этом городе?"
+
+#: main/templates/main/pages/become_retailer.html:260
+msgid "Is it in the town Centre?"
+msgstr "Это в центре города?"
+
+#: main/templates/main/pages/become_retailer.html:270
+msgid "Are you the"
+msgstr "Ты"
+
+#: main/templates/main/pages/become_retailer.html:280
+msgid "Have you previously been a member of a franchise or a network?"
+msgstr "Были ли вы ранее участником франшизы или сети?"
+
+#: main/templates/main/pages/become_retailer.html:290
+msgid "What are your reasons for wishing to join our network?"
+msgstr "По каким причинам вы хотите присоединиться к нашей сети?"
+
+#: main/templates/main/pages/become_retailer.html:314
+msgid "Send"
+msgstr "послать"
+
+#: main/templates/main/pages/become_retailer.html:317
+#: main/templates/main/pages/thanks.html:18
+msgid "Back"
+msgstr "Назад"
+
+#: main/templates/main/pages/index.html:42
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: main/templates/main/pages/index.html:46
+#: main/templates/main/pages/index.html:146
+msgid "Next"
+msgstr "Следующий"
+
+#: main/templates/main/pages/index.html:57
+msgid "Categories"
+msgstr "Категории"
+
+#: main/templates/main/pages/index.html:59
+msgid "Discover our product in categories"
+msgstr "Откройте для себя наш продукт по категориям"
+
+#: main/templates/main/pages/index.html:73
+#: main/templates/main/pages/size_guide/main.html:33
+msgid "Discover Now"
+msgstr "Откройте для себя сейчас"
+
+#: main/templates/main/pages/index.html:80
+msgid "There are no category to display "
+msgstr "Нет категории для отображения "
+
+#: main/templates/main/pages/index.html:99
+msgid "Brands story"
+msgstr "История брендов"
+
+#: main/templates/main/pages/index.html:101
+msgid "Discover the brands"
+msgstr "Откройте для себя бренды"
+
+#: main/templates/main/pages/index.html:166
+msgid "Cooperate with us"
+msgstr "Сотрудничайте с нами"
+
+#: main/templates/main/pages/index.html:169
+msgid "What we are proud of"
+msgstr "Чем мы гордимся"
+
+#: main/templates/main/pages/index.html:183
+#: main/templates/main/pages/work_with_us.html:6
+#: main/templates/main/pages/work_with_us.html:15
+msgid "Work with us"
+msgstr "Работать с нами"
+
+#: main/templates/main/pages/index.html:196
+#: main/templates/main/pages/special_projects.html:6
+#: main/templates/main/pages/special_projects.html:15
+msgid "Special services"
+msgstr "Специальные услуги"
+
+#: main/templates/main/pages/index.html:216
+#: main/templates/main/pages/index.html:231
+#: main/templates/main/pages/store_agent.html:7
+#: main/templates/main/pages/store_agent.html:20
+msgid "Store and Agent"
+msgstr "Магазин и агент"
+
+#: main/templates/main/pages/index.html:218
+msgid "Discover our branches"
+msgstr "Откройте для себя наши филиалы"
+
+#: main/templates/main/pages/index.html:251
+msgid "Subscribe"
+msgstr "Подписывайся"
+
+#: main/templates/main/pages/index.html:253
+msgid "Enter email address"
+msgstr "Введите адрес электронной почты"
+
+#: main/templates/main/pages/index.html:255
+msgid "Enter name"
+msgstr "Введите имя"
+
+#: main/templates/main/pages/index.html:263
+msgid "Women"
+msgstr "Женщины"
+
+#: main/templates/main/pages/index.html:270
+msgid "Men"
+msgstr "Мужчины"
+
+#: main/templates/main/pages/index.html:277
+msgid "Raw material"
+msgstr "Ингредиенты"
+
+#: main/templates/main/pages/index.html:284
+msgid "Life style"
+msgstr "Образ жизни"
+
+#: main/templates/main/pages/index.html:289
+msgid "Submit"
+msgstr "Разместить"
+
+#: main/templates/main/pages/index.html:294
+msgid "Join to our Newsletters"
+msgstr "Присоединяйтесь к нашим информационным бюллетеням"
+
+#: main/templates/main/pages/size_guide/main.html:6
+#: main/templates/main/pages/size_guide/main.html:15
+#: main/templates/main/pages/size_guide/men.html:7
+#: main/templates/main/pages/size_guide/women.html:7
+#: main/templates/main/sections/footer.html:30
+msgid "Size guide"
+msgstr "Таблица размеров"
+
+#: main/templates/main/pages/size_guide/men.html:7
+#: main/templates/main/pages/size_guide/women.html:7
+msgid "women"
+msgstr "женщины"
+
+#: main/templates/main/pages/size_guide/men.html:20
+#: main/templates/main/pages/size_guide/women.html:20
+msgid "Shoes"
+msgstr "Обувь"
+
+#: main/templates/main/pages/size_guide/men.html:24
+#: main/templates/main/pages/size_guide/women.html:24
+msgid "Clothing"
+msgstr "Одежда"
+
+#: main/templates/main/pages/size_guide/men.html:29
+#: main/templates/main/pages/size_guide/women.html:29
+msgid "Accessories"
+msgstr "Аксессуары"
+
+#: main/templates/main/pages/size_guide/men.html:40
+#: main/templates/main/pages/size_guide/women.html:46
+msgid "The shoe size systems are very different depending on the country."
+msgstr "Системы размеров обуви сильно различаются в зависимости от страны."
+
+#: main/templates/main/pages/size_guide/men.html:49
+#: main/templates/main/pages/size_guide/women.html:55
+msgid "Foot Length"
+msgstr "Длина ноги"
+
+#: main/templates/main/pages/size_guide/men.html:166
+msgid "Pullovers, T-shirts, Tops, Sweatshirts, Shirts, Jackets & Coats"
+msgstr "Пуловеры, футболки, топы, свитшоты, рубашки, куртки и пальто"
+
+#: main/templates/main/pages/size_guide/men.html:185
+#: main/templates/main/pages/size_guide/men.html:290
+#: main/templates/main/pages/size_guide/men.html:466
+#: main/templates/main/pages/size_guide/men.html:580
+#: main/templates/main/pages/size_guide/women.html:204
+#: main/templates/main/pages/size_guide/women.html:297
+#: main/templates/main/pages/size_guide/women.html:473
+#: main/templates/main/pages/size_guide/women.html:587
+msgid "Clothing size"
+msgstr "Размер одежды"
+
+#: main/templates/main/pages/size_guide/men.html:206
+msgid "Neck (in cm.)"
+msgstr "Шея (в см.)"
+
+#: main/templates/main/pages/size_guide/men.html:227
+msgid "Chest"
+msgstr "Грудь"
+
+#: main/templates/main/pages/size_guide/men.html:248
+msgid "Waist"
+msgstr "Талия"
+
+#: main/templates/main/pages/size_guide/men.html:272
+#: main/templates/main/pages/size_guide/women.html:279
+msgid "Trousers, Jeans, Shorts, Skirts"
+msgstr "Брюки, джинсы, шорты, юбки"
+
+#: main/templates/main/pages/size_guide/men.html:308
+#: main/templates/main/pages/size_guide/men.html:502
+#: main/templates/main/pages/size_guide/women.html:240
+#: main/templates/main/pages/size_guide/women.html:315
+#: main/templates/main/pages/size_guide/women.html:509
+msgid "Waist (in cm.)"
+msgstr "Талия (в см.)"
+
+#: main/templates/main/pages/size_guide/men.html:326
+#: main/templates/main/pages/size_guide/men.html:520
+#: main/templates/main/pages/size_guide/women.html:258
+#: main/templates/main/pages/size_guide/women.html:333
+#: main/templates/main/pages/size_guide/women.html:527
+msgid "Hips (in cm.)"
+msgstr "Бедра (в см.)"
+
+#: main/templates/main/pages/size_guide/men.html:347
+#: main/templates/main/pages/size_guide/women.html:354
+msgid "Bras, Lingerie Tops & Swimwear"
+msgstr "Бюстгальтеры, нижнее белье, топы и купальники"
+
+#: main/templates/main/pages/size_guide/men.html:352
+#: main/templates/main/pages/size_guide/men.html:547
+#: main/templates/main/pages/size_guide/women.html:359
+#: main/templates/main/pages/size_guide/women.html:554
+msgid "Size"
+msgstr "Размер"
+
+#: main/templates/main/pages/size_guide/men.html:367
+#: main/templates/main/pages/size_guide/women.html:374
+msgid "Underband measurement in cm"
+msgstr "Измерение под лентой в см"
+
+#: main/templates/main/pages/size_guide/men.html:380
+#: main/templates/main/pages/size_guide/women.html:387
+msgid "Bust measurement in cm"
+msgstr "Размер груди в см."
+
+#: main/templates/main/pages/size_guide/men.html:448
+#: main/templates/main/pages/size_guide/women.html:455
+msgid "Pyjamas"
+msgstr "Пижамы"
+
+#: main/templates/main/pages/size_guide/men.html:484
+#: main/templates/main/pages/size_guide/women.html:222
+#: main/templates/main/pages/size_guide/women.html:491
+msgid "Bust (in cm.)"
+msgstr "Бюст (в см.)"
+
+#: main/templates/main/pages/size_guide/men.html:542
+#: main/templates/main/pages/size_guide/women.html:549
+msgid "Beanies and Hats"
+msgstr "Шапки и шапки"
+
+#: main/templates/main/pages/size_guide/men.html:548
+#: main/templates/main/pages/size_guide/women.html:555
+msgid "One size"
+msgstr "Один размер"
+
+#: main/templates/main/pages/size_guide/men.html:556
+#: main/templates/main/pages/size_guide/women.html:563
+msgid "Head circumference (in cm)"
+msgstr "Окружность головы (в см)"
+
+#: main/templates/main/pages/size_guide/men.html:564
+#: main/templates/main/pages/size_guide/women.html:571
+msgid "Our beanies are stretchy and adapt to the shape of your head."
+msgstr "Наши шапочки эластичны и адаптируются к форме вашей головы."
+
+#: main/templates/main/pages/size_guide/men.html:567
+#: main/templates/main/pages/size_guide/women.html:574
+msgid "Gloves"
+msgstr "Перчатки"
+
+#: main/templates/main/pages/size_guide/men.html:586
+#: main/templates/main/pages/size_guide/women.html:593
+msgid "Hand size (in cm) "
+msgstr "Размер руки (в см) "
+
+#: main/templates/main/pages/size_guide/men.html:595
+#: main/templates/main/pages/size_guide/women.html:602
+msgid "Belts"
+msgstr "Ремни"
+
+#: main/templates/main/pages/size_guide/men.html:610
+#: main/templates/main/pages/size_guide/women.html:617
+msgid "Waist (in cm)"
+msgstr "Талия (в см)"
+
+#: main/templates/main/pages/size_guide/men.html:621
+#: main/templates/main/pages/size_guide/women.html:628
+msgid "Socks "
+msgstr "Носки "
+
+#: main/templates/main/pages/size_guide/men.html:626
+#: main/templates/main/pages/size_guide/women.html:633
+msgid "Shoe size"
+msgstr "Размер обуви"
+
+#: main/templates/main/pages/size_guide/women.html:35
+msgid "Jewellery"
+msgstr "Ювелирные изделия"
+
+#: main/templates/main/pages/size_guide/women.html:186
+msgid ""
+"Pullovers, T-Shirts, Tops, Sweatshirts, Blouses, Jackets & Coats, Dresses"
+msgstr "Пуловеры, футболки, топы, свитшоты, блузки, куртки и пальто, платья"
+
+#: main/templates/main/pages/size_guide/women.html:644
+msgid "None"
+msgstr "Никто"
+
+#: main/templates/main/pages/special_projects.html:57
+#: main/templates/main/pages/store_agent.html:45
+#: main/templates/main/sections/header.html:222
+msgid "Close"
+msgstr "Закрывать"
+
+#: main/templates/main/pages/thanks.html:12
+msgid "CONGRATULATION"
+msgstr "ПОЗДРАВЛЯЕМ"
+
+#: main/templates/main/pages/thanks.html:15
+msgid ""
+"Your information has been registered Our experts will contact you soon to "
+"cooperation"
+msgstr ""
+"Ваша информация зарегистрирована Наши специалисты свяжутся с вами в "
+"ближайшее время для сотрудничества"
+
+#: main/templates/main/sections/footer.html:11
+msgid "Operstyle"
+msgstr "Operstyle"
+
+#: main/templates/main/sections/footer.html:14
+msgid "About us"
+msgstr "О нас"
+
+#: main/templates/main/sections/footer.html:16
+msgid "My account"
+msgstr "Мой счет"
+
+#: main/templates/main/sections/footer.html:18
+msgid "Find a store"
+msgstr "Найти магазин"
+
+#: main/templates/main/sections/footer.html:20
+msgid "The news"
+msgstr "Новости"
+
+#: main/templates/main/sections/footer.html:22
+msgid "Contact us"
+msgstr "Связаться с нами"
+
+#: main/templates/main/sections/footer.html:26
+msgid "Guide"
+msgstr "Руководство"
+
+#: main/templates/main/sections/footer.html:29
+msgid "Product care"
+msgstr "Уход за продуктом"
+
+#: main/templates/main/sections/footer.html:32
+msgid "Privacy & Policy"
+msgstr "Политика конфиденциальности"
+
+#: main/templates/main/sections/footer.html:34
+msgid "Terms & Conditions"
+msgstr "Условия и положения"
+
+#: main/templates/main/sections/footer.html:36
+msgid "Cookie Policy"
+msgstr "Политика использования файлов cookie"
+
+#: main/templates/main/sections/footer.html:40
+msgid "Cooperation"
+msgstr "Сотрудничество"
+
+#: main/templates/main/sections/footer.html:43
+msgid "Personalization"
+msgstr "Персонализация"
+
+#: main/templates/main/sections/footer.html:45
+msgid "Customization"
+msgstr "Настройка"
+
+#: main/templates/main/sections/footer.html:47
+msgid "Corporate gifting"
+msgstr "Корпоративные подарки"
+
+#: main/templates/main/sections/footer.html:49
+msgid "Wholesale enquiries"
+msgstr "Оптовые запросы"
+
+#: main/templates/main/sections/footer.html:51
+msgid "Become a retailer"
+msgstr "Стать продавцом"
+
+#: main/templates/main/sections/footer.html:55
+msgid "Follow us"
+msgstr "Подписывайтесь на нас"
+
+#: main/templates/main/sections/header.html:218
+msgid "This page is under construction and will be unveiled soon"
+msgstr "Эта страница находится в разработке и скоро будет открыта"
+
+#: main/templates/main/sections/header.html:223
+msgid "OK"
+msgstr "В ПОРЯДКЕ"
+
+#: main/templates/main/sections/header.html:230
+msgid "Thanks! you have been added to the site newsletter"
+msgstr "Спасибо! вы были добавлены в информационный бюллетень сайта"
+
+#~ msgid "WORK WITH US"
+#~ msgstr "РАБОТАТЬ С НАМИ"
+
+#~ msgid "SPECIAL PROJECT"
+#~ msgstr "СПЕЦИАЛЬНЫЙ ПРОЕКТ"
+
+#~ msgid "What is your name? (optional)"
+#~ msgstr "Как вас зовут? (по желанию)"
+
+#~ msgid "Store and agent"
+#~ msgstr "Магазин и агент"
+
+#~ msgid "Thanks for your request"
+#~ msgstr "Спасибо за ваш запрос"

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+Preview {{ brand.title }} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="position-relative">
+    <div class="text-left" style="background: #ffecc1;">
+        <div class="pl-3">
+            <h3 class="pt-2">
+                {% translate 'Preview' %}
+            </h3>
+            <a href="{% url 'account:b_list' %}" class="btn btn-secondary mr-2 mb-3">
+                {% translate 'Back' %}
+            </a>
+            <a href="{% url 'account:b_update' pk=brand.pk %}" class="btn btn-warning mb-3">
+                {% translate 'Edit' %}
+            </a>
+        </div>
+    </div>
+    <div class="container detail">
+        <div class="my-5">
+            <div class="row">
+                <div class="col-12">
+                    <a href="javascript:history.back()" class="back-btn">
+                        <i class="fa fa-arrow-left"></i> {% translate 'back' %}
+                    </a>
+                    <img src="{{ brand.image.url }}" alt="{{ brand.title }}" class="news-image">
+                    <h3 class="news-title">{{ brand.title }}</h3>
+                    <hr>
+                </div>
+                <div class="col-12 mt-4">
+                    {{ brand.body|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

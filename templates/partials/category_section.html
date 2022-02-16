@@ -1,0 +1,17 @@
+{% if category.children.get_active_category %}
+<ul>
+    {% for category in category.children.get_active_category %}
+    <li class="{% if cat.id == category.id %}active{% endif %}">
+        <a href="{{ category.get_absolute_url }}">
+            {{ category.title }}
+        </a>
+        {% include 'partials/category_section.html' %}
+    </li>
+    {% endfor %}
+</ul>
+<!--    {% if category.image %}-->
+<!--    <li>-->
+<!--        <img src="{{ category.image.url }}" alt="{{ category.slug }}" width="20%">-->
+<!--    </li>-->
+<!--    {% endif %}-->
+{% endif %}

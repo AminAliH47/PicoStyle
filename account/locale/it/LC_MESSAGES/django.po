@@ -1,0 +1,1374 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: account/forms.py:26
+msgid "Enter Email or Username"
+msgstr "Inserisci email o nome utente"
+
+#: account/forms.py:29
+msgid "Enter Password"
+msgstr "Inserire la password"
+
+#: account/forms.py:58 account/forms.py:94 account/forms.py:116
+msgid "Country code"
+msgstr "Prefisso internazionale"
+
+#: account/forms.py:131
+msgid "Enter title"
+msgstr "Inserisci il titolo"
+
+#: account/forms.py:140 account/templates/account/pages/login.html:82
+#: account/templates/account/seller/pages/create-update.html:53
+msgid "Password"
+msgstr "Parola d'ordine"
+
+#: account/forms.py:141
+msgid "Enter new password"
+msgstr "Inserire una nuova password"
+
+#: account/forms.py:143
+msgid "Confirm Password"
+msgstr "conferma password"
+
+#: account/forms.py:144
+msgid "Enter new password again"
+msgstr "Inserisci di nuovo la nuova password"
+
+#: account/templates/account/brands/pages/create-update.html:7
+#: account/templates/account/entrepreneur/pages/create-update.html:7
+msgid "Create brand"
+msgstr "Crea marchio"
+
+#: account/templates/account/brands/pages/create-update.html:9
+#: account/templates/account/brands/pages/create-update.html:28
+#: account/templates/account/brands/pages/create-update.html:65
+#: account/templates/account/discount/pages/create-update.html:9
+#: account/templates/account/discount/pages/create-update.html:29
+#: account/templates/account/discount/pages/create-update.html:96
+#: account/templates/account/discount/show/pages/create-update.html:8
+#: account/templates/account/discount/show/pages/create-update.html:28
+#: account/templates/account/discount/show/pages/create-update.html:64
+#: account/templates/account/entrepreneur/pages/create-update.html:9
+#: account/templates/account/entrepreneur/pages/create-update.html:28
+#: account/templates/account/entrepreneur/pages/create-update.html:65
+#: account/templates/account/items/pages/create-update.html:9
+#: account/templates/account/items/pages/create-update.html:28
+#: account/templates/account/items/pages/create-update.html:49
+#: account/templates/account/news/category/pages/create-update.html:8
+#: account/templates/account/news/category/pages/create-update.html:27
+#: account/templates/account/news/category/pages/create-update.html:67
+#: account/templates/account/news/pages/create-update.html:9
+#: account/templates/account/news/pages/create-update.html:29
+#: account/templates/account/news/pages/create-update.html:92
+#: account/templates/account/products/category/pages/create-update.html:8
+#: account/templates/account/products/category/pages/create-update.html:27
+#: account/templates/account/products/category/pages/create-update.html:87
+#: account/templates/account/products/category/pages/create-update.html:127
+#: account/templates/account/products/pages/create-update.html:9
+#: account/templates/account/products/pages/create-update.html:42
+#: account/templates/account/products/pages/create-update.html:494
+#: account/templates/account/products/show/pages/create-update.html:8
+#: account/templates/account/products/show/pages/create-update.html:28
+#: account/templates/account/products/show/pages/create-update.html:73
+#: account/templates/account/products/show/pages/create-update.html:113
+#: account/templates/account/seller/pages/create-update.html:10
+#: account/templates/account/seller/pages/create-update.html:30
+#: account/templates/account/seller/pages/create-update.html:398
+msgid "Update"
+msgstr "Aggiornare"
+
+#: account/templates/account/brands/pages/create-update.html:26
+#: account/templates/account/entrepreneur/pages/create-update.html:26
+msgid "Add New brand"
+msgstr "Aggiungi nuovo marchio"
+
+#: account/templates/account/brands/pages/create-update.html:35
+#: account/templates/account/entrepreneur/pages/create-update.html:35
+#: account/templates/account/news/category/pages/create-update.html:34
+#: account/templates/account/news/pages/create-update.html:36
+msgid "Title"
+msgstr "Titolo"
+
+#: account/templates/account/brands/pages/create-update.html:41
+#: account/templates/account/entrepreneur/pages/create-update.html:41
+msgid "Brand content"
+msgstr "Contenuto del marchio"
+
+#: account/templates/account/brands/pages/create-update.html:46
+#: account/templates/account/entrepreneur/pages/create-update.html:46
+#: account/templates/account/news/pages/create-update.html:57
+msgid "Image"
+msgstr "Immagine"
+
+#: account/templates/account/brands/pages/create-update.html:51
+#: account/templates/account/entrepreneur/pages/create-update.html:51
+msgid "Publish"
+msgstr "Pubblicare"
+
+#: account/templates/account/brands/pages/create-update.html:56
+#: account/templates/account/brands/pages/list.html:49
+#: account/templates/account/entrepreneur/pages/create-update.html:56
+#: account/templates/account/entrepreneur/pages/list.html:49
+#: account/templates/account/news/category/pages/list.html:42
+#: account/templates/account/products/category/pages/list.html:53
+#: account/templates/account/store_agent/pages/list.html:43
+msgid "Active"
+msgstr "Active"
+
+#: account/templates/account/brands/pages/create-update.html:62
+#: account/templates/account/discount/pages/create-update.html:7
+#: account/templates/account/discount/pages/create-update.html:92
+#: account/templates/account/discount/show/pages/create-update.html:6
+#: account/templates/account/discount/show/pages/create-update.html:60
+#: account/templates/account/entrepreneur/pages/create-update.html:62
+#: account/templates/account/items/pages/create-update.html:7
+#: account/templates/account/items/pages/create-update.html:45
+#: account/templates/account/items/pages/main-list.html:67
+#: account/templates/account/items/pages/main-list.html:97
+#: account/templates/account/items/pages/main-list.html:127
+#: account/templates/account/items/pages/main-list.html:157
+#: account/templates/account/items/pages/main-list.html:187
+#: account/templates/account/items/pages/main-list.html:217
+#: account/templates/account/items/pages/main-list.html:247
+#: account/templates/account/items/pages/main-list.html:277
+#: account/templates/account/items/pages/main-list.html:307
+#: account/templates/account/news/category/pages/create-update.html:6
+#: account/templates/account/news/category/pages/create-update.html:63
+#: account/templates/account/news/pages/create-update.html:89
+#: account/templates/account/products/category/pages/create-update.html:6
+#: account/templates/account/products/category/pages/create-update.html:83
+#: account/templates/account/products/pages/create-update.html:7
+#: account/templates/account/products/pages/create-update.html:488
+#: account/templates/account/products/price/pages/main-list.html:56
+#: account/templates/account/products/price/pages/main-list.html:86
+#: account/templates/account/products/price/pages/main-list.html:171
+#: account/templates/account/products/show/pages/create-update.html:6
+#: account/templates/account/products/show/pages/create-update.html:69
+#: account/templates/account/sections/header-mo.html:51
+#: account/templates/account/sections/header-mo.html:72
+#: account/templates/account/sections/header-mo.html:105
+#: account/templates/account/sections/header-mo.html:127
+#: account/templates/account/sections/header-mo.html:148
+#: account/templates/account/sections/header-mo.html:174
+#: account/templates/account/sections/sidebar.html:63
+#: account/templates/account/sections/sidebar.html:84
+#: account/templates/account/sections/sidebar.html:117
+#: account/templates/account/sections/sidebar.html:139
+#: account/templates/account/sections/sidebar.html:160
+#: account/templates/account/sections/sidebar.html:217
+#: account/templates/account/sections/sidebar.html:239
+#: account/templates/account/seller/pages/create-update.html:8
+#: account/templates/account/seller/pages/create-update.html:393
+msgid "Create"
+msgstr "Creare"
+
+#: account/templates/account/brands/pages/delete.html:4
+#: account/templates/account/brands/pages/delete.html:15
+#: account/templates/account/brands/pages/delete.html:27
+#: account/templates/account/brands/pages/list.html:65
+#: account/templates/account/discount/pages/list.html:67
+#: account/templates/account/discount/show/pages/list.html:59
+#: account/templates/account/entrepreneur/pages/delete.html:4
+#: account/templates/account/entrepreneur/pages/delete.html:15
+#: account/templates/account/entrepreneur/pages/delete.html:27
+#: account/templates/account/entrepreneur/pages/list.html:65
+#: account/templates/account/items/pages/delete.html:5
+#: account/templates/account/items/pages/delete.html:16
+#: account/templates/account/items/pages/delete.html:28
+#: account/templates/account/items/pages/list.html:39
+#: account/templates/account/messages/pages/list.html:55
+#: account/templates/account/news/category/pages/list.html:54
+#: account/templates/account/news/pages/delete.html:4
+#: account/templates/account/news/pages/delete.html:15
+#: account/templates/account/news/pages/delete.html:27
+#: account/templates/account/news/pages/list.html:71
+#: account/templates/account/newsletter/pages/list.html:42
+#: account/templates/account/newsletter/subscribers/pages/list.html:38
+#: account/templates/account/products/category/pages/list.html:65
+#: account/templates/account/products/pages/delete.html:4
+#: account/templates/account/products/pages/delete.html:15
+#: account/templates/account/products/pages/delete.html:27
+#: account/templates/account/products/pages/list.html:124
+#: account/templates/account/products/show/pages/list.html:71
+#: account/templates/account/seller/pages/delete.html:4
+#: account/templates/account/seller/pages/delete.html:15
+#: account/templates/account/seller/pages/delete.html:27
+#: account/templates/account/seller/pages/list.html:58
+#: account/templates/account/store_agent/pages/list.html:55
+msgid "Delete"
+msgstr "Elimina"
+
+#: account/templates/account/brands/pages/delete.html:21
+#: account/templates/account/entrepreneur/pages/delete.html:21
+#: account/templates/account/items/pages/delete.html:22
+#: account/templates/account/news/pages/delete.html:21
+#: account/templates/account/products/pages/delete.html:21
+#: account/templates/account/seller/pages/delete.html:21
+msgid "Do you want to delete"
+msgstr "Vuoi eliminare"
+
+#: account/templates/account/brands/pages/delete.html:30
+#: account/templates/account/brands/pages/preview.html:16
+#: account/templates/account/discount/pages/create-update.html:101
+#: account/templates/account/discount/show/pages/create-update.html:68
+#: account/templates/account/entrepreneur/pages/delete.html:30
+#: account/templates/account/entrepreneur/pages/preview.html:16
+#: account/templates/account/items/pages/create-update.html:54
+#: account/templates/account/items/pages/delete.html:31
+#: account/templates/account/messages/pages/detail.html:28
+#: account/templates/account/news/category/pages/create-update.html:71
+#: account/templates/account/news/pages/delete.html:30
+#: account/templates/account/news/pages/preview.html:16
+#: account/templates/account/pages/change_password.html:39
+#: account/templates/account/products/category/pages/create-update.html:91
+#: account/templates/account/products/pages/create-update.html:498
+#: account/templates/account/products/pages/delete.html:30
+#: account/templates/account/products/pages/preview.html:17
+#: account/templates/account/products/show/pages/create-update.html:77
+#: account/templates/account/seller/pages/create-update.html:403
+#: account/templates/account/seller/pages/delete.html:30
+#: account/templates/account/seller/pages/detail.html:160
+msgid "Back"
+msgstr "Di ritorno"
+
+#: account/templates/account/brands/pages/list.html:5
+#: account/templates/account/entrepreneur/pages/list.html:5
+msgid "Brands"
+msgstr "Marche"
+
+#: account/templates/account/brands/pages/list.html:16
+#: account/templates/account/entrepreneur/pages/list.html:16
+msgid "Add Brand"
+msgstr "Aggiungi marchio"
+
+#: account/templates/account/brands/pages/list.html:25
+#: account/templates/account/entrepreneur/pages/list.html:25
+#: account/templates/account/items/pages/list.html:21
+#: account/templates/account/news/category/pages/list.html:31
+#: account/templates/account/news/pages/list.html:27
+#: account/templates/account/products/category/pages/list.html:42
+msgid "title"
+msgstr "titolo"
+
+#: account/templates/account/brands/pages/list.html:26
+#: account/templates/account/entrepreneur/pages/list.html:26
+#: account/templates/account/news/pages/list.html:28
+msgid "published at"
+msgstr "pubblicato su"
+
+#: account/templates/account/brands/pages/list.html:27
+#: account/templates/account/discount/pages/list.html:30
+#: account/templates/account/entrepreneur/pages/list.html:27
+#: account/templates/account/news/category/pages/list.html:32
+#: account/templates/account/news/pages/list.html:29
+#: account/templates/account/products/category/pages/list.html:43
+msgid "status"
+msgstr "stato"
+
+#: account/templates/account/brands/pages/list.html:53
+#: account/templates/account/entrepreneur/pages/list.html:53
+#: account/templates/account/news/category/pages/list.html:44
+#: account/templates/account/products/category/pages/list.html:55
+#: account/templates/account/store_agent/pages/list.html:45
+msgid "Inactive"
+msgstr "Non attivo"
+
+#: account/templates/account/brands/pages/list.html:60
+#: account/templates/account/brands/pages/preview.html:19
+#: account/templates/account/discount/pages/list.html:62
+#: account/templates/account/discount/show/pages/list.html:55
+#: account/templates/account/entrepreneur/pages/list.html:60
+#: account/templates/account/entrepreneur/pages/preview.html:19
+#: account/templates/account/items/pages/list.html:35
+#: account/templates/account/messages/pages/list.html:51
+#: account/templates/account/news/category/pages/list.html:50
+#: account/templates/account/news/pages/list.html:66
+#: account/templates/account/news/pages/preview.html:19
+#: account/templates/account/products/category/pages/list.html:61
+#: account/templates/account/products/pages/list.html:119
+#: account/templates/account/products/pages/preview.html:21
+#: account/templates/account/products/percent/pages/list.html:40
+#: account/templates/account/products/show/pages/list.html:67
+#: account/templates/account/seller/pages/detail.html:156
+#: account/templates/account/seller/pages/list.html:54
+#: account/templates/account/store_agent/pages/list.html:51
+msgid "Edit"
+msgstr "Modificare"
+
+#: account/templates/account/brands/pages/preview.html:13
+#: account/templates/account/entrepreneur/pages/preview.html:13
+#: account/templates/account/news/pages/preview.html:13
+#: account/templates/account/products/pages/preview.html:6
+#: account/templates/account/products/pages/preview.html:14
+msgid "Preview"
+msgstr "Anteprima"
+
+#: account/templates/account/brands/pages/preview.html:28
+#: account/templates/account/entrepreneur/pages/preview.html:28
+#: account/templates/account/news/pages/preview.html:28
+#: account/templates/account/products/pages/preview.html:29
+msgid "back"
+msgstr "indietro"
+
+#: account/templates/account/discount/pages/create-update.html:27
+#: account/templates/account/items/pages/create-update.html:26
+msgid "Add New Item"
+msgstr "Aggiungi un nuovo elemento"
+
+#: account/templates/account/discount/pages/create-update.html:37
+msgid "Wholesale price value"
+msgstr "Valore del prezzo all'ingrosso"
+
+#: account/templates/account/discount/pages/create-update.html:48
+msgid "Retail price value"
+msgstr "Valore del prezzo al dettaglio"
+
+#: account/templates/account/discount/pages/create-update.html:59
+msgid "Discount on all the products"
+msgstr "Sconto su tutti i prodotti"
+
+#: account/templates/account/discount/pages/create-update.html:68
+#: account/templates/account/discount/show/pages/create-update.html:45
+#: account/templates/account/discount/show/pages/list.html:28
+#: account/templates/account/news/pages/create-update.html:47
+#: account/templates/account/products/show/pages/create-update.html:54
+#: account/templates/account/products/show/pages/list.html:29
+msgid "Category"
+msgstr "Categoria"
+
+#: account/templates/account/discount/pages/create-update.html:74
+#: account/templates/account/messages/pages/list.html:31
+msgid "Supplier"
+msgstr "Fornitore"
+
+#: account/templates/account/discount/pages/create-update.html:83
+#: account/templates/account/discount/show/pages/create-update.html:28
+#: account/templates/account/news/pages/create-update.html:77
+#: account/templates/account/products/pages/create-update.html:462
+#: account/templates/account/products/pages/list.html:81
+#: account/templates/account/products/show/pages/create-update.html:28
+msgid "Status"
+msgstr "Stato"
+
+#: account/templates/account/discount/pages/create-update.html:119
+#: account/templates/account/products/pages/create-update.html:521
+msgid "Do you want to send message to"
+msgstr "Vuoi inviare un messaggio a"
+
+#: account/templates/account/discount/pages/create-update.html:127
+#: account/templates/account/products/pages/create-update.html:529
+msgid "Do you want to send a message rejecting the supplier request?"
+msgstr "Vuoi inviare un messaggio rifiutando la richiesta del fornitore?"
+
+#: account/templates/account/discount/pages/create-update.html:129
+#: account/templates/account/products/pages/create-update.html:531
+msgid "Message Subject"
+msgstr "soggetto del messaggio"
+
+#: account/templates/account/discount/pages/create-update.html:131
+#: account/templates/account/products/pages/create-update.html:533
+msgid "Message Text"
+msgstr "Messaggio di testo"
+
+#: account/templates/account/discount/pages/create-update.html:136
+#: account/templates/account/products/category/pages/create-update.html:126
+#: account/templates/account/products/pages/create-update.html:538
+#: account/templates/account/products/show/pages/create-update.html:112
+#: account/templates/account/sections/header-de.html:117
+msgid "Close"
+msgstr "Chiudere"
+
+#: account/templates/account/discount/pages/create-update.html:137
+#: account/templates/account/products/pages/create-update.html:539
+msgid "Send"
+msgstr "Spedire"
+
+#: account/templates/account/discount/pages/create-update.html:170
+#: account/templates/account/discount/pages/create-update.html:181
+#: account/templates/account/discount/pages/create-update.html:191
+#: account/templates/account/items/pages/create-update.html:76
+#: account/templates/account/items/pages/create-update.html:86
+#: account/templates/account/items/pages/create-update.html:96
+#: account/templates/account/news/pages/create-update.html:119
+#: account/templates/account/news/pages/create-update.html:129
+#: account/templates/account/news/pages/create-update.html:139
+#: account/templates/account/products/pages/create-update.html:433
+#: account/templates/account/products/pages/create-update.html:630
+#: account/templates/account/products/pages/create-update.html:641
+#: account/templates/account/products/pages/create-update.html:651
+#: account/templates/account/seller/pages/create-update.html:446
+#: account/templates/account/seller/pages/create-update.html:457
+#: account/templates/account/seller/pages/create-update.html:467
+msgid "Optional"
+msgstr "Opzionale"
+
+#: account/templates/account/discount/pages/list.html:7
+msgid "Discounts"
+msgstr "Sconti"
+
+#: account/templates/account/discount/pages/list.html:18
+#: account/templates/account/sections/sidebar.html:192
+msgid "Add request"
+msgstr "Aggiungi richiesta"
+
+#: account/templates/account/discount/pages/list.html:27
+msgid "Wholesale value"
+msgstr "Valore all'ingrosso"
+
+#: account/templates/account/discount/pages/list.html:28
+msgid "Retail value"
+msgstr "Valore al dettaglio"
+
+#: account/templates/account/discount/pages/list.html:29
+msgid "created at"
+msgstr "creato a"
+
+#: account/templates/account/discount/pages/list.html:87
+#: account/templates/account/messages/pages/list.html:75
+#: account/templates/account/news/pages/list.html:91
+#: account/templates/account/newsletter/pages/list.html:61
+#: account/templates/account/newsletter/subscribers/pages/list.html:57
+#: account/templates/account/products/category/pages/list.html:84
+#: account/templates/account/products/pages/list.html:145
+#: account/templates/account/seller/pages/list.html:77
+msgid "Previous"
+msgstr "Precedente"
+
+#: account/templates/account/discount/pages/list.html:111
+#: account/templates/account/messages/pages/list.html:99
+#: account/templates/account/news/pages/list.html:115
+#: account/templates/account/newsletter/pages/list.html:85
+#: account/templates/account/newsletter/subscribers/pages/list.html:81
+#: account/templates/account/products/category/pages/list.html:115
+#: account/templates/account/products/pages/list.html:177
+#: account/templates/account/seller/pages/list.html:101
+msgid "Next"
+msgstr "Prossimo"
+
+#: account/templates/account/discount/show/pages/create-update.html:26
+#: account/templates/account/products/show/pages/create-update.html:26
+msgid "Add New Status"
+msgstr "Aggiungi nuovo stato"
+
+#: account/templates/account/discount/show/pages/create-update.html:36
+msgid "Show Discount?"
+msgstr "Mostra sconto?"
+
+#: account/templates/account/discount/show/pages/create-update.html:51
+#: account/templates/account/discount/show/pages/list.html:29
+#: account/templates/account/products/pages/list.html:80
+#: account/templates/account/products/show/pages/create-update.html:60
+#: account/templates/account/products/show/pages/list.html:30
+msgid "Brand"
+msgstr "Marca"
+
+#: account/templates/account/discount/show/pages/list.html:6
+#: account/templates/account/items/pages/list.html:6
+#: account/templates/account/items/pages/main-list.html:6
+#: account/templates/account/products/price/pages/main-list.html:6
+#: account/templates/account/products/show/pages/list.html:6
+#: account/templates/account/store_agent/pages/list.html:6
+msgid "Items"
+msgstr "Elementi"
+
+#: account/templates/account/discount/show/pages/list.html:17
+#: account/templates/account/products/show/pages/list.html:17
+msgid "Add Status"
+msgstr "Aggiungi stato"
+
+#: account/templates/account/discount/show/pages/list.html:27
+msgid "Discount status"
+msgstr "Stato dello sconto"
+
+#: account/templates/account/discount/show/pages/list.html:42
+#: account/templates/account/products/show/pages/list.html:43
+#: account/templates/account/products/show/pages/list.html:54
+msgid "Show"
+msgstr "Spettacolo"
+
+#: account/templates/account/discount/show/pages/list.html:46
+#: account/templates/account/products/show/pages/list.html:47
+#: account/templates/account/products/show/pages/list.html:58
+msgid "Hide"
+msgstr "Nascondere"
+
+#: account/templates/account/items/pages/main-list.html:19
+#: account/templates/account/products/price/pages/main-list.html:19
+msgid "Add item"
+msgstr "Aggiungi articolo"
+
+#: account/templates/account/items/pages/main-list.html:23
+msgid "Add Main slider"
+msgstr "Aggiungi cursore principale"
+
+#: account/templates/account/items/pages/main-list.html:25
+msgid "Add Brands slider"
+msgstr "Aggiungi il cursore dei marchi"
+
+#: account/templates/account/items/pages/main-list.html:27
+msgid "Add Main category"
+msgstr "Aggiungi categoria principale"
+
+#: account/templates/account/items/pages/main-list.html:29
+msgid "Add Social media"
+msgstr "Aggiungi social media"
+
+#: account/templates/account/items/pages/main-list.html:31
+msgid "Add Page"
+msgstr "Aggiungi pagina"
+
+#: account/templates/account/items/pages/main-list.html:33
+msgid "Add Work with us"
+msgstr "Aggiungi Lavora con noi"
+
+#: account/templates/account/items/pages/main-list.html:35
+msgid "Add Special services"
+msgstr "Aggiungi servizi speciali"
+
+#: account/templates/account/items/pages/main-list.html:37
+msgid "Add Store and agent"
+msgstr "Aggiungi negozio e agente"
+
+#: account/templates/account/items/pages/main-list.html:39
+msgid "Add Size guide"
+msgstr "Aggiungi guida alle taglie"
+
+#: account/templates/account/items/pages/main-list.html:50
+msgid "Main slider"
+msgstr "Cursore principale"
+
+#: account/templates/account/items/pages/main-list.html:61
+#: account/templates/account/items/pages/main-list.html:91
+#: account/templates/account/items/pages/main-list.html:121
+#: account/templates/account/items/pages/main-list.html:151
+#: account/templates/account/items/pages/main-list.html:181
+#: account/templates/account/items/pages/main-list.html:211
+#: account/templates/account/items/pages/main-list.html:241
+#: account/templates/account/items/pages/main-list.html:271
+#: account/templates/account/items/pages/main-list.html:301
+#: account/templates/account/products/price/pages/main-list.html:50
+#: account/templates/account/products/price/pages/main-list.html:80
+#: account/templates/account/products/price/pages/main-list.html:141
+#: account/templates/account/products/price/pages/main-list.html:165
+#: account/templates/account/sections/header-mo.html:45
+#: account/templates/account/sections/header-mo.html:66
+#: account/templates/account/sections/header-mo.html:99
+#: account/templates/account/sections/header-mo.html:121
+#: account/templates/account/sections/header-mo.html:142
+#: account/templates/account/sections/header-mo.html:168
+#: account/templates/account/sections/sidebar.html:57
+#: account/templates/account/sections/sidebar.html:78
+#: account/templates/account/sections/sidebar.html:111
+#: account/templates/account/sections/sidebar.html:133
+#: account/templates/account/sections/sidebar.html:154
+#: account/templates/account/sections/sidebar.html:186
+#: account/templates/account/sections/sidebar.html:211
+#: account/templates/account/sections/sidebar.html:233
+msgid "List"
+msgstr "Elenco"
+
+#: account/templates/account/items/pages/main-list.html:80
+msgid "Brands slider"
+msgstr "Dispositivo di scorrimento dei marchi"
+
+#: account/templates/account/items/pages/main-list.html:110
+msgid "Main categories (First page category images)"
+msgstr "Categorie principali (Immagini della categoria della prima pagina)"
+
+#: account/templates/account/items/pages/main-list.html:140
+msgid "Social media"
+msgstr "Social media"
+
+#: account/templates/account/items/pages/main-list.html:170
+msgid "Work with us"
+msgstr "Lavora con noi"
+
+#: account/templates/account/items/pages/main-list.html:200
+msgid "Special services"
+msgstr "Servizi speciali"
+
+#: account/templates/account/items/pages/main-list.html:230
+msgid "Store and agent"
+msgstr "Negozio e agente"
+
+#: account/templates/account/items/pages/main-list.html:260
+#: account/templates/account/products/pages/create-update.html:136
+#: account/templates/account/products/pages/create-update.html:158
+msgid "Size guide"
+msgstr "Guida alle taglie"
+
+#: account/templates/account/items/pages/main-list.html:290
+msgid "Pages"
+msgstr "Pagine"
+
+#: account/templates/account/messages/pages/detail.html:7
+#: account/templates/account/seller/pages/detail.html:7
+msgid "Detail"
+msgstr "Dettaglio"
+
+#: account/templates/account/messages/pages/list.html:7
+#: account/templates/account/newsletter/subscribers/pages/list.html:7
+msgid "Newsletter subscribers"
+msgstr "Iscritti alla Newsletter"
+
+#: account/templates/account/messages/pages/list.html:19
+#: account/templates/account/newsletter/pages/list.html:18
+msgid "Add Message"
+msgstr "Aggiungi un messaggio"
+
+#: account/templates/account/messages/pages/list.html:30
+#: account/templates/account/newsletter/pages/list.html:28
+msgid "Subject"
+msgstr "Materia"
+
+#: account/templates/account/news/category/pages/create-update.html:25
+#: account/templates/account/products/category/pages/create-update.html:25
+msgid "Add New Category"
+msgstr "Aggiungi nuova categoria"
+
+#: account/templates/account/news/category/pages/create-update.html:40
+#: account/templates/account/products/category/pages/create-update.html:59
+msgid "Image (optional)"
+msgstr "Immagine (opzionale)"
+
+#: account/templates/account/news/category/pages/create-update.html:46
+#: account/templates/account/products/category/pages/create-update.html:65
+msgid "Icon (optional)"
+msgstr "Icona (opzionale)"
+
+#: account/templates/account/news/category/pages/create-update.html:52
+#: account/templates/account/products/category/pages/create-update.html:71
+msgid "Active / Inactive"
+msgstr "Attivo / Inattivo"
+
+#: account/templates/account/news/category/pages/list.html:7
+#: account/templates/account/products/category/pages/list.html:7
+#: account/templates/account/sections/header-mo.html:114
+#: account/templates/account/sections/sidebar.html:126
+#: account/templates/account/sections/sidebar.html:226
+msgid "Categories"
+msgstr "Categorie"
+
+#: account/templates/account/news/category/pages/list.html:22
+#: account/templates/account/products/category/pages/list.html:22
+msgid "Add Category"
+msgstr "Aggiungi categoria"
+
+#: account/templates/account/news/pages/create-update.html:7
+msgid "Create news"
+msgstr "Crea notizie"
+
+#: account/templates/account/news/pages/create-update.html:27
+msgid "Add New News"
+msgstr "Aggiungi nuove notizie"
+
+#: account/templates/account/news/pages/create-update.html:42
+msgid "News content"
+msgstr "Contenuti delle notizie"
+
+#: account/templates/account/news/pages/create-update.html:52
+msgid "Tag"
+msgstr "Etichetta"
+
+#: account/templates/account/news/pages/create-update.html:82
+msgid "Author"
+msgstr "Autore"
+
+#: account/templates/account/news/pages/list.html:7
+#: account/templates/account/pages/index.html:111
+#: account/templates/account/pages/index.html:156
+#: account/templates/account/sections/header-mo.html:161
+#: account/templates/account/sections/sidebar.html:204
+msgid "News"
+msgstr "Notizia"
+
+#: account/templates/account/news/pages/list.html:18
+#: account/templates/account/pages/index.html:30
+msgid "Add News"
+msgstr "Aggiungi notizie"
+
+#: account/templates/account/newsletter/pages/list.html:7
+msgid "Newsletter messages"
+msgstr "Messaggi della newsletter"
+
+#: account/templates/account/newsletter/subscribers/pages/list.html:22
+#: account/templates/account/seller/pages/list.html:30
+msgid "Email"
+msgstr "E-mail"
+
+#: account/templates/account/newsletter/subscribers/pages/list.html:23
+#: account/templates/account/seller/pages/detail.html:33
+msgid "Full name"
+msgstr "Nome e cognome"
+
+#: account/templates/account/pages/change_password.html:5
+#: account/templates/account/pages/change_password.html:20
+msgid "Change password"
+msgstr "Cambiare la password"
+
+#: account/templates/account/pages/change_password.html:36
+msgid "Change"
+msgstr "Modificare"
+
+#: account/templates/account/pages/index.html:5
+msgid "account | operstyle"
+msgstr "conto | operstyle"
+
+#: account/templates/account/pages/index.html:16
+msgid "overview"
+msgstr "panoramica"
+
+#: account/templates/account/pages/index.html:21
+msgid "add item"
+msgstr "Aggiungi articolo"
+
+#: account/templates/account/pages/index.html:26
+msgid "Add product"
+msgstr "Aggiungi prodotto"
+
+#: account/templates/account/pages/index.html:48
+#: account/templates/account/sections/header-mo.html:32
+#: account/templates/account/sections/sidebar.html:44
+msgid "Manage site"
+msgstr "Gestisci sito"
+
+#: account/templates/account/pages/index.html:57
+#: account/templates/account/sections/header-de.html:72
+msgid "Account"
+msgstr "Account"
+
+#: account/templates/account/pages/index.html:75
+#: account/templates/account/sections/header-mo.html:38
+#: account/templates/account/sections/sidebar.html:50
+#: account/templates/account/seller/pages/list.html:7
+msgid "Suppliers"
+msgstr "Fornitori"
+
+#: account/templates/account/pages/index.html:84
+#: account/templates/account/pages/index.html:102
+#: account/templates/account/products/pages/list.html:7
+#: account/templates/account/sections/header-de.html:84
+#: account/templates/account/sections/header-mo.html:92
+#: account/templates/account/sections/sidebar.html:104
+#: account/templates/account/seller/pages/create-update.html:342
+#: account/templates/account/seller/pages/detail.html:129
+msgid "Products"
+msgstr "Prodotti"
+
+#: account/templates/account/pages/index.html:129
+#: account/templates/account/sections/header-mo.html:59
+#: account/templates/account/sections/sidebar.html:71
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: account/templates/account/pages/index.html:138
+#: account/templates/account/products/pages/create-update.html:311
+#: account/templates/account/products/price/pages/main-list.html:39
+#: account/templates/account/sections/sidebar.html:179
+msgid "Discount"
+msgstr "Sconto"
+
+#: account/templates/account/pages/index.html:165
+#: account/templates/account/sections/header-mo.html:135
+#: account/templates/account/sections/sidebar.html:147
+msgid "Messages"
+msgstr "Messaggi"
+
+#: account/templates/account/pages/login.html:14
+#: account/templates/account/pages/login.html:66
+#: account/templates/account/pages/login.html:96
+msgid "Login"
+msgstr "Login"
+
+#: account/templates/account/pages/login.html:66
+msgid "to your account"
+msgstr "al tuo account"
+
+#: account/templates/account/pages/login.html:73
+msgid "Email or Username"
+msgstr "Email o nome utente"
+
+#: account/templates/account/pages/login.html:99
+msgid "Cancel"
+msgstr "Annulla"
+
+#: account/templates/account/products/category/pages/create-update.html:35
+msgid "Category Parent (optional)"
+msgstr "Categoria Genitore (opzionale)"
+
+#: account/templates/account/products/category/pages/create-update.html:41
+msgid "Title [en]"
+msgstr "Titolo [en]"
+
+#: account/templates/account/products/category/pages/create-update.html:47
+msgid "Title [ru]"
+msgstr "Titolo [ru]"
+
+#: account/templates/account/products/category/pages/create-update.html:53
+msgid "Title [it]"
+msgstr "Titolo [it]"
+
+#: account/templates/account/products/category/pages/create-update.html:109
+#: account/templates/account/products/show/pages/create-update.html:95
+msgid "Warning"
+msgstr "Avvertimento"
+
+#: account/templates/account/products/category/pages/create-update.html:118
+#: account/templates/account/products/show/pages/create-update.html:104
+msgid ""
+"If you enable this category, all the parent of this category will also be "
+"enabled"
+msgstr "Se abiliti questa categoria, verranno abilitati anche tutti i genitori di questa categoria"
+
+#: account/templates/account/products/category/pages/create-update.html:121
+#: account/templates/account/products/show/pages/create-update.html:107
+msgid "Do you want to update anyway?"
+msgstr "Vuoi aggiornare comunque?"
+
+#: account/templates/account/products/category/pages/list.html:29
+msgid "Search for categories"
+msgstr "Cerca per categorie"
+
+#: account/templates/account/products/category/pages/list.html:33
+msgid "Search"
+msgstr "Ricerca"
+
+#: account/templates/account/products/pages/create-update.html:40
+msgid "Add New Product"
+msgstr "Aggiungi nuovo prodotto"
+
+#: account/templates/account/products/pages/create-update.html:51
+msgid "Product Supplier"
+msgstr "Fornitore del prodotto"
+
+#: account/templates/account/products/pages/create-update.html:63
+msgid "Main Information"
+msgstr "Informazione principale"
+
+#: account/templates/account/products/pages/create-update.html:68
+msgid "Product Category"
+msgstr "categoria di prodotto"
+
+#: account/templates/account/products/pages/create-update.html:75
+msgid "Select product category"
+msgstr "Seleziona la categoria del prodotto"
+
+#: account/templates/account/products/pages/create-update.html:89
+msgid "Product Model"
+msgstr "Modello di prodotto"
+
+#: account/templates/account/products/pages/create-update.html:100
+msgid "Product Code"
+msgstr "Codice prodotto"
+
+#: account/templates/account/products/pages/create-update.html:103
+#: account/templates/account/products/pages/create-update.html:234
+msgid "This is a test text"
+msgstr "Questo è un testo di prova"
+
+#: account/templates/account/products/pages/create-update.html:116
+msgid "Product Material"
+msgstr "Materiale del prodotto"
+
+#: account/templates/account/products/pages/create-update.html:128
+msgid "Product Size"
+msgstr "Taglia del prodotto"
+
+#: account/templates/account/products/pages/create-update.html:142
+msgid "Add new"
+msgstr "Aggiungere nuova"
+
+#: account/templates/account/products/pages/create-update.html:154
+msgid "More Size information"
+msgstr "Maggiori informazioni sulla taglia"
+
+#: account/templates/account/products/pages/create-update.html:168
+msgid "Description"
+msgstr "Descrizione"
+
+#: account/templates/account/products/pages/create-update.html:179
+msgid "Details"
+msgstr "Particolari"
+
+#: account/templates/account/products/pages/create-update.html:185
+msgid "Shoe heel (Just for shoe)"
+msgstr "Tacco della scarpa (Solo per la scarpa)"
+
+#: account/templates/account/products/pages/create-update.html:197
+msgid "Shoe sole (Just for shoe)"
+msgstr "Suola della scarpa (solo per la scarpa)"
+
+#: account/templates/account/products/pages/create-update.html:208
+msgid "Product Weight"
+msgstr "Peso del prodotto"
+
+#: account/templates/account/products/pages/create-update.html:220
+#: account/templates/account/products/pages/preview.html:161
+msgid "Dimensions"
+msgstr "Dimensioni"
+
+#: account/templates/account/products/pages/create-update.html:231
+#: account/templates/account/products/pages/preview.html:192
+msgid "Care information"
+msgstr "Informazioni sulla cura"
+
+#: account/templates/account/products/pages/create-update.html:247
+msgid "Care & Fabric"
+msgstr "Cura e tessuto"
+
+#: account/templates/account/products/pages/create-update.html:258
+#: account/templates/account/products/pages/preview.html:198
+msgid "Finer detail"
+msgstr "Dettagli più fini"
+
+#: account/templates/account/products/pages/create-update.html:269
+msgid "Product Tag"
+msgstr "Etichetta del prodotto"
+
+#: account/templates/account/products/pages/create-update.html:281
+msgid "Price"
+msgstr "Prezzo"
+
+#: account/templates/account/products/pages/create-update.html:287
+msgid "Currency"
+msgstr "Moneta"
+
+#: account/templates/account/products/pages/create-update.html:295
+msgid "Please select currency"
+msgstr "Seleziona la valuta"
+
+#: account/templates/account/products/pages/create-update.html:300
+msgid "EXW Price"
+msgstr "Prezzo EXW"
+
+#: account/templates/account/products/pages/create-update.html:320
+msgid "Please enter number between 0 and 100"
+msgstr "Si prega di inserire un numero compreso tra 0 e 100"
+
+#: account/templates/account/products/pages/create-update.html:337
+msgid "Show \"discount\" of this product?"
+msgstr "Mostra \"sconto\" di questo prodotto?"
+
+#: account/templates/account/products/pages/create-update.html:352
+#: account/templates/account/products/pages/preview.html:117
+#: account/templates/account/products/show/pages/list.html:28
+msgid "Wholesale price"
+msgstr "Prezzo all'ingrosso"
+
+#: account/templates/account/products/pages/create-update.html:363
+#: account/templates/account/products/pages/preview.html:108
+#: account/templates/account/products/show/pages/list.html:27
+msgid "Retail price"
+msgstr "Prezzo al dettaglio"
+
+#: account/templates/account/products/pages/create-update.html:379
+msgid "Show \"retail\" price of this product?"
+msgstr "Mostrare il prezzo \"al dettaglio\" di questo prodotto?"
+
+#: account/templates/account/products/pages/create-update.html:393
+msgid "Show \"wholesale\" price of this product?"
+msgstr "Mostra il prezzo \"all'ingrosso\" di questo prodotto?"
+
+#: account/templates/account/products/pages/create-update.html:408
+msgid "Images"
+msgstr "immagini"
+
+#: account/templates/account/products/pages/create-update.html:414
+msgid "Main Image"
+msgstr "Immagine principale"
+
+#: account/templates/account/products/pages/create-update.html:433
+msgid "More images"
+msgstr "Altre immagini"
+
+#: account/templates/account/products/pages/create-update.html:451
+#: account/templates/account/products/pages/create-update.html:708
+msgid "Upload image"
+msgstr "Carica immagine"
+
+#: account/templates/account/products/pages/create-update.html:473
+msgid "Type"
+msgstr "Tipo"
+
+#: account/templates/account/products/pages/list.html:31
+msgid "Add Product"
+msgstr "Aggiungi prodotto"
+
+#: account/templates/account/products/pages/list.html:38
+#: account/templates/account/products/pages/list.html:44
+msgid "Status filter"
+msgstr "Filtro di stato"
+
+#: account/templates/account/products/pages/list.html:53
+msgid "Brands filter"
+msgstr "Filtro marche"
+
+#: account/templates/account/products/pages/list.html:59
+msgid "Brand filter"
+msgstr "Filtro marca"
+
+#: account/templates/account/products/pages/list.html:68
+msgid "Category filter"
+msgstr "Filtro per categoria"
+
+#: account/templates/account/products/pages/list.html:78
+msgid "Code"
+msgstr "Codice"
+
+#: account/templates/account/products/pages/list.html:79
+msgid "Created at"
+msgstr "Creato a"
+
+#: account/templates/account/products/pages/preview.html:75
+#: account/templates/account/seller/pages/create-update.html:250
+#: account/templates/account/seller/pages/detail.html:86
+#: account/templates/account/seller/pages/list.html:31
+msgid "Brand name"
+msgstr "Marchio"
+
+#: account/templates/account/products/pages/preview.html:82
+msgid "Save"
+msgstr "Salva"
+
+#: account/templates/account/products/pages/preview.html:91
+msgid "Add to favorite"
+msgstr "Aggiungi ai favoriti"
+
+#: account/templates/account/products/pages/preview.html:99
+msgid "code"
+msgstr "codice"
+
+#: account/templates/account/products/pages/preview.html:127
+msgid "More detail"
+msgstr "Più dettaglio"
+
+#: account/templates/account/products/pages/preview.html:132
+msgid "Material"
+msgstr "Materiale"
+
+#: account/templates/account/products/pages/preview.html:135
+msgid "Heel"
+msgstr "Tacco"
+
+#: account/templates/account/products/pages/preview.html:137
+msgid "Sole"
+msgstr "Suola"
+
+#: account/templates/account/products/pages/preview.html:140
+msgid "Weight"
+msgstr "Peso"
+
+#: account/templates/account/products/pages/preview.html:147
+msgid "Size and Dimensions"
+msgstr "Dimensioni e dimensioni"
+
+#: account/templates/account/products/pages/preview.html:154
+msgid "Available sizes"
+msgstr "Taglie disponibili"
+
+#: account/templates/account/products/pages/preview.html:168
+msgid "Size more information"
+msgstr "Dimensioni maggiori informazioni"
+
+#: account/templates/account/products/pages/preview.html:179
+#: account/templates/account/products/pages/preview.html:186
+msgid "Care and Fabric"
+msgstr "Cura e tessuto"
+
+#: account/templates/account/products/pages/preview.html:207
+msgid "Contact us by WhatsApp"
+msgstr "Contattaci tramite WhatsApp"
+
+#: account/templates/account/products/pages/preview.html:210
+msgid "Wholesale enquiries"
+msgstr "Richieste all'ingrosso"
+
+#: account/templates/account/products/pages/preview.html:216
+msgid "Related products"
+msgstr "Prodotti correlati"
+
+#: account/templates/account/products/pages/preview.html:242
+msgid "Read more ..."
+msgstr "Per saperne di più ..."
+
+#: account/templates/account/products/pages/preview.html:254
+msgid "There are currently no related products"
+msgstr "Al momento non ci sono prodotti correlati"
+
+#: account/templates/account/products/percent/pages/list.html:7
+msgid "Product price percent"
+msgstr "Percentuale del prezzo del prodotto"
+
+#: account/templates/account/products/percent/pages/list.html:25
+msgid "value"
+msgstr "valore"
+
+#: account/templates/account/products/percent/pages/list.html:26
+msgid "slug"
+msgstr "lumaca"
+
+#: account/templates/account/products/price/pages/main-list.html:23
+msgid "Add Discount"
+msgstr "Aggiungi sconto"
+
+#: account/templates/account/products/price/pages/main-list.html:25
+msgid "Add Product increase"
+msgstr "Aggiungi aumento prodotto"
+
+#: account/templates/account/products/price/pages/main-list.html:27
+msgid "Add Show/Hide price"
+msgstr "Aggiungi Mostra/Nascondi prezzo"
+
+#: account/templates/account/products/price/pages/main-list.html:69
+msgid "Show/Hide discount"
+msgstr "Mostra/Nascondi sconto"
+
+#: account/templates/account/products/price/pages/main-list.html:99
+msgid "Price increase"
+msgstr "Aumento di prezzo"
+
+#: account/templates/account/products/price/pages/main-list.html:111
+#: account/templates/account/products/price/pages/main-list.html:117
+msgid "Soon"
+msgstr "Presto"
+
+#: account/templates/account/products/price/pages/main-list.html:130
+msgid "Price percentage"
+msgstr "Percentuale di prezzo"
+
+#: account/templates/account/products/price/pages/main-list.html:154
+msgid "Show/Hide price"
+msgstr "Mostra/Nascondi prezzo"
+
+#: account/templates/account/products/show/pages/create-update.html:36
+msgid "Show retail price?"
+msgstr "Mostra il prezzo al dettaglio?"
+
+#: account/templates/account/products/show/pages/create-update.html:45
+msgid "Show wholesale price?"
+msgstr "Mostra il prezzo all'ingrosso?"
+
+#: account/templates/account/sections/header-de.html:26
+msgid "See more"
+msgstr "Vedi altro"
+
+#: account/templates/account/sections/header-de.html:28
+msgid "ago"
+msgstr "fa"
+
+#: account/templates/account/sections/header-de.html:31
+msgid "Read"
+msgstr "Leggi"
+
+#: account/templates/account/sections/header-de.html:36
+msgid "You don't have any message"
+msgstr "Non hai nessun messaggio"
+
+#: account/templates/account/sections/header-de.html:39
+msgid "View all messages"
+msgstr "Visualizza tutti i messaggi"
+
+#: account/templates/account/sections/header-de.html:77
+msgid "Setting"
+msgstr "Collocamento"
+
+#: account/templates/account/sections/header-de.html:91
+#: account/templates/account/sections/header-de.html:108
+#: account/templates/account/sections/header-de.html:118
+msgid "Logout"
+msgstr "Disconnettersi"
+
+#: account/templates/account/sections/header-de.html:114
+msgid "Dou you want to logout ?"
+msgstr "Vuoi uscire?"
+
+#: account/templates/account/sections/header-mo.html:25
+#: account/templates/account/sections/sidebar.html:37
+msgid "Dashboard"
+msgstr "Pannello di controllo"
+
+#: account/templates/account/sections/header-mo.html:78
+#: account/templates/account/sections/sidebar.html:90
+msgid "Subscribers"
+msgstr "Iscritti"
+
+#: account/templates/account/sections/header-mo.html:88
+#: account/templates/account/sections/sidebar.html:100
+msgid "for Suppliers"
+msgstr "per i fornitori"
+
+#: account/templates/account/sections/header-mo.html:158
+#: account/templates/account/sections/sidebar.html:201
+msgid "for authors"
+msgstr "per gli autori"
+
+#: account/templates/account/sections/sidebar.html:172
+msgid "Manage price"
+msgstr "Gestisci il prezzo"
+
+#: account/templates/account/seller/pages/create-update.html:28
+msgid "Add New Supplier"
+msgstr "Aggiungi nuovo fornitore"
+
+#: account/templates/account/seller/pages/create-update.html:41
+msgid "Username"
+msgstr "Nome utente"
+
+#: account/templates/account/seller/pages/create-update.html:63
+msgid "Edit password"
+msgstr "Modifica password"
+
+#: account/templates/account/seller/pages/create-update.html:68
+#: account/templates/account/seller/pages/detail.html:29
+msgid "Directors Information"
+msgstr "Informazioni sugli amministratori"
+
+#: account/templates/account/seller/pages/create-update.html:73
+#: account/templates/account/seller/pages/list.html:28
+msgid "First name"
+msgstr "Nome di battesimo"
+
+#: account/templates/account/seller/pages/create-update.html:85
+#: account/templates/account/seller/pages/list.html:29
+msgid "Last name"
+msgstr "Cognome"
+
+#: account/templates/account/seller/pages/create-update.html:97
+#: account/templates/account/seller/pages/create-update.html:239
+#: account/templates/account/seller/pages/detail.html:37
+#: account/templates/account/seller/pages/detail.html:82
+msgid "Email address"
+msgstr "Indirizzo email"
+
+#: account/templates/account/seller/pages/create-update.html:108
+#: account/templates/account/seller/pages/detail.html:45
+msgid "Phone number"
+msgstr "Numero di telefono"
+
+#: account/templates/account/seller/pages/create-update.html:123
+#: account/templates/account/seller/pages/create-update.html:134
+#: account/templates/account/seller/pages/create-update.html:145
+msgid "About Manager"
+msgstr "Informazioni su Manager"
+
+#: account/templates/account/seller/pages/create-update.html:157
+msgid "Show this supplier in entrepreneurs list?"
+msgstr "Mostra questo fornitore nell'elenco degli imprenditori?"
+
+#: account/templates/account/seller/pages/create-update.html:171
+#: account/templates/account/seller/pages/detail.html:50
+msgid "Photo"
+msgstr "Foto"
+
+#: account/templates/account/seller/pages/create-update.html:193
+#: account/templates/account/seller/pages/detail.html:62
+msgid "Company information"
+msgstr "Informazioni sull'azienda"
+
+#: account/templates/account/seller/pages/create-update.html:198
+#: account/templates/account/seller/pages/detail.html:66
+msgid "Company name"
+msgstr "Nome della ditta"
+
+#: account/templates/account/seller/pages/create-update.html:209
+#: account/templates/account/seller/pages/detail.html:70
+msgid "Country of registration"
+msgstr "Paese di registrazione"
+
+#: account/templates/account/seller/pages/create-update.html:220
+#: account/templates/account/seller/pages/detail.html:74
+msgid "Company Website Address"
+msgstr "Indirizzo del sito web dell'azienda"
+
+#: account/templates/account/seller/pages/create-update.html:230
+#: account/templates/account/seller/pages/detail.html:78
+msgid "Telephone No."
+msgstr "Telefono n."
+
+#: account/templates/account/seller/pages/create-update.html:262
+#: account/templates/account/seller/pages/create-update.html:273
+#: account/templates/account/seller/pages/create-update.html:284
+#: account/templates/account/seller/pages/detail.html:90
+msgid "About brand"
+msgstr "A proposito di marca"
+
+#: account/templates/account/seller/pages/create-update.html:294
+#: account/templates/account/seller/pages/detail.html:94
+#: account/templates/account/seller/pages/detail.html:103
+#: account/templates/account/seller/pages/detail.html:112
+msgid "Brand logo"
+msgstr "Logo del marchio"
+
+#: account/templates/account/seller/pages/create-update.html:318
+msgid "Show this supplier in brands list?"
+msgstr "Mostrare questo fornitore nell'elenco dei marchi?"
+
+#: account/templates/account/seller/pages/create-update.html:331
+#: account/templates/account/seller/pages/detail.html:125
+msgid "Company address"
+msgstr "Indirizzo aziendale"
+
+#: account/templates/account/seller/pages/create-update.html:354
+#: account/templates/account/seller/pages/detail.html:138
+msgid "Branch address"
+msgstr "Indirizzo della filiale"
+
+#: account/templates/account/seller/pages/create-update.html:363
+msgid "Branch Image"
+msgstr "Immagine del ramo"
+
+#: account/templates/account/seller/pages/detail.html:41
+msgid "About"
+msgstr "Di"
+
+#: account/templates/account/seller/pages/detail.html:142
+msgid "Branch image"
+msgstr "Immagine del ramo"
+
+#: account/templates/account/seller/pages/list.html:18
+msgid "Add Supplier"
+msgstr "Aggiungi fornitore"
+
+#: account/templates/account/store_agent/pages/list.html:17
+msgid "Add Store"
+msgstr "Aggiungi negozio"
+
+#: account/templates/account/store_agent/pages/list.html:27
+msgid "Name"
+msgstr "Nome"
+
+#: account/templates/account/store_agent/pages/list.html:28
+msgid "Country"
+msgstr "Nazione"
+
+#: account/templates/account/store_agent/pages/list.html:29
+msgid "Active/Inactive"
+msgstr "Attivo/Inattivo"
+
+#: account/views.py:58 account/views.py:60
+msgid "The username or password entered is incorrect"
+msgstr "Il nome utente o la password inseriti non sono corretti"
+
+#: account/views.py:139
+msgid "Password and Confirm password are different"
+msgstr "La password e la conferma della password sono diverse"
+
+#~ msgid "Sellers"
+#~ msgstr "Venditori"

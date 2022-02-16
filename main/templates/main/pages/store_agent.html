@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+    {% translate 'Store and Agent' %} | PicoStyle
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/jqvmap/jqvmap.min.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="container">
+        <div class="my-5">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h1>
+                        {% translate 'Store and Agent' %}
+                    </h1>
+                    <hr>
+                </div>
+                <div class="col-12 text-center">
+                    <div id="saa" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="saaModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="saaModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="saaBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        {% translate 'Close' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% csrf_token %}
+{% endblock main %}
+
+{% block custom_js %}
+    <script src="{% static 'js/jqvmap/jquery.vmap.js' %}"></script>
+    <script src="{% static 'js/jqvmap/jquery.vmap.world.js' %}"></script>
+    <script>
+        const map = $('#saa').vectorMap({
+            map: 'world_en',
+            color: '#252525',
+            borderColor: 'transparent',
+            backgroundColor: 'transparent',
+            enableZoom: true,
+            showTooltip: true,
+            selectedColor: '#FFA500',
+            hoverColor: null,
+            colors: {
+        {% for store in stores %}
+            {{ store.country_code }}: '#FFA500',
+        {% endfor %}
+        },
+        onRegionClick: function (element, code, region) {
+            let csrf = document.getElementsByName("csrfmiddlewaretoken")[0];
+            var name, description, country, image;
+
+            $.ajax({
+                url: "/en/store-and-agent",
+                type: "post",
+                data: {
+                    data: code,
+                    csrfmiddlewaretoken: csrf.value,
+                },
+                success: function (response) {
+                    document.getElementById("saaBody").innerHTML = "";
+                    {% get_current_language as LANGUAGE_CODE %}
+                    var data = JSON.parse(response)
+                    data.forEach((item) => {
+                        //console.log(item)
+                        {% if LANGUAGE_CODE == "en" %}
+                            name = item.fields.name_en;
+                            description = item.fields.description_en;
+                            country = item.fields.country;
+                        {% elif LANGUAGE_CODE == "ru" %}
+                            name = item.fields.name_ru;
+                            description = item.fields.description_ru;
+                            country = item.fields.country;
+                        {% elif LANGUAGE_CODE == "it" %}
+                            name = item.fields.name_it;
+                            description = item.fields.description_it;
+                            country = item.fields.country;
+                        {% endif %}
+                        image = item.fields.image;
+                        if (name != undefined) {
+                            console.log(name)
+                            let message = document.createElement("div");
+                            let h_name = document.createElement("h6");
+                            h_name.innerText = name;
+                            let h_description = document.createElement("p");
+                            h_description.innerHTML = description;
+                            let h_image = document.createElement("img");
+                            h_image.src = "/media/"+image;
+                            h_image.classList.add("store-img");
+                            h_image.alt = name;
+                            let hr = document.createElement("hr");
+                            message.appendChild(h_name);
+                            message.appendChild(h_description);
+                            message.appendChild(h_image);
+                            message.appendChild(hr);
+
+                            document.getElementById("saaModalLabel").innerText = country;
+                            document.getElementById("saaBody").appendChild(message);
+                            $("#saaModal").modal("show")
+                        }
+                    })
+
+                }
+            })
+        }
+        ,
+        })
+    </script>
+{% endblock custom_js %}

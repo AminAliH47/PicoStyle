@@ -1,0 +1,78 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% if request.resolver_match.url_name == "b_create" %}
+{% translate 'Create brand' %} | {{ site_setting.title }}
+{% else %}
+{% translate 'Update' %} {{ brand.title }} | {{ site_setting.title }}
+{% endif %}
+{% endblock title %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        {% if request.resolver_match.url_name == "b_create" %}
+                        <strong>{% translate 'Add New brand' %}</strong>
+                        {% else %}
+                        <strong>{% translate 'Update' %} {{ brand.title }}</strong>
+                        {% endif %}
+                    </div>
+                    <div class="card-body card-block">
+                        <form method="post" enctype="multipart/form-data" class="row">{% csrf_token %}
+                            <div class="form-group col-12">
+                                <label for="id_title" class=" form-control-label">
+                                    {% translate 'Title' %}</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="form-group col-12">
+                                {{ form.media }}
+                                <label for="id_body" class="d-block form-control-label">
+                                    {% translate 'Brand content' %}</label>
+                                {{ form.body }}
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="id_image" class=" form-control-label">
+                                    {% translate 'Image' %}</label>
+                                {{ form.image }}
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="id_publish" class=" form-control-label">
+                                    {% translate 'Publish' %}</label>
+                                {{ form.publish }}
+                            </div>
+                            <div class="form-group col-md-6 col-12">
+                                <label for="id_active" class=" form-control-label">
+                                    {% translate 'Active' %}</label>
+                                {{ form.active }}
+                            </div>
+                            <div class="col-12">
+                                {% if request.resolver_match.url_name == "b_create" %}
+                                <button class="btn btn-success" type="submit">
+                                    {% translate 'Create' %}</button>
+                                {% else %}
+                                <button class="btn btn-warning" type="submit">
+                                    {% translate 'Update' %}</button>
+                                {% endif %}
+                                <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

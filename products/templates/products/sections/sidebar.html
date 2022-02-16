@@ -1,0 +1,26 @@
+{% load i18n %}
+<!-- Sidebar -->
+<div class="col-md-3 col-12 position-relative hide-mo" style="max-width: 22% !important;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light shadow-sm position-absolute"
+         style="width: 260px; top: 0; bottom: 0; left: 0;">
+        <div class="side-nav-categories">
+            <div class="category-title">
+                <strong> {% translate 'Categories' %} </strong>
+            </div>
+            <ul id="cat">
+                {% for category in categories %}
+                <li>
+                    <a href="{{ category.get_absolute_url }}?page=1"
+                       class="main-category {% if category.slug == cat.slug %}active{% endif %}"
+                       id="{{ category.id }}">
+                        {{ category.title }}
+                    </a>
+                    {% if category.children.get_active_category %}
+                    {% include 'products/partials/category_section.html' %}
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

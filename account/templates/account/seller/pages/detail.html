@@ -1,0 +1,173 @@
+{% extends 'account/base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% translate 'Detail' %} "{{ seller }}" | PicoStyle
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>{{ seller.get_full_name }}</strong>
+                            </div>
+                            <div class="card-body card-block detail">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h1 class="seller-desc font-weight-light"
+                                            style="font-size: 18px; margin-bottom: -12px">
+                                            {% translate 'Directors Information' %}</h1>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="seller-desc">{% translate 'Full name' %}</span>
+                                                <h4>{{ seller.get_full_name }}</h4>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="seller-desc">{% translate 'Email address' %}</span>
+                                                <h4>{{ seller.email }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'About' %}</span>
+                                                <h4>{{ seller.about_manager }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Phone number' %}</span>
+                                                <h4>+{{ seller.phone_number }}</h4>
+                                            </div>
+
+                                            <div class="col-12 mt-3">
+                                                <span class="seller-desc">{% translate 'Photo' %}</span>
+                                                {% if seller.manager_photo %}
+                                                    <img src="{{ seller.manager_photo.url }}"
+                                                         alt="{{ seller.get_full_name }}" class="seller-brand-logo">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+                                        <h1 class="seller-desc font-weight-light mt-4"
+                                            style="font-size: 18px; margin-bottom: -12px">
+                                            {% translate 'Company information' %}</h1>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="seller-desc">{% translate 'Company name' %}</span>
+                                                <h4>{{ seller.company_name }}</h4>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="seller-desc">{% translate 'Country of registration' %}</span>
+                                                <h4>{{ seller.co_country_registered }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Company Website Address' %}</span>
+                                                <h4>{{ seller.co_website_address }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Telephone No.' %}</span>
+                                                <h4>{{ seller.telephone_number }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Email address' %}</span>
+                                                <h4>{{ seller.co_email }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Brand name' %}</span>
+                                                <h4>{{ seller.brand_name }}</h4>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <span class="seller-desc">{% translate 'About brand' %}</span>
+                                                <div>{{ seller.about_brand|safe }}</div>
+                                            </div>
+                                            <div class="col-4 mt-3">
+                                                <span class="seller-desc">{% translate 'Brand logo' %} [en]</span>
+                                                {% if seller.brand_logo_en %}
+                                                    <img src="{{ seller.brand_logo_en.url }}"
+                                                         alt="{{ seller.get_full_name }}" class="seller-brand-logo">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-4 mt-3">
+                                                <span class="seller-desc">{% translate 'Brand logo' %} [ru]</span>
+                                                {% if seller.brand_logo_ru %}
+                                                    <img src="{{ seller.brand_logo_ru.url }}"
+                                                         alt="{{ seller.get_full_name }}" class="seller-brand-logo">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-4 mt-3">
+                                                <span class="seller-desc">{% translate 'Brand logo' %} [it]</span>
+                                                {% if seller.brand_logo_it %}
+                                                    <img src="{{ seller.brand_logo_it.url }}"
+                                                         alt="{{ seller.get_full_name }}" class="seller-brand-logo">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Company address' %}</span>
+                                                <h4>{{ seller.co_address }}</h4>
+                                            </div>
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Products' %}</span>
+                                                {% for product in seller.products_type.all %}
+                                                    <h4 class="badge badge-primary mr-2">{{ product.title }}</h4>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6 mt-3">
+                                                <span class="seller-desc">{% translate 'Branch address' %}</span>
+                                                <h4>{{ seller.branch_address }}</h4>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <span class="seller-desc">{% translate 'Branch image' %}</span>
+                                                {% if seller.branch_image %}
+                                                    <img src="{{ seller.branch_image.url }}"
+                                                         alt="{{ seller.get_full_name }}" class="seller-brand-logo">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                {% if request.user.is_superuser %}
+                                                    <a href="{% url 'account:s_update' pk=seller.pk %}?next={{ request.get_full_path }}"
+                                                       class="btn btn-warning">{% translate 'Edit' %}
+                                                        <i class="fas fa-edit"></i></a>
+                                                {% endif %}
+                                                <a href="javascript:history.back()" class="btn btn-secondary">
+                                                    {% translate 'Back' %}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

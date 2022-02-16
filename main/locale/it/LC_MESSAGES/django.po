@@ -1,0 +1,567 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/forms.py:19 main/templates/main/pages/become_retailer.html:97
+msgid "First name"
+msgstr "nome di battesimo"
+
+#: main/forms.py:22 main/templates/main/pages/become_retailer.html:107
+msgid "Last name"
+msgstr "Cognome"
+
+#: main/forms.py:25 main/templates/main/pages/become_retailer.html:117
+msgid "Address"
+msgstr "Indirizzo"
+
+#: main/forms.py:28 main/templates/main/pages/become_retailer.html:127
+msgid "City"
+msgstr "Città"
+
+#: main/forms.py:31 main/templates/main/pages/become_retailer.html:137
+msgid "Country"
+msgstr "Nazione"
+
+#: main/forms.py:34 main/templates/main/pages/become_retailer.html:147
+msgid "Email"
+msgstr "E-mail"
+
+#: main/forms.py:37
+msgid "Phone number"
+msgstr "Numero di telefono"
+
+#: main/forms.py:40 main/templates/main/pages/become_retailer.html:167
+msgid "Zip code"
+msgstr "Cap"
+
+#: main/forms.py:59 main/templates/main/pages/become_retailer.html:198
+msgid "For how long?"
+msgstr "Per quanto?"
+
+#: main/forms.py:63
+msgid "Most recent professional experience"
+msgstr "Esperienza professionale più recente"
+
+#: main/forms.py:66
+msgid "Experience in luxury goods"
+msgstr "Esperienza in beni di lusso"
+
+#: main/forms.py:69
+msgid "Which town/city would you like to open a store"
+msgstr "In quale città vorresti aprire un negozio"
+
+#: main/forms.py:82
+msgid "Have previously a member of a franchise or a network?"
+msgstr "Hai già un membro di un franchising o di una rete?"
+
+#: main/forms.py:85
+msgid "Wishing to join our network"
+msgstr "Desiderando entrare a far parte della nostra rete"
+
+#: main/forms.py:88 main/templates/main/pages/become_retailer.html:300
+msgid "What equity do you have available for this project?"
+msgstr "Che capitale hai a disposizione per questo progetto?"
+
+#: main/models.py:40 main/models.py:66 main/models.py:92 main/models.py:106
+#: main/models.py:147
+msgid "Which home page to display?"
+msgstr "Quale home page visualizzare?"
+
+#: main/models.py:41 main/models.py:67 main/models.py:93 main/models.py:107
+#: main/models.py:148
+msgid "Title"
+msgstr "Titolo"
+
+#: main/models.py:44 main/models.py:70 main/models.py:205
+msgid "Description"
+msgstr "Descrizione"
+
+#: main/models.py:45 main/models.py:71
+msgid "Button"
+msgstr "Pulsante"
+
+#: main/models.py:47 main/models.py:73
+msgid "Have dark cover?"
+msgstr "Hai una copertina scura?"
+
+#: main/models.py:202
+msgid "Name"
+msgstr "Nome"
+
+#: main/templates/main/pages/become_retailer.html:89
+msgid "You"
+msgstr "Voi"
+
+#: main/templates/main/pages/become_retailer.html:157
+msgid "Phone"
+msgstr "Telefono"
+
+#: main/templates/main/pages/become_retailer.html:181
+msgid "Your project"
+msgstr "Il tuo progetto"
+
+#: main/templates/main/pages/become_retailer.html:187
+msgid "Do you have any previous experience of managing a store?"
+msgstr "Hai qualche esperienza precedente nella gestione di un negozio?"
+
+#: main/templates/main/pages/become_retailer.html:208
+msgid "How many people did you manage?"
+msgstr "Quante persone hai gestito?"
+
+#: main/templates/main/pages/become_retailer.html:218
+msgid "What is your most recent professional experience?"
+msgstr "Qual è la tua esperienza professionale più recente?"
+
+#: main/templates/main/pages/become_retailer.html:228
+msgid "What experience do you have in the luxury goods sector?"
+msgstr "Che esperienza hai nel settore dei beni di lusso?"
+
+#: main/templates/main/pages/become_retailer.html:238
+msgid "In which town/city would you like to open a store?"
+msgstr "In quale paese/città vorresti aprire un negozio?"
+
+#: main/templates/main/pages/become_retailer.html:249
+msgid "Do you currently have a store in this town/city?"
+msgstr "Hai attualmente un negozio in questa città?"
+
+#: main/templates/main/pages/become_retailer.html:260
+msgid "Is it in the town Centre?"
+msgstr "È in centro città?"
+
+#: main/templates/main/pages/become_retailer.html:270
+msgid "Are you the"
+msgstr "Sei il"
+
+#: main/templates/main/pages/become_retailer.html:280
+msgid "Have you previously been a member of a franchise or a network?"
+msgstr "Sei stato precedentemente membro di un franchising o di una rete?"
+
+#: main/templates/main/pages/become_retailer.html:290
+msgid "What are your reasons for wishing to join our network?"
+msgstr ""
+"Quali sono i motivi per cui desideri entrare a far parte della nostra rete?"
+
+#: main/templates/main/pages/become_retailer.html:314
+msgid "Send"
+msgstr "Spedire"
+
+#: main/templates/main/pages/become_retailer.html:317
+#: main/templates/main/pages/thanks.html:18
+msgid "Back"
+msgstr "Di ritorno"
+
+#: main/templates/main/pages/index.html:42
+msgid "Previous"
+msgstr "Precedente"
+
+#: main/templates/main/pages/index.html:46
+#: main/templates/main/pages/index.html:146
+msgid "Next"
+msgstr "Prossimo"
+
+#: main/templates/main/pages/index.html:57
+msgid "Categories"
+msgstr "Categorie"
+
+#: main/templates/main/pages/index.html:59
+msgid "Discover our product in categories"
+msgstr "Scopri il nostro prodotto nelle categorie"
+
+#: main/templates/main/pages/index.html:73
+#: main/templates/main/pages/size_guide/main.html:33
+msgid "Discover Now"
+msgstr "Scopri ora"
+
+#: main/templates/main/pages/index.html:80
+msgid "There are no category to display "
+msgstr "Non ci sono categorie da visualizzare "
+
+#: main/templates/main/pages/index.html:99
+msgid "Brands story"
+msgstr "Storia dei marchi"
+
+#: main/templates/main/pages/index.html:101
+msgid "Discover the brands"
+msgstr "Scopri i marchi"
+
+#: main/templates/main/pages/index.html:166
+msgid "Cooperate with us"
+msgstr "Collabora con noi"
+
+#: main/templates/main/pages/index.html:169
+msgid "What we are proud of"
+msgstr "Di cosa siamo orgogliosi"
+
+#: main/templates/main/pages/index.html:183
+#: main/templates/main/pages/work_with_us.html:6
+#: main/templates/main/pages/work_with_us.html:15
+msgid "Work with us"
+msgstr "Lavora con noi"
+
+#: main/templates/main/pages/index.html:196
+#: main/templates/main/pages/special_projects.html:6
+#: main/templates/main/pages/special_projects.html:15
+msgid "Special services"
+msgstr "Servizi speciali"
+
+#: main/templates/main/pages/index.html:216
+#: main/templates/main/pages/index.html:231
+#: main/templates/main/pages/store_agent.html:7
+#: main/templates/main/pages/store_agent.html:20
+msgid "Store and Agent"
+msgstr "Negozio e Agente"
+
+#: main/templates/main/pages/index.html:218
+msgid "Discover our branches"
+msgstr "Scopri le nostre filiali"
+
+#: main/templates/main/pages/index.html:251
+msgid "Subscribe"
+msgstr "sottoscrivi"
+
+#: main/templates/main/pages/index.html:253
+msgid "Enter email address"
+msgstr "Inserisci l'indirizzo email"
+
+#: main/templates/main/pages/index.html:255
+msgid "Enter name"
+msgstr "Inserisci il nome"
+
+#: main/templates/main/pages/index.html:263
+msgid "Women"
+msgstr "Donne"
+
+#: main/templates/main/pages/index.html:270
+msgid "Men"
+msgstr "Uomini"
+
+#: main/templates/main/pages/index.html:277
+msgid "Raw material"
+msgstr "Materia prima"
+
+#: main/templates/main/pages/index.html:284
+msgid "Life style"
+msgstr "Stile di vita"
+
+#: main/templates/main/pages/index.html:289
+msgid "Submit"
+msgstr "Invia"
+
+#: main/templates/main/pages/index.html:294
+msgid "Join to our Newsletters"
+msgstr "Iscriviti alla nostra Newsletter"
+
+#: main/templates/main/pages/size_guide/main.html:6
+#: main/templates/main/pages/size_guide/main.html:15
+#: main/templates/main/pages/size_guide/men.html:7
+#: main/templates/main/pages/size_guide/women.html:7
+#: main/templates/main/sections/footer.html:30
+msgid "Size guide"
+msgstr "Guida alle taglie"
+
+#: main/templates/main/pages/size_guide/men.html:7
+#: main/templates/main/pages/size_guide/women.html:7
+msgid "women"
+msgstr "donne"
+
+#: main/templates/main/pages/size_guide/men.html:20
+#: main/templates/main/pages/size_guide/women.html:20
+msgid "Shoes"
+msgstr "Scarpe"
+
+#: main/templates/main/pages/size_guide/men.html:24
+#: main/templates/main/pages/size_guide/women.html:24
+msgid "Clothing"
+msgstr "Vestiario"
+
+#: main/templates/main/pages/size_guide/men.html:29
+#: main/templates/main/pages/size_guide/women.html:29
+msgid "Accessories"
+msgstr "Accessori"
+
+#: main/templates/main/pages/size_guide/men.html:40
+#: main/templates/main/pages/size_guide/women.html:46
+msgid "The shoe size systems are very different depending on the country."
+msgstr "I sistemi di misura delle scarpe sono molto diversi a seconda del paese."
+
+#: main/templates/main/pages/size_guide/men.html:49
+#: main/templates/main/pages/size_guide/women.html:55
+msgid "Foot Length"
+msgstr "Lunghezza del piede"
+
+#: main/templates/main/pages/size_guide/men.html:166
+msgid "Pullovers, T-shirts, Tops, Sweatshirts, Shirts, Jackets & Coats"
+msgstr "Pullover, t-shirt, top, felpe, camicie, giacche e cappotti"
+
+#: main/templates/main/pages/size_guide/men.html:185
+#: main/templates/main/pages/size_guide/men.html:290
+#: main/templates/main/pages/size_guide/men.html:466
+#: main/templates/main/pages/size_guide/men.html:580
+#: main/templates/main/pages/size_guide/women.html:204
+#: main/templates/main/pages/size_guide/women.html:297
+#: main/templates/main/pages/size_guide/women.html:473
+#: main/templates/main/pages/size_guide/women.html:587
+msgid "Clothing size"
+msgstr "Taglia"
+
+#: main/templates/main/pages/size_guide/men.html:206
+msgid "Neck (in cm.)"
+msgstr "Collo (in cm.)"
+
+#: main/templates/main/pages/size_guide/men.html:227
+msgid "Chest"
+msgstr "Il petto"
+
+#: main/templates/main/pages/size_guide/men.html:248
+msgid "Waist"
+msgstr "Vita"
+
+#: main/templates/main/pages/size_guide/men.html:272
+#: main/templates/main/pages/size_guide/women.html:279
+msgid "Trousers, Jeans, Shorts, Skirts"
+msgstr "Pantaloni, Jeans, Shorts, Gonne"
+
+#: main/templates/main/pages/size_guide/men.html:308
+#: main/templates/main/pages/size_guide/men.html:502
+#: main/templates/main/pages/size_guide/women.html:240
+#: main/templates/main/pages/size_guide/women.html:315
+#: main/templates/main/pages/size_guide/women.html:509
+msgid "Waist (in cm.)"
+msgstr "Vita (in cm.)"
+
+#: main/templates/main/pages/size_guide/men.html:326
+#: main/templates/main/pages/size_guide/men.html:520
+#: main/templates/main/pages/size_guide/women.html:258
+#: main/templates/main/pages/size_guide/women.html:333
+#: main/templates/main/pages/size_guide/women.html:527
+msgid "Hips (in cm.)"
+msgstr "Fianchi (in cm.)"
+
+#: main/templates/main/pages/size_guide/men.html:347
+#: main/templates/main/pages/size_guide/women.html:354
+msgid "Bras, Lingerie Tops & Swimwear"
+msgstr "Reggiseni, top intimo e costumi da bagno"
+
+#: main/templates/main/pages/size_guide/men.html:352
+#: main/templates/main/pages/size_guide/men.html:547
+#: main/templates/main/pages/size_guide/women.html:359
+#: main/templates/main/pages/size_guide/women.html:554
+msgid "Size"
+msgstr "Misurare"
+
+#: main/templates/main/pages/size_guide/men.html:367
+#: main/templates/main/pages/size_guide/women.html:374
+msgid "Underband measurement in cm"
+msgstr "Misura sottobanda in cm"
+
+#: main/templates/main/pages/size_guide/men.html:380
+#: main/templates/main/pages/size_guide/women.html:387
+msgid "Bust measurement in cm"
+msgstr "Misura del busto in cm"
+
+#: main/templates/main/pages/size_guide/men.html:448
+#: main/templates/main/pages/size_guide/women.html:455
+msgid "Pyjamas"
+msgstr "Pigiama"
+
+#: main/templates/main/pages/size_guide/men.html:484
+#: main/templates/main/pages/size_guide/women.html:222
+#: main/templates/main/pages/size_guide/women.html:491
+msgid "Bust (in cm.)"
+msgstr "Busto (in cm.)"
+
+#: main/templates/main/pages/size_guide/men.html:542
+#: main/templates/main/pages/size_guide/women.html:549
+msgid "Beanies and Hats"
+msgstr "Berretti e Cappelli"
+
+#: main/templates/main/pages/size_guide/men.html:548
+#: main/templates/main/pages/size_guide/women.html:555
+msgid "One size"
+msgstr "Taglia unica"
+
+#: main/templates/main/pages/size_guide/men.html:556
+#: main/templates/main/pages/size_guide/women.html:563
+msgid "Head circumference (in cm)"
+msgstr "Circonferenza della testa (in cm)"
+
+#: main/templates/main/pages/size_guide/men.html:564
+#: main/templates/main/pages/size_guide/women.html:571
+msgid "Our beanies are stretchy and adapt to the shape of your head."
+msgstr "I nostri berretti sono elastici e si adattano alla forma della tua testa."
+
+#: main/templates/main/pages/size_guide/men.html:567
+#: main/templates/main/pages/size_guide/women.html:574
+msgid "Gloves"
+msgstr "Guanti"
+
+#: main/templates/main/pages/size_guide/men.html:586
+#: main/templates/main/pages/size_guide/women.html:593
+msgid "Hand size (in cm) "
+msgstr "Dimensione della mano (in cm) "
+
+#: main/templates/main/pages/size_guide/men.html:595
+#: main/templates/main/pages/size_guide/women.html:602
+msgid "Belts"
+msgstr "Cinghie"
+
+#: main/templates/main/pages/size_guide/men.html:610
+#: main/templates/main/pages/size_guide/women.html:617
+msgid "Waist (in cm)"
+msgstr "Vita (in cm)"
+
+#: main/templates/main/pages/size_guide/men.html:621
+#: main/templates/main/pages/size_guide/women.html:628
+msgid "Socks "
+msgstr "Calzini "
+
+#: main/templates/main/pages/size_guide/men.html:626
+#: main/templates/main/pages/size_guide/women.html:633
+msgid "Shoe size"
+msgstr "Taglia di scarpe"
+
+#: main/templates/main/pages/size_guide/women.html:35
+msgid "Jewellery"
+msgstr "Gioielleria"
+
+#: main/templates/main/pages/size_guide/women.html:186
+msgid ""
+"Pullovers, T-Shirts, Tops, Sweatshirts, Blouses, Jackets & Coats, Dresses"
+msgstr "Pullover, t-shirt, top, felpe, camicette, giacche e cappotti, vestiti"
+
+#: main/templates/main/pages/size_guide/women.html:644
+msgid "None"
+msgstr "Nessuno"
+
+#: main/templates/main/pages/special_projects.html:57
+#: main/templates/main/pages/store_agent.html:45
+#: main/templates/main/sections/header.html:222
+msgid "Close"
+msgstr "Vicino"
+
+#: main/templates/main/pages/thanks.html:12
+msgid "CONGRATULATION"
+msgstr "CONGRATULAZIONI"
+
+#: main/templates/main/pages/thanks.html:15
+msgid ""
+"Your information has been registered Our experts will contact you soon to "
+"cooperation"
+msgstr ""
+"Le tue informazioni sono state registrate I nostri esperti ti contatteranno "
+"presto per collaborare"
+
+#: main/templates/main/sections/footer.html:11
+msgid "Operstyle"
+msgstr "Operstyle"
+
+#: main/templates/main/sections/footer.html:14
+msgid "About us"
+msgstr "Chi siamo"
+
+#: main/templates/main/sections/footer.html:16
+msgid "My account"
+msgstr "Il mio account"
+
+#: main/templates/main/sections/footer.html:18
+msgid "Find a store"
+msgstr "Trova un negozio"
+
+#: main/templates/main/sections/footer.html:20
+msgid "The news"
+msgstr "Le notizie"
+
+#: main/templates/main/sections/footer.html:22
+msgid "Contact us"
+msgstr "Contattaci"
+
+#: main/templates/main/sections/footer.html:26
+msgid "Guide"
+msgstr "Guida"
+
+#: main/templates/main/sections/footer.html:29
+msgid "Product care"
+msgstr "Cura del prodotto"
+
+#: main/templates/main/sections/footer.html:32
+msgid "Privacy & Policy"
+msgstr "Politica sulla riservatezza"
+
+#: main/templates/main/sections/footer.html:34
+msgid "Terms & Conditions"
+msgstr "Termini & Condizioni"
+
+#: main/templates/main/sections/footer.html:36
+msgid "Cookie Policy"
+msgstr "Gestione dei Cookie"
+
+#: main/templates/main/sections/footer.html:40
+msgid "Cooperation"
+msgstr "Collabora con noi"
+
+#: main/templates/main/sections/footer.html:43
+msgid "Personalization"
+msgstr "Personalizzazione"
+
+#: main/templates/main/sections/footer.html:45
+msgid "Customization"
+msgstr "personalizzazione"
+
+#: main/templates/main/sections/footer.html:47
+msgid "Corporate gifting"
+msgstr "Regali aziendali"
+
+#: main/templates/main/sections/footer.html:49
+msgid "Wholesale enquiries"
+msgstr "Richieste all'ingrosso"
+
+#: main/templates/main/sections/footer.html:51
+msgid "Become a retailer"
+msgstr "Diventa un rivenditore"
+
+#: main/templates/main/sections/footer.html:55
+msgid "Follow us"
+msgstr "Seguici"
+
+#: main/templates/main/sections/header.html:218
+msgid "This page is under construction and will be unveiled soon"
+msgstr "Questa pagina è in costruzione e sarà presto svelata"
+
+#: main/templates/main/sections/header.html:223
+msgid "OK"
+msgstr "ok"
+
+#: main/templates/main/sections/header.html:230
+msgid "Thanks! you have been added to the site newsletter"
+msgstr "Grazie! sei stato aggiunto alla newsletter del sito"
+
+#~ msgid "WORK WITH US"
+#~ msgstr "LAVORA CON NOI"
+
+#~ msgid "SPECIAL PROJECT"
+#~ msgstr "PROGETTO SPECIALE"
+
+#~ msgid "What is your name? (optional)"
+#~ msgstr "Come ti chiami? (opzionale)"
+
+#~ msgid "Store and agent"
+#~ msgstr "Negozio e Agente"
+
+#~ msgid "Thanks for your request"
+#~ msgstr "Grazie per la sua richiesta"

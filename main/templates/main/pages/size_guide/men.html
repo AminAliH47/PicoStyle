@@ -1,0 +1,1184 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+    {% translate 'Size guide' %} {% translate 'men' %} | Operstyle
+{% endblock title %}
+
+{% block custom_css %}
+    <style>
+        .table td, .table th {
+            border: 1px solid #e3e3e3;
+            padding: 0.35rem;
+        }
+    </style>
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="container">
+        <div class="my-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <nav>
+                        <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
+                            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#shoes" role="tab"
+                               aria-controls="nav-home" aria-selected="true">
+                                <h5 class="mb-0">{% translate 'Shoes' %}</h5>
+                            </a>
+                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#clothing" role="tab"
+                               aria-controls="nav-profile" aria-selected="false">
+                                <h5 class="mb-0">{% translate 'Clothing' %}</h5>
+                            </a>
+                            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#accessories" role="tab"
+                               aria-controls="nav-contact" aria-selected="false">
+                                <h5 class="mb-0">
+                                    {% translate 'Accessories' %}
+                                </h5>
+                            </a>
+                        </div>
+                    </nav>
+                    <div class="tab-content mt-5">
+                        <div class="tab-pane fade show active" id="shoes" role="tabpanel"
+                             aria-labelledby="nav-home-tab">
+                            <div class="row">
+                                <div class="col-12">
+                                    {#                                    <p>#}
+                                    {#                                        {% translate 'The shoe size systems are very different depending on the country.' %}#}
+                                    {#                                    </p>#}
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>{% translate 'Centimeters' %}</th>
+                                                <th>{% translate 'Inchs' %}</th>
+                                                <th>{% translate 'US / Canada' %}</th>
+                                                <th>UK</th>
+                                                <th>{% translate 'Euro' %}</th>
+                                                <th>{% translate 'Australia / NZ' %}</th>
+                                                <th>{% translate 'Japan' %}</th>
+                                                <th>{% translate 'China' %}</th>
+                                                <th>{% translate 'Mexico' %}</th>
+                                                <th>{% translate 'Korea' %}</th>
+                                                <th>{% translate 'Italy' %}</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>22.8</td>
+                                                <td>9</td>
+                                                <td>3.5</td>
+                                                <td>3</td>
+                                                <td>35</td>
+                                                <td>3</td>
+                                                <td>21</td>
+                                                <td>35</td>
+                                                <td>-</td>
+                                                <td>228</td>
+                                                <td>34</td>
+                                            </tr>
+                                            <tr>
+                                                <td>23.1</td>
+                                                <td>9.12</td>
+                                                <td>4</td>
+                                                <td>3.5</td>
+                                                <td>35.5</td>
+                                                <td>3.5</td>
+                                                <td>22</td>
+                                                <td>36</td>
+                                                <td>-</td>
+                                                <td>231</td>
+                                                <td>34.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>23.5</td>
+                                                <td>9.25</td>
+                                                <td>4.5</td>
+                                                <td>4</td>
+                                                <td>36</td>
+                                                <td>4</td>
+                                                <td>22.5</td>
+                                                <td>37</td>
+                                                <td>-</td>
+                                                <td>235</td>
+                                                <td>35</td>
+                                            </tr>
+                                            <tr>
+                                                <td>23.8</td>
+                                                <td>9.37</td>
+                                                <td>5</td>
+                                                <td>4.5</td>
+                                                <td>37</td>
+                                                <td>4.5</td>
+                                                <td>23</td>
+                                                <td>38</td>
+                                                <td>4.5</td>
+                                                <td>238</td>
+                                                <td>36</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24.1</td>
+                                                <td>9.5</td>
+                                                <td>5.5</td>
+                                                <td>5</td>
+                                                <td>37.5</td>
+                                                <td>5</td>
+                                                <td>23.5</td>
+                                                <td>39</td>
+                                                <td>5</td>
+                                                <td>241</td>
+                                                <td>36.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24.5</td>
+                                                <td>9.62</td>
+                                                <td>6</td>
+                                                <td>5.5</td>
+                                                <td>38</td>
+                                                <td>5.5</td>
+                                                <td>24</td>
+                                                <td>39.5</td>
+                                                <td>5.5</td>
+                                                <td>245</td>
+                                                <td>37</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24.8</td>
+                                                <td>9.75</td>
+                                                <td>6.5</td>
+                                                <td>6</td>
+                                                <td>38.5</td>
+                                                <td>6</td>
+                                                <td>24.5</td>
+                                                <td>39.5</td>
+                                                <td>5.5</td>
+                                                <td>248</td>
+                                                <td>37.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>25.1</td>
+                                                <td>9.87</td>
+                                                <td>7</td>
+                                                <td>6.5</td>
+                                                <td>39</td>
+                                                <td>6.5</td>
+                                                <td>25</td>
+                                                <td>41</td>
+                                                <td>6.5</td>
+                                                <td>251</td>
+                                                <td>38</td>
+                                            </tr>
+                                            <tr>
+                                                <td>25.4</td>
+                                                <td>10</td>
+                                                <td>7.5</td>
+                                                <td>7</td>
+                                                <td>40</td>
+                                                <td>7</td>
+                                                <td>25.5</td>
+                                                <td>-</td>
+                                                <td>7</td>
+                                                <td>254</td>
+                                                <td>39</td>
+                                            </tr>
+                                            <tr>
+                                                <td>25.7</td>
+                                                <td>10.12</td>
+                                                <td>8</td>
+                                                <td>7.5</td>
+                                                <td>41</td>
+                                                <td>7.5</td>
+                                                <td>26</td>
+                                                <td>42</td>
+                                                <td>7.5</td>
+                                                <td>257</td>
+                                                <td>40</td>
+                                            </tr>
+                                            <tr>
+                                                <td>26</td>
+                                                <td>10.25</td>
+                                                <td>8.5</td>
+                                                <td>8</td>
+                                                <td>42</td>
+                                                <td>8</td>
+                                                <td>26.5</td>
+                                                <td>43</td>
+                                                <td>9</td>
+                                                <td>260</td>
+                                                <td>41</td>
+                                            </tr>
+                                            <tr>
+                                                <td>26.3</td>
+                                                <td>10.37</td>
+                                                <td>9</td>
+                                                <td>8.5</td>
+                                                <td>43</td>
+                                                <td>8.5</td>
+                                                <td>27</td>
+                                                <td>43.5</td>
+                                                <td>-</td>
+                                                <td>263</td>
+                                                <td>42</td>
+                                            </tr>
+                                            <tr>
+                                                <td>26.7</td>
+                                                <td>10.5</td>
+                                                <td>9.5</td>
+                                                <td>9</td>
+                                                <td>43.5</td>
+                                                <td>9</td>
+                                                <td>27.5</td>
+                                                <td>44</td>
+                                                <td>10</td>
+                                                <td>267</td>
+                                                <td>42.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>27</td>
+                                                <td>10</td>
+                                                <td>9.5</td>
+                                                <td>9.5</td>
+                                                <td>44</td>
+                                                <td>9.5</td>
+                                                <td>28</td>
+                                                <td>44.5</td>
+                                                <td>-</td>
+                                                <td>270</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>27.3</td>
+                                                <td>10.75</td>
+                                                <td>10.5</td>
+                                                <td>10</td>
+                                                <td>44.5</td>
+                                                <td>10</td>
+                                                <td>28.5</td>
+                                                <td>45</td>
+                                                <td>11</td>
+                                                <td>273</td>
+                                                <td>43.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>27.6</td>
+                                                <td>10.87</td>
+                                                <td>11</td>
+                                                <td>10.5</td>
+                                                <td>45</td>
+                                                <td>10.5</td>
+                                                <td>29</td>
+                                                <td>46</td>
+                                                <td>-</td>
+                                                <td>276</td>
+                                                <td>44</td>
+                                            </tr>
+                                            <tr>
+                                                <td>27.9</td>
+                                                <td>11</td>
+                                                <td>11.5</td>
+                                                <td>11</td>
+                                                <td>45.5</td>
+                                                <td>11</td>
+                                                <td>29.5</td>
+                                                <td>-</td>
+                                                <td>12.5</td>
+                                                <td>279</td>
+                                                <td>44.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>28.3</td>
+                                                <td>11.12</td>
+                                                <td>12</td>
+                                                <td>11.5</td>
+                                                <td>46</td>
+                                                <td>11.5</td>
+                                                <td>30</td>
+                                                <td>47</td>
+                                                <td>-</td>
+                                                <td>283</td>
+                                                <td>45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>28.6</td>
+                                                <td>11.25</td>
+                                                <td>12.5</td>
+                                                <td>12</td>
+                                                <td>46.5</td>
+                                                <td>12</td>
+                                                <td>30.5</td>
+                                                <td>47.5</td>
+                                                <td>-</td>
+                                                <td>286</td>
+                                                <td>45.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>28.9</td>
+                                                <td>11.37</td>
+                                                <td>13</td>
+                                                <td>12.5</td>
+                                                <td>47</td>
+                                                <td>12.5</td>
+                                                <td>31</td>
+                                                <td>48</td>
+                                                <td>-</td>
+                                                <td>289</td>
+                                                <td>46</td>
+                                            </tr>
+                                            <tr>
+                                                <td>29.2</td>
+                                                <td>11.5</td>
+                                                <td>13.5</td>
+                                                <td>13</td>
+                                                <td>47.5</td>
+                                                <td>13</td>
+                                                <td>31.5</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>292</td>
+                                                <td>46.5</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="clothing" role="tabpanel" aria-labelledby="nav-profile-tab">.
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th colspan="100%">{% translate "Men's clothing sizes" %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'Standard size' %}</td>
+                                        <td>44</td>
+                                        <td>46</td>
+                                        <td>48</td>
+                                        <td>50</td>
+                                        <td>52</td>
+                                        <td>54</td>
+                                        <td>56</td>
+                                        <td>58</td>
+                                        <td>60</td>
+                                        <td>62</td>
+                                        <td>64</td>
+                                        <td>66</td>
+                                        <td>68</td>
+                                        <td>70</td>
+                                        <td>72</td>
+                                        <td>74</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Underwear ' %}</td>
+                                        <td colspan="2">4</td>
+                                        <td colspan="2">5</td>
+                                        <td colspan="2">6</td>
+                                        <td colspan="2">7</td>
+                                        <td colspan="2">8</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'International' %}</td>
+                                        <td>XXS</td>
+                                        <td>XS</td>
+                                        <td>S</td>
+                                        <td>M</td>
+                                        <td>L</td>
+                                        <td>XL</td>
+                                        <td>2XL</td>
+                                        <td colspan="2">3XL</td>
+                                        <td colspan="2">4XL</td>
+                                        <td colspan="2">5XL</td>
+                                        <td colspan="2">6XL</td>
+                                        <td>7XL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Chest' %} (cm)</td>
+                                        <td>86 - 89</td>
+                                        <td>90 - 93</td>
+                                        <td>94 - 97</td>
+                                        <td>98 - 101</td>
+                                        <td>102 - 105</td>
+                                        <td>106 - 109</td>
+                                        <td>110 - 113</td>
+                                        <td>114 - 117</td>
+                                        <td>118 - 121</td>
+                                        <td>122 - 125</td>
+                                        <td>126 - 128</td>
+                                        <td>129 - 132</td>
+                                        <td>133 - 136</td>
+                                        <td>137 - 140</td>
+                                        <td>141 - 144</td>
+                                        <td>145 - 148</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Waist size' %} (cm)</td>
+                                        <td>74 - 77</td>
+                                        <td>78 - 81</td>
+                                        <td>82 - 85</td>
+                                        <td>86 - 89</td>
+                                        <td>90 - 94</td>
+                                        <td>95 - 99</td>
+                                        <td>100 - 104</td>
+                                        <td>105 - 109</td>
+                                        <td>110 - 114</td>
+                                        <td>115 - 119</td>
+                                        <td>120 - 124</td>
+                                        <td>125 - 128</td>
+                                        <td>129 - 132</td>
+                                        <td>133 - 134</td>
+                                        <td>135 - 138</td>
+                                        <td>139 - 142</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Hip circumference' %} (cm)</td>
+                                        <td>90 - 93</td>
+                                        <td>94 - 97</td>
+                                        <td>98 - 101</td>
+                                        <td>102 - 105</td>
+                                        <td>106 - 109</td>
+                                        <td>110 - 113</td>
+                                        <td>114 - 117</td>
+                                        <td>118 - 121</td>
+                                        <td>122 - 125</td>
+                                        <td>126 - 129</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Height' %} (cm)</td>
+                                        <td>166 - 170</td>
+                                        <td>168 - 173</td>
+                                        <td>171 - 176</td>
+                                        <td>174 - 179</td>
+                                        <td>177 - 182</td>
+                                        <td>180 - 184</td>
+                                        <td>182 - 186</td>
+                                        <td>184 - 188</td>
+                                        <td>185 - 189</td>
+                                        <td>187 - 190</td>
+                                        <td>191 - 192</td>
+                                        <td>193 - 194</td>
+                                        <td>195 - 196</td>
+                                        <td>197 - 198</td>
+                                        <td>199 - 200</td>
+                                        <td>201 - 202</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Short / Stocky' %} (untersetzte)</td>
+                                        <td>22</td>
+                                        <td>23</td>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>26</td>
+                                        <td>27</td>
+                                        <td>28</td>
+                                        <td>29</td>
+                                        <td>30</td>
+                                        <td>31</td>
+                                        <td>32</td>
+                                        <td>33</td>
+                                        <td>34</td>
+                                        <td>35</td>
+                                        <td>36</td>
+                                        <td>37</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Chest' %} (cm)</td>
+                                        <td>89 - 92</td>
+                                        <td>93 - 96</td>
+                                        <td>97 - 100</td>
+                                        <td>101 - 104</td>
+                                        <td>105 - 108</td>
+                                        <td>109 - 112</td>
+                                        <td>113 - 116</td>
+                                        <td>117 - 120</td>
+                                        <td>121 - 124</td>
+                                        <td>125 - 128</td>
+                                        <td>129 - 132</td>
+                                        <td>133 - 136</td>
+                                        <td>137 - 140</td>
+                                        <td>141 - 144</td>
+                                        <td>145 - 148</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Waist size' %} (cm)</td>
+                                        <td>81 - 84</td>
+                                        <td>85 - 88</td>
+                                        <td>89 - 92</td>
+                                        <td>93 - 96</td>
+                                        <td>97 - 100</td>
+                                        <td>101 - 106</td>
+                                        <td>107 - 110</td>
+                                        <td>111 - 114</td>
+                                        <td>115 - 118</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Hip circumference' %} (cm)</td>
+                                        <td>97 - 100</td>
+                                        <td>101 - 104</td>
+                                        <td>105 - 108</td>
+                                        <td>109 - 112</td>
+                                        <td>113 - 116</td>
+                                        <td>117 - 120</td>
+                                        <td>121 - 124</td>
+                                        <td>125 - 128</td>
+                                        <td>129 - 132</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Height' %} (cm)</td>
+                                        <td>163 - 167</td>
+                                        <td>166 - 170</td>
+                                        <td>169 - 173</td>
+                                        <td>172 - 176</td>
+                                        <td>175 - 178</td>
+                                        <td>177 - 180</td>
+                                        <td>179 - 182</td>
+                                        <td>181 - 183</td>
+                                        <td>182 - 183</td>
+                                        <td>184</td>
+                                        <td>185</td>
+                                        <td>186</td>
+                                        <td>187</td>
+                                        <td>188</td>
+                                        <td>189 - 190</td>
+                                        <td>191 - 192</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Portly' %} (Bauchgrößen)</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>51</td>
+                                        <td>53</td>
+                                        <td>55</td>
+                                        <td>57</td>
+                                        <td>59</td>
+                                        <td>61</td>
+                                        <td>63</td>
+                                        <td>65</td>
+                                        <td>67</td>
+                                        <td>69</td>
+                                        <td>71</td>
+                                        <td>73</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Chest' %} (cm)</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>100 - 103</td>
+                                        <td>104 - 107</td>
+                                        <td>108 - 111</td>
+                                        <td>112 - 115</td>
+                                        <td>116 - 119</td>
+                                        <td>120 - 123</td>
+                                        <td>124 - 126</td>
+                                        <td>127 - 130</td>
+                                        <td>131 - 134</td>
+                                        <td>135 - 138</td>
+                                        <td>139 - 142</td>
+                                        <td>143 - 146</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Waist size' %} (cm)</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>102 - 107</td>
+                                        <td>108 - 111</td>
+                                        <td>112 - 117</td>
+                                        <td>118 - 121</td>
+                                        <td>122 - 125</td>
+                                        <td>126 - 129</td>
+                                        <td>130 - 132</td>
+                                        <td>133 - 136</td>
+                                        <td>137 - 140</td>
+                                        <td>141 - 146</td>
+                                        <td>147 - 150</td>
+                                        <td>151 - 154</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Hip circumference' %} (cm)</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>108 - 111</td>
+                                        <td>112 - 115</td>
+                                        <td>116 - 119</td>
+                                        <td>120 - 123</td>
+                                        <td>124 - 127</td>
+                                        <td>128 - 132</td>
+                                        <td>133 - 137</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Height' %} (cm)</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>168 - 172</td>
+                                        <td>170 - 174</td>
+                                        <td>172 - 176</td>
+                                        <td>174 - 178</td>
+                                        <td>176 - 180</td>
+                                        <td>178 - 182</td>
+                                        <td>180 - 184</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Tall size' %} (schlanke)</td>
+                                        <td></td>
+                                        <td>90</td>
+                                        <td>94</td>
+                                        <td>98</td>
+                                        <td>102</td>
+                                        <td>106</td>
+                                        <td>110</td>
+                                        <td>114</td>
+                                        <td>118</td>
+                                        <td>122</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Chest' %} (cm)</td>
+                                        <td></td>
+                                        <td>88 - 91</td>
+                                        <td>92 - 95</td>
+                                        <td>96 - 99</td>
+                                        <td>100 - 103</td>
+                                        <td>104 - 107</td>
+                                        <td>108 - 111</td>
+                                        <td>111 - 114</td>
+                                        <td>115 - 118</td>
+                                        <td>119 - 122</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Waist size' %} (cm)</td>
+                                        <td></td>
+                                        <td>74 - 77</td>
+                                        <td>78 - 81</td>
+                                        <td>82 - 85</td>
+                                        <td>86 - 89</td>
+                                        <td>90 - 93</td>
+                                        <td>94 - 98</td>
+                                        <td>100 - 104</td>
+                                        <td>105 - 109</td>
+                                        <td>110 - 114</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Hip circumference' %} (cm)</td>
+                                        <td></td>
+                                        <td>92 - 95</td>
+                                        <td>96 - 99</td>
+                                        <td>100 - 103</td>
+                                        <td>104 - 107</td>
+                                        <td>108 - 111</td>
+                                        <td>112 - 115</td>
+                                        <td>116 - 119</td>
+                                        <td>120 - 123</td>
+                                        <td>124 - 127</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Height' %} (cm)</td>
+                                        <td></td>
+                                        <td>175 - 179</td>
+                                        <td>178 - 182</td>
+                                        <td>181 - 185</td>
+                                        <td>184 - 188</td>
+                                        <td>186 - 190</td>
+                                        <td>188 - 192</td>
+                                        <td>193 - 197</td>
+                                        <td>196 - 200</td>
+                                        <td>199 - 203</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th>{% translate 'Size' %}</th>
+                                        <th>{% translate 'Europe' %}</th>
+                                        <th>USA</th>
+                                        <th>UK</th>
+                                        <th>{% translate 'Korea' %}</th>
+                                        <th>{% translate 'Japan' %}</th>
+                                        <th>{% translate 'Russia' %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>XS</td>
+                                        <td>42</td>
+                                        <td>30</td>
+                                        <td>30</td>
+                                        <td>85</td>
+                                        <td>34</td>
+                                        <td>42</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">S</td>
+                                        <td>44</td>
+                                        <td>32</td>
+                                        <td>32</td>
+                                        <td>90</td>
+                                        <td>36</td>
+                                        <td>44</td>
+                                    </tr>
+                                    <tr>
+                                        <td>46</td>
+                                        <td>34</td>
+                                        <td>34</td>
+                                        <td>95</td>
+                                        <td>38</td>
+                                        <td>46</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">M</td>
+                                        <td>48</td>
+                                        <td>36</td>
+                                        <td>36</td>
+                                        <td>100</td>
+                                        <td>40</td>
+                                        <td>48</td>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td>38</td>
+                                        <td>38</td>
+                                        <td>105</td>
+                                        <td>42</td>
+                                        <td>50</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">L</td>
+                                        <td>52</td>
+                                        <td>40</td>
+                                        <td>40</td>
+                                        <td>110</td>
+                                        <td>44</td>
+                                        <td>52</td>
+                                    </tr>
+                                    <tr>
+                                        <td>54</td>
+                                        <td>42</td>
+                                        <td>42</td>
+                                        <td>115</td>
+                                        <td>46</td>
+                                        <td>54</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XL / 1X</td>
+                                        <td>56</td>
+                                        <td>44</td>
+                                        <td>44</td>
+                                        <td>120</td>
+                                        <td>48</td>
+                                        <td>56</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XXL</td>
+                                        <td>58</td>
+                                        <td>46</td>
+                                        <td>46</td>
+                                        <td>125</td>
+                                        <td>50</td>
+                                        <td>58</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XXXL</td>
+                                        <td>60</td>
+                                        <td>48</td>
+                                        <td>48</td>
+                                        <td>130</td>
+                                        <td>52</td>
+                                        <td>60</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="accessories" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <p class="font-weight-bold">
+                                {% translate 'Gloves' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th></th>
+                                        <th>XS</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>XXL</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'In Inches' %}</td>
+                                        <td>6.5 - 7.5</td>
+                                        <td>7.5 - 8.5</td>
+                                        <td>8.5 - 9.5</td>
+                                        <td>9.5 - 10.5</td>
+                                        <td>10.5 - 11.5</td>
+                                        <td>11.5 - 12.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'In Centimeters' %}</td>
+                                        <td>18</td>
+                                        <td>20</td>
+                                        <td>23</td>
+                                        <td>25</td>
+                                        <td>28</td>
+                                        <td>30</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="font-weight-bold mt-4">
+                                {% translate 'Belts' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th></th>
+                                        <th>XS</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>XXL</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'In Centimeters' %}</td>
+                                        <td>75 / 80</td>
+                                        <td>85 / 90</td>
+                                        <td>95 / 100</td>
+                                        <td>105 / 110</td>
+                                        <td>115 / 125</td>
+                                        <td>130 / 140</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="font-weight-bold mt-4">
+                                {% translate 'Hats / Caps / Beanies' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th></th>
+                                        <th>XS</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>XXL</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'In Centimeters' %}</td>
+                                        <td>53 - 54</td>
+                                        <td>55 - 56</td>
+                                        <td>57 - 58</td>
+                                        <td>59 - 60</td>
+                                        <td>61 - 62</td>
+                                        <td>63 - 64</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'EURO' %}</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="font-weight-bold mt-4">
+                                {% translate 'Socks' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th></th>
+                                        <th>XS</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>XXL</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'In Centimeters' %}</td>
+                                        <td>20 - 22</td>
+                                        <td>22 - 24</td>
+                                        <td>24 - 26</td>
+                                        <td>26 - 28</td>
+                                        <td>28 - 30</td>
+                                        <td>30 - 32</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'EURO' %}</td>
+                                        <td>30 - 34</td>
+                                        <td>34 - 38</td>
+                                        <td>38 - 42</td>
+                                        <td>42 - 46</td>
+                                        <td>46 - 50</td>
+                                        <td>50 - 54</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="font-weight-bold mt-4">
+                                {% translate 'Ties' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th>{% translate 'Size' %} (cm)</th>
+                                        <th>{% translate 'Tie’s head' %}</th>
+                                        <th>{% translate 'Tie’s end' %}</th>
+                                        <th>{% translate 'Tie’s lengt' %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'Skinny' %}</td>
+                                        <td>3.8</td>
+                                        <td>5</td>
+                                        <td>145</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Standard' %}</td>
+                                        <td>4.5</td>
+                                        <td>7.5</td>
+                                        <td>145</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Extra Large' %}</td>
+                                        <td>4.5</td>
+                                        <td>9.5</td>
+                                        <td>145</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="font-weight-bold mt-4">
+                                {% translate 'Bow' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th>{% translate 'Size' %} (cm)</th>
+                                        <th>{% translate 'Height' %}</th>
+                                        <th>{% translate 'Length' %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'Standard' %}</td>
+                                        <td>6.3</td>
+                                        <td>12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Large' %}</td>
+                                        <td>7.5</td>
+                                        <td>12.5</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="font-weight-bold mt-4">
+                                {% translate 'Bracelets' %}
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th>{% translate 'Size' %}</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>XXL</th>
+                                        <th>XXXL</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{% translate 'Wrist cm.' %}</td>
+                                        <td>16.5 - 17.8</td>
+                                        <td>17.8 - 19</td>
+                                        <td>19 - 20.3</td>
+                                        <td>20.3 - 21.6</td>
+                                        <td>21.6 - 22.9</td>
+                                        <td>22.9 - 24.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% translate 'Wrist in.' %}</td>
+                                        <td>6.5 - 7</td>
+                                        <td>7 - 7.5</td>
+                                        <td>7.5 - 8</td>
+                                        <td>8 - 8.5</td>
+                                        <td>8.5 - 9</td>
+                                        <td>9 - 9.5</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

@@ -1,0 +1,112 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+{% translate 'Suppliers' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-right mb-4">
+                    <a href="{% url 'account:s_create' %}"
+                       class="au-btn au-btn-icon au-btn--blue">
+                        <i class="zmdi zmdi-plus"></i>{% translate 'Add Supplier' %}
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>{% translate 'First name' %}</th>
+                                <th>{% translate 'Last name' %}</th>
+                                <th>{% translate 'Email' %}</th>
+                                <th>{% translate 'Brand name' %}</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for seller in sellers %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'account:s_detail' pk=seller.pk %}">
+                                        {{ seller.pk }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'account:s_detail' pk=seller.pk %}">
+                                        {{ seller.first_name }}
+                                    </a>
+                                </td>
+                                <td>{{ seller.last_name }}</td>
+                                <td>{{ seller.email }}</td>
+                                <td>{{ seller.brand_name }}</td>
+                                <td>
+                                    <a href="{% url 'account:s_update' pk=seller.pk %}?next={{ request.get_full_path }}"
+                                       class="btn btn-warning" style="font-size: 12px;">
+                                        <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                    </a>
+                                    <a href="{% url 'account:s_delete' pk=seller.pk %}?next={{ request.get_full_path }}"
+                                       class="btn btn-danger" style="font-size: 12px;">
+                                        <i class="fa fa-trash"></i> {% translate 'Delete' %}
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE-->
+                </div>
+            <div class="col-12 d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.previous_page_number %}"
+                                           aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">{% translate 'Previous' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == page %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                               href="?{% param_replace page=page %}">
+                                                {{ page }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.next_page_number %}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">{% translate 'Next' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

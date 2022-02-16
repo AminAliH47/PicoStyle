@@ -1,0 +1,19 @@
+{% load static %}
+{% if site_setting.favicon %}
+<link rel="icon" type="image/*" href="{{ site_setting.favicon.url }}">
+{% else %}
+<link rel="icon" type="image/*" href="{% static 'img/favicon.ico' %}">
+{% endif %}
+<!-- Fontfaces CSS-->
+<link href="{% static 'account/css/font-awesome/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+<link href="{% static 'account/css/mdi-font/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+
+<!-- Bootstrap CSS-->
+<link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+<!-- Category refs-->
+<link rel="stylesheet" href="{% static 'account/css/category/x-tree-select.css' %}">
+<link rel="stylesheet" href="{% static 'account/css/category/xts-bootstrap-theme.css' %}">
+
+<!-- Main CSS-->
+<link href="{% static 'account/css/theme.css' %}" rel="stylesheet" media="all">

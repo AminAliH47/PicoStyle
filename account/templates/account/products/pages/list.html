@@ -1,0 +1,198 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+    {% translate 'Products' %} | PicoStyle
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/select2/select2.min.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <style>
+        .select2-container--default .select2-selection--single {
+            background-color: #333;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #fff !important;
+        }
+    </style>
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-right mb-4">
+                        <a href="{% url 'account:p_create' %}"
+                           class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>{% translate 'Add Product' %}
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <form method="get" class="row mb-3">
+                            <div class="col-3">
+                                <span>{% translate 'Status filter' %}</span>
+                                <div class="dropdown" id="status">
+                                    <button class="btn btn-dark dropdown-toggle mr-1" style="background: #333"
+                                            type="button"
+                                            id="statusDP" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        {% translate 'Status filter' %}
+                                    </button>
+                                    <div class="dropdown-menu filter-dp">
+                                        {{ filter.form.status }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if request.user.is_superuser %}
+                                <div class="col-3">
+                                    <span>{% translate 'Brands filter' %}</span>
+                                    <div class="dropdown" id="brand">
+                                        <button class="btn btn-dark dropdown-toggle mr-1" style="background: #333"
+                                                type="button"
+                                                id="brandDP" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            {% translate 'Brand filter' %}
+                                        </button>
+                                        <div class="dropdown-menu filter-dp">
+                                            {{ filter.form.brand }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="col-5">
+                                <span>{% translate 'Category filter' %}</span>
+                                <div id="category">
+                                    {{ filter.form.category }}
+                                </div>
+                            </div>
+                        </form>
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
+                                <tr>
+                                    <th>{% translate 'Code' %}</th>
+                                    <th>{% translate 'Created at' %}</th>
+                                    <th>{% translate 'Brand' %}</th>
+                                    <th>{% translate 'Status' %}</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for product in products %}
+                                    <tr>
+                                        <td>
+                                            {% if product.status == "published" %}
+                                                <a href="{{ product.get_absolute_url }}" target="_blank">
+                                                    {{ product.code2 }}
+                                                </a>
+                                            {% else %}
+                                                <a href="{% url 'account:p_preview' pk=product.pk %}" target="_blank">
+                                                    {{ product.code2 }}
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ product.created_at }}</td>
+                                        <td>{{ product.seller.brand_name }}</td>
+                                        <td>
+                                            {% if product.status == "published" %}
+                                                <p class="badge badge-success">
+                                                    {{ product.status }}
+                                                </p>
+                                            {% elif product.status == "pending" %}
+                                                <p class="badge badge-warning">
+                                                    {{ product.status }}
+                                                </p>
+                                            {% elif product.status == "rejected" %}
+                                                <p class="badge badge-danger">
+                                                    {{ product.status }}
+                                                </p>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'account:p_update' pk=product.pk %}?next={{ request.get_full_path }}"
+                                               class="btn btn-warning" style="font-size: 12px;">
+                                                <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                            </a>
+                                            {% if request.user.is_superuser %}
+                                                <a href="{% url 'account:p_delete' pk=product.pk %}?next={{ request.get_full_path }}"
+                                                   class="btn btn-danger" style="font-size: 12px;">
+                                                    <i class="fa fa-trash"></i> {% translate 'Delete' %}
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.previous_page_number %}"
+                                           aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">{% translate 'Previous' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == page %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                        </li>
+                                    {% elif page > page_obj.number|add:'-4' and page < page_obj.number|add:'4' %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?{% param_replace page=page %}">
+                                                {{ page }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if page_obj.paginator.num_pages > page_obj.number|add:'3' %}
+                                    <li class="page-item">
+                                        <a class="page-link" role="button">
+                                            &hellip;
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.next_page_number %}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">{% translate 'Next' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block custom_js %}
+    <script src="{% static 'js/select2/select2.min.js' %}"></script>
+    <script src="{% static 'account/js/custom.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2();
+        });
+    </script>
+{% endblock custom_js %}

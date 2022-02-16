@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: news/templates/news/pages/detail.html:15
+msgid "back"
+msgstr "indietro"
+
+#: news/templates/news/pages/list.html:29
+msgid "Read more..."
+msgstr "Per saperne di più..."
+
+#: news/templates/news/pages/list.html:37
+msgid "There are currently no News"
+msgstr "Al momento non ci sono News"
+
+#: news/templates/news/pages/list.html:51
+msgid "Previous"
+msgstr "Precedente"
+
+#: news/templates/news/pages/list.html:71
+msgid "Next"
+msgstr "Prossimo"
+
+#: news/templates/news/sections/sidebar.html:8
+msgid "Categories"
+msgstr "Categorie"
+
+#~ msgid "Top News"
+#~ msgstr "Le notizie più importanti"
+
+#~ msgid "There is no news for show"
+#~ msgstr "Non ci sono novità per lo spettacolo"

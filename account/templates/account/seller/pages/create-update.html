@@ -1,0 +1,502 @@
+{% extends 'account/base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% if request.resolver_match.url_name == "s_create" %}
+        {% translate 'Create' %} | PicoStyle
+    {% else %}
+        {% translate 'Update' %} "{{ seller }}" | PicoStyle
+    {% endif %}
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                {% if request.resolver_match.url_name == "s_create" %}
+                                    <strong>{% translate 'Add New Supplier' %}</strong>
+                                {% else %}
+                                    <strong>{% translate 'Update' %} {{ seller.get_full_name }}</strong>
+                                {% endif %}
+                            </div>
+                            <div class="card-body card-block">
+                                <form method="post" enctype="multipart/form-data" class="row" id="form">{% csrf_token %}
+                                    {{ form.media }}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="px-2">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="id_username">{% translate 'Username' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.username }}
+                                                        {% endif %}
+                                                        {{ form.username }}
+                                                        {% for error in form.username.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_password">{% translate 'Password' %}</label>
+                                                        {% if request.resolver_match.url_name == 's_create' %}
+                                                            {{ form.password }}
+                                                            {% for error in form.password.errors %}
+                                                                <p class="text-danger">
+                                                                    {{ error }}
+                                                                </p>
+                                                            {% endfor %}
+                                                        {% else %}
+                                                            <a href="{% url 'account:change_password' pk=seller.pk %}"
+                                                               class="btn btn-warning">{% translate 'Edit password' %}</a>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="bg-overlay--blue p-1 mt-4 text-light">
+                                                            {% translate 'Directors Information' %}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <label for="id_first_name">{% translate 'First name' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.first_name }}{% endif %}
+
+                                                        {{ form.first_name }}
+                                                        {% for error in form.first_name.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_last_name">{% translate 'Last name' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.last_name }}{% endif %}
+
+                                                        {{ form.last_name }}
+                                                        {% for error in form.last_name.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_email">{% translate 'Email address' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.email }}{% endif %}
+                                                        {{ form.email }}
+                                                        {% for error in form.email.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6 position-relative">
+                                                        <label for="id_phone_number">{% translate 'Phone number' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            +{{ seller.phone_number }}
+                                                        {% else %}
+                                                            <span class="phonenumber-plus">+</span>
+                                                        {% endif %}
+                                                        {{ form.phone_number }}
+                                                        {% for error in form.phone_number.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="id_about_manager_en">
+                                                            {% translate 'About Manager' %} [en]
+                                                        </label>
+                                                        {{ form.about_manager_en }}
+                                                        {% for error in form.about_manager_en.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="id_about_manager_ru">
+                                                            {% translate 'About Manager' %} [ru]
+                                                        </label>
+                                                        {{ form.about_manager_ru }}
+                                                        {% for error in form.about_manager_ru.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="id_about_manager_it">
+                                                            {% translate 'About Manager' %} [it]
+                                                        </label>
+                                                        {{ form.about_manager_it }}
+                                                        {% for error in form.about_manager_it.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    {% if request.user.is_superuser %}
+                                                        <div class="col-6">
+                                                            <label for="id_is_entrepreneur">
+                                                                {% translate 'Show this supplier in entrepreneurs list?' %}
+                                                            </label>
+                                                            <label class="switch">
+                                                                {{ form.is_entrepreneur }}
+                                                                <span class="slider"></span>
+                                                            </label>
+                                                            {% for error in form.is_entrepreneur.errors %}
+                                                                <p class="text-danger">
+                                                                    {{ error }}
+                                                                </p>
+                                                            {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="col-6">
+                                                        <label for="id_manager_photo">{% translate 'Photo' %}</label>
+                                                        <div class="img-wrapper" style="width: auto">
+                                                            <div class="file-upload">
+                                                                {{ form.manager_photo }}
+                                                                <i class="fa fa-arrow-up"></i>
+                                                            </div>
+                                                            <img src="
+
+
+                                                                    {% if seller.manager_photo %}{{ seller.manager_photo.url }}{% endif %}"
+                                                                 id="output"
+                                                                 style="width: 50%;height: 200px; object-fit: scale-down;
+                                                            border: 1px solid #c9c9c9; border-radius: 5px;">
+                                                        </div>
+                                                        {% for error in form.manager_photo.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="bg-overlay--blue p-1 mt-4 text-light">
+                                                            {% translate 'Company information' %}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <label for="id_company_name">{% translate 'Company name' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.company_name }}{% endif %}
+                                                        {{ form.company_name }}
+                                                        {% for error in form.company_name.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_co_country_registered">{% translate 'Country of registration' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.co_country_registered }}{% endif %}
+                                                        {{ form.co_country_registered }}
+                                                        {% for error in form.co_country_registered.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_co_website_address">{% translate 'Company Website Address' %}</label>
+                                                        {{ form.co_website_address }}
+                                                        <span>{{ form.co_website_address.helptext }}</span>
+                                                        {% for error in form.co_website_address.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_co_email">{% translate 'Telephone No.' %}</label>
+                                                        {{ form.telephone_number }}
+                                                        {% for error in form.telephone_number.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_co_email">{% translate 'Email address' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.co_email }}{% endif %}
+                                                        {{ form.co_email }}
+                                                        {% for error in form.co_email.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_brand_name">{% translate 'Brand name' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.brand_name }}{% endif %}
+                                                        {{ form.brand_name }}
+                                                        {% for error in form.brand_name.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="id_about_brand_en">
+                                                            {% translate 'About brand' %} [en]
+                                                        </label>
+                                                        {{ form.about_brand_en }}
+                                                        {% for error in form.about_brand_en.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="id_about_brand_ru">
+                                                            {% translate 'About brand' %} [ru]
+                                                        </label>
+                                                        {{ form.about_brand_ru }}
+                                                        {% for error in form.about_brand_ru.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="id_about_brand_it">
+                                                            {% translate 'About brand' %} [it]
+                                                        </label>
+                                                        {{ form.about_brand_it }}
+                                                        {% for error in form.about_brand_it.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <label for="id_brand_logo">{% translate 'Brand logo' %}</label>
+                                                        <div class="img-wrapper" style="width: auto">
+                                                            {% if request.user.is_superuser %}
+                                                                <div class="file-upload">
+                                                                    {{ form.brand_logo }}
+                                                                    <i class="fa fa-arrow-up"></i>
+                                                                </div>
+                                                            {% endif %}
+                                                            <img src="{% if seller.brand_logo %}
+                                                                        {{ seller.brand_logo.url }}
+                                                                     {% endif %}"
+                                                                 id="output_2"
+                                                                 style="width: 50%;height: 200px; object-fit: scale-down;
+                                                            border: 1px solid #c9c9c9; border-radius: 5px;">
+                                                        </div>
+                                                        {% for error in form.brand_logo.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    {% if request.user.is_superuser %}
+                                                        <div class="col-6">
+                                                            <label for="id_is_brand">
+                                                                {% translate 'Show this supplier in brands list?' %}</label>
+                                                            <label class="switch">
+                                                                {{ form.is_brand }}
+                                                                <span class="slider"></span>
+                                                            </label>
+                                                            {% for error in form.is_brand.errors %}
+                                                                <p class="text-danger">
+                                                                    {{ error }}
+                                                                </p>
+                                                            {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="col-6">
+                                                        <label for="id_co_address">{% translate 'Company address' %}</label>
+                                                        {% if not request.user.is_superuser %}
+                                                            {{ seller.co_address }}{% endif %}
+                                                        {{ form.co_address }}
+                                                        {% for error in form.co_address.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_products_type">{% translate 'Products' %}</label>
+                                                        {{ form.products_type }}
+                                                        {% for error in form.products_type.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <hr>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_branch_address">{% translate 'Branch address' %}</label>
+                                                        {{ form.branch_address }}
+                                                        {% for error in form.branch_address.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="id_branch_image">{% translate 'Branch Image' %}</label>
+                                                        <div class="img-wrapper" style="width: auto">
+                                                            <div class="file-upload">
+                                                                {{ form.branch_image }}
+                                                                <i class="fa fa-arrow-up"></i>
+                                                            </div>
+                                                            <img src="
+
+
+                                                                    {% if seller.branch_image %}{{ seller.branch_image.url }}{% endif %}"
+                                                                 id="output_3" style="width: 50%;height: 200px;
+                                                                 object-fit: scale-down;
+                                                            border: 1px solid #c9c9c9; border-radius: 5px;">
+                                                        </div>
+                                                        {% for error in form.branch_image.errors %}
+                                                            <p class="text-danger">
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="px-2">
+                                                <hr>
+                                                <div class="d-flex align-items-center" id="bottom-section">
+                                                    {% if request.resolver_match.url_name == "s_create" %}
+                                                        <button class="btn btn-success mr-2" type="button"
+                                                                id="submit-btn">
+                                                            {% translate 'Create' %}
+                                                        </button>
+                                                    {% else %}
+                                                        <button class="btn btn-warning mr-2" type="button"
+                                                                id="submit-btn">
+                                                            {% translate 'Update' %}
+                                                        </button>
+                                                    {% endif %}
+                                                    <a href="javascript:void(0)" class="btn btn-secondary mr-2"
+                                                       onclick="javascript:history.back()">
+                                                        {% translate 'Back' %}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block custom_js %}
+    <script src="{% static 'js/jquery/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/select2/select2.min.js' %}"></script>
+    <script>
+
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2();
+        });
+
+        function showSpinner() {
+            let bottom_section = document.getElementById("bottom-section");
+            let show_spinner = document.getElementById("spinner");
+            if (!show_spinner) {
+                let spinner = document.createElement("div");
+                spinner.id = "spinner";
+                spinner.classList.add("spinner-border");
+                spinner.classList.add("mx-2");
+                bottom_section.appendChild(spinner);
+            }
+        }
+
+        let input = document.getElementsByTagName("input");
+        for (let i = 0; i < input.length; i++) {
+            if (input[i].required == false) {
+                if (input[i].labels != null) {
+                    input[i].labels.forEach((item) => {
+                        if (!Object.values(item.classList).includes('switch')) {
+                            item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                        }
+                    })
+                }
+            }
+        }
+        let textarea = document.getElementsByTagName("textarea");
+        for (let i = 0; i < textarea.length; i++) {
+            if (textarea[i].required == false) {
+                if (textarea[i].labels != null) {
+                    textarea[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        let select = document.getElementsByTagName("select");
+        for (let i = 0; i < select.length; i++) {
+            if (select[i].required == false) {
+                if (select[i].labels != null) {
+                    select[i].labels.forEach((item) => {
+                        item.innerHTML = `${item.innerText} ({% translate 'Optional' %})`;
+                    })
+                }
+            }
+        }
+        document.getElementById("id_manager_photo").setAttribute("onchange", "loadFile(event)");
+        const loadFile = function (event) {
+            let output = document.getElementById("output");
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src); // free memory
+            };
+        };
+        document.getElementById("id_brand_logo").setAttribute("onchange", "loadFile_2(event)");
+        const loadFile_2 = function (event) {
+            let output = document.getElementById("output_2");
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src); // free memory
+            };
+        };
+        document.getElementById("id_branch_image").setAttribute("onchange", "loadFile_3(event)");
+        const loadFile_3 = function (event) {
+            let output = document.getElementById("output_3");
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src); // free memory
+            };
+        };
+
+        document.getElementById('submit-btn').addEventListener('click', () => {
+            showSpinner();
+            document.getElementById('form').submit();
+        })
+    </script>
+{% endblock custom_js %}

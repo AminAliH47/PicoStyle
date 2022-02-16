@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="coilaco.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link href="{% static 'account/css/font-awesome/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    {% if site_setting.favicon %}
+    <link rel="icon" type="image/*" href="{{ site_setting.favicon.url }}">
+    {% else %}
+    <link rel="icon" type="image/*" href="{% static 'img/favicon.ico' %}">
+    {% endif %}
+    <title>{% translate 'Login' %} | PicoStyle</title>
+</head>
+<style>
+    input {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    input:focus {
+        border-color: #424242;
+        box-shadow: 0 0 0 3px #ff842170;
+        outline: none;
+    }
+
+    .passwordToggle {
+        right: 25px;
+        color: #252525;
+        top: 10px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .passwordToggle:hover {
+        color: #6b6b6b;
+    }
+
+</style>
+<body>
+<div class="container-fluid" style="background: #d7dee5;">
+    <div style="min-height: 100vh;">
+        <div class="row" style="min-height: 100vh;">
+            <div class="col-md-12 text-center d-flex justify-content-center align-items-end mb-4">
+                <a href="{% url 'main:index' %}">
+                    {% if site_setting.admin_logo %}
+                    <img src="{{ site_setting.admin_logo.url }}" alt="{{ site_setting.site_title }}"
+                         width="15%">
+                    {% else %}
+                    <img src="{% static 'account/img/logo.png' %}" alt="{{ site_setting.site_title }}"
+                         width="15%">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <strong>{% translate 'Login' %}</strong> {% translate 'to your account' %}
+                    </div>
+                    <form method="post" class="form-horizontal">{% csrf_token %}
+                        <div class="card-body card-block">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="username_id" class="form-control-label">
+                                        {% translate 'Email or Username' %}</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    {{ form.username }}
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-12">
+                                    <label for="password_id" class=" form-control-label">
+                                        {% translate 'Password' %}</label>
+                                </div>
+                                <div class="col-12 col-md-9 position-relative">
+                                    {{ form.password }}
+                                    <i class="passwordToggle fas fa-eye-slash" role="button"
+                                       style="font-size: 20px"></i>
+                                </div>
+                            </div>
+                            {% for message in messages %}
+                                <strong class="text-danger">{{ message }}</strong>
+                            {% endfor %}
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                <i class="fas fa-sign-in-alt"></i> {% translate 'Login' %}
+                            </button>
+                            <a href="{% url 'main:index' %}" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-ban"></i> {% translate 'Cancel' %}
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector('.passwordToggle').addEventListener('click', function (e) {
+        const password = document.querySelector('#id_password');
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye / eye slash icon
+        this.classList.toggle('fa-eye-slash');
+        this.classList.toggle('fa-eye');
+    });
+</script>
+</body>
+</html>

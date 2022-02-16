@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {% translate 'Brands' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div class="container-fluid">
+        <div class="row" style="background: #edf1f7;">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-12 position-relative hide-mo" style="max-width: 22% !important;">
+                <div class="d-flex flex-column flex-shrink-0 p-3 bg-light shadow-sm position-absolute"
+                     style="width: 260px; top: 0; bottom: 0; left: 0;">
+                    <div class="side-nav-categories">
+                        <div class="category-title">
+                            <strong> {% translate 'Categories' %} </strong>
+                        </div>
+                        <ul id="cat">
+                            <li>
+                                <a href="{% url 'brands:list' %}"
+                                   class="main-category active">
+                                    {% translate 'Brands' %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'entrepreneur:list' %}"
+                                   class="main-category">
+                                    {% translate 'Entrepreneurs' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-12 my-5 mt-7">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>
+                            {% translate 'Brands' %}
+                        </h2>
+                    </div>
+                    {% for brand in brands %}
+                        <div class="col-md-3 col-6">
+                            <div class="product-card"
+                                 style="padding: 5px; background-color: #fff; box-shadow: 2px 2px 5px #00000037">
+                                <a href="{% url 'brands:detail' pk=brand.pk %}">
+                                    <img class="product-img" src="{{ brand.brand_logo.url }}"
+                                         alt="{{ brand.brand_name }}"
+                                         loading="lazy" style="object-fit: scale-down">
+                                </a>
+                                <div class="p-2">
+                                    <div class="product-title">
+                                        <a href="{% url 'brands:detail' pk=brand.pk %}">
+                                            {{ brand.brand_name }}
+                                        </a>
+                                    </div>
+                                    <a href="{{ brand.get_absolute_url }}">
+                                        {% translate 'Read more...' %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="col-12 text-center my-4">
+                            <h3>
+                                {% translate 'There are currently no News' %}
+                            </h3>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                                           aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">{% translate 'Previous' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == page %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">{% translate 'Next' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 15:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+#: products/filters.py:109
+msgid "Title of category"
+msgstr "Название категории"
+
+#: products/models.py:153 products/templates/products/pages/detail.html:135
+msgid "Dimensions"
+msgstr "Габаритные размеры"
+
+#: products/templates/products/pages/detail.html:14
+msgid "back"
+msgstr "назад"
+
+#: products/templates/products/pages/detail.html:60
+msgid "Brand name"
+msgstr "Название бренда"
+
+#: products/templates/products/pages/detail.html:67
+#: products/templates/products/pages/detail.html:223
+#: products/templates/products/pages/list.html:113
+msgid "Save"
+msgstr "Сохранять"
+
+#: products/templates/products/pages/detail.html:76
+msgid "Add to favorite"
+msgstr "Добавьте в избранное"
+
+#: products/templates/products/pages/detail.html:84
+msgid "code"
+msgstr "код"
+
+#: products/templates/products/pages/detail.html:94
+#: products/templates/products/pages/detail.html:254
+#: products/templates/products/pages/list.html:144
+msgid "Retail price"
+msgstr "Розничная цена"
+
+#: products/templates/products/pages/detail.html:103
+msgid "Wholesale price"
+msgstr "Оптовая цена"
+
+#: products/templates/products/pages/detail.html:114
+msgid "Size and Dimensions"
+msgstr "Размер и габариты"
+
+#: products/templates/products/pages/detail.html:121
+msgid "Available sizes"
+msgstr "Доступные размеры"
+
+#: products/templates/products/pages/detail.html:142
+msgid "Size more information"
+msgstr "Размер больше информации"
+
+#: products/templates/products/pages/detail.html:153
+msgid "More detail"
+msgstr "Подробнее"
+
+#: products/templates/products/pages/detail.html:158
+#: products/templates/products/pages/list.html:68
+#: products/templates/products/pages/list.html:73
+msgid "Material"
+msgstr "Материал"
+
+#: products/templates/products/pages/detail.html:161
+msgid "Heel"
+msgstr "Каблук"
+
+#: products/templates/products/pages/detail.html:163
+msgid "Sole"
+msgstr "Единственный"
+
+#: products/templates/products/pages/detail.html:166
+msgid "Weight"
+msgstr "Масса"
+
+#: products/templates/products/pages/detail.html:173
+#: products/templates/products/pages/detail.html:180
+msgid "Care and Fabric"
+msgstr "Уход и ткань"
+
+#: products/templates/products/pages/detail.html:186
+msgid "Care information"
+msgstr "Информация по уходу"
+
+#: products/templates/products/pages/detail.html:192
+msgid "Finer detail"
+msgstr "Более тонкая деталь"
+
+#: products/templates/products/pages/detail.html:201
+msgid "Contact us by WhatsApp"
+msgstr "Свяжитесь с нами через WhatsApp"
+
+#: products/templates/products/pages/detail.html:204
+msgid "Wholesale enquiries"
+msgstr "Оптовые запросы"
+
+#: products/templates/products/pages/detail.html:210
+msgid "Related products"
+msgstr "Сопутствующие товары"
+
+#: products/templates/products/pages/detail.html:259
+#: products/templates/products/pages/list.html:149
+msgid "Discover"
+msgstr "Обнаружить"
+
+#: products/templates/products/pages/detail.html:261
+#: products/templates/products/pages/list.html:151
+#: products/templates/products/pages/search-list.html:42
+msgid "Read more ..."
+msgstr "Читать далее ..."
+
+#: products/templates/products/pages/detail.html:273
+msgid "There are currently no related products"
+msgstr "В настоящее время нет сопутствующих товаров"
+
+#: products/templates/products/pages/list.html:34
+#: products/templates/products/pages/list.html:40
+msgid "Sub category"
+msgstr "Подкатегория"
+
+#: products/templates/products/pages/list.html:81
+msgid "Brand"
+msgstr "Марка"
+
+#: products/templates/products/pages/list.html:86
+msgid "Brands"
+msgstr "Бренды"
+
+#: products/templates/products/pages/list.html:94
+#: products/templates/products/pages/list.html:99
+msgid "Sort by"
+msgstr "Сортировать по"
+
+#: products/templates/products/pages/list.html:160
+#: products/templates/products/pages/search-list.html:51
+#: products/templates/products/pages/x-list.html:46
+msgid "There are currently no products"
+msgstr "В настоящее время нет товаров"
+
+#: products/templates/products/pages/list.html:176
+#: products/templates/products/pages/search-list.html:67
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: products/templates/products/pages/list.html:208
+#: products/templates/products/pages/search-list.html:91
+msgid "Next"
+msgstr "Следующий"
+
+#: products/templates/products/pages/search-list.html:8
+msgid "Result"
+msgstr "Результат"
+
+#: products/templates/products/pages/search-list.html:18
+msgid "Result for"
+msgstr "Результат для"
+
+#: products/templates/products/sections/sidebar.html:8
+msgid "Categories"
+msgstr "Категории"

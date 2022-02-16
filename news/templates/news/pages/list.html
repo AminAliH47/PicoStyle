@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {{ category.title }} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div class="container-fluid">
+        <div class="row" style="background: #edf1f7;">
+            {% include 'news/sections/sidebar.html' %}
+            <div class="col-md-9 col-12 my-5 mt-7">
+                <div class="row">
+                    {% for new in news %}
+                        <div class="col-md-3 col-6">
+                            <div class="product-card">
+                                <a href="{{ new.get_absolute_url }}">
+                                    <img class="product-img" src="{{ new.image.url }}" alt="{{ new.title }}"
+                                         loading="lazy">
+                                </a>
+                                <div class="p-2">
+                                    <div class="product-title">
+                                        <a href="{{ new.get_absolute_url }}">
+                                            {{ new.title }}
+                                        </a>
+                                    </div>
+                                    <a href="{{ new.get_absolute_url }}">
+                                        {% translate 'Read more...' %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="col-12 text-center my-4">
+                            <h3>
+                                {% translate 'There are currently no News' %}
+                            </h3>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                                           aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">{% translate 'Previous' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == page %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">{% translate 'Next' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block custom_js %}
+    <script>
+        // This code show list of category from parent
+        let cats = document.getElementsByClassName("parent{{ cat.id }}");
+        for (let i = 0; i < cats.length; i++) {
+            let a_tag = cats[i].querySelectorAll("a");
+            for (let j = 0; j < a_tag.length; j++) {
+                let active_list = a_tag[j].classList;
+                if (Object.values(active_list).indexOf('active') > -1) {
+                    cats[i].classList.add("active");
+                }
+            }
+        }
+    </script>
+{% endblock custom_js %}

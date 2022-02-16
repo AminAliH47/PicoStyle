@@ -1,0 +1,126 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load extras %}
+
+{% block title %}
+    {% translate 'Categories' %} | PicoStyle
+{% endblock title %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+{% endblock custom_css %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-right mb-4">
+                        <a href="{% url 'account:pc_create' %}"
+                           class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>{% translate 'Add Category' %}
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                        <form class="row" method="get">
+                            <div class="col-6 mb-3">
+                                <label for="id_title">
+                                    {% translate 'Search for categories' %}
+                                </label>
+                                {{ filter.form.title }}
+                                <button class="au-btn au-btn--blue mt-2" type="submit">
+                                    {% translate 'Search' %}
+                                </button>
+                            </div>
+                        </form>
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3" id="categoryTable">
+                                <thead>
+                                <tr>
+                                    <th>{% translate 'title' %}</th>
+                                    <th>{% translate 'status' %}</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for category in categories %}
+                                    <tr>
+                                        <td>{{ category }}</td>
+                                        <td>
+                                            {% if category.active %}
+                                                <h5 class="badge badge-success">{% translate 'Active' %}</h5>
+                                            {% else %}
+                                                <h5 class="badge badge-danger">{% translate 'Inactive' %}</h5>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'account:pc_update' pk=category.pk %}?next={{ request.get_full_path }}"
+                                               class="btn btn-warning" style="font-size: 12px;">
+                                                <i class="fa fa-edit"></i> {% translate 'Edit' %}
+                                            </a>
+                                            <a href="{% url 'account:pc_delete' pk=category.pk %}?next={{ request.get_full_path }}"
+                                               class="btn btn-danger" style="font-size: 12px;">
+                                                <i class="fa fa-trash"></i> {% translate 'Delete' %}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.previous_page_number %}"
+                                           aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">{% translate 'Previous' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == page %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+                                        </li>
+                                    {% elif page > page_obj.number|add:'-4' and page < page_obj.number|add:'4' %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?{% param_replace page=page %}">
+                                                {{ page }}
+                                            </a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if page_obj.paginator.num_pages > page_obj.number|add:'3' %}
+                                    <li class="page-item">
+                                        <a class="page-link" role="button">
+                                            &hellip;
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=page_obj.next_page_number %}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">{% translate 'Next' %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{{ page.title }} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+    <div class="my-5">
+        {{ page.content|safe }}
+    </div>
+</div>
+{% endblock main %}

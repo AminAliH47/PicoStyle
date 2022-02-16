@@ -1,0 +1,321 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% translate 'Items' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-right mb-4">
+                        <div class="dropdown">
+                            <button class="au-btn au-btn-icon au-btn--blue dropdown-toggle"
+                                    type="button" id="addItemBtn"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                <i class="zmdi zmdi-plus"></i>{% translate 'Add item' %}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'account:m_ms_create' %}">
+                                    {% translate 'Add Main slider' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_bs_create' %}">
+                                    {% translate 'Add Brands slider' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_mc_create' %}">
+                                    {% translate 'Add Main category' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_sm_create' %}">
+                                    {% translate 'Add Social media' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:pp_create' %}">
+                                    {% translate 'Add Page' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_wu_create' %}">
+                                    {% translate 'Add Work with us' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_sp_create' %}">
+                                    {% translate 'Add Special services' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_sa_create' %}">
+                                    {% translate 'Add Store and agent' %}</a>
+                                <a class="dropdown-item" href="{% url 'account:m_sg_create' %}">
+                                    {% translate 'Add Size guide' %}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="accordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                            {% translate 'Main slider' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_ms_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_ms_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                            {% translate 'Brands slider' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_bs_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_bs_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                            {% translate 'Main categories (First page category images)' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_mc_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_mc_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseFour" aria-expanded="false"
+                                                aria-controls="collapseFour">
+                                            {% translate 'Social media' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sm_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sm_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingWork">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseWork" aria-expanded="false"
+                                                aria-controls="headingWork">
+                                            {% translate 'Work with us' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseWork" class="collapse" aria-labelledby="headingFive"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_wu_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_wu_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingSpecial">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseSpecial" aria-expanded="false"
+                                                aria-controls="headingSpecial">
+                                            {% translate 'Special services' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSpecial" class="collapse" aria-labelledby="headingSpecial"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sp_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sp_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingStore">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseStore" aria-expanded="false"
+                                                aria-controls="headingStore">
+                                            {% translate 'Store and agent' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseStore" class="collapse" aria-labelledby="headingStore"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sa_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sa_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingSize">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseSize" aria-expanded="false"
+                                                aria-controls="headingStore">
+                                            {% translate 'Size guide' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSize" class="collapse" aria-labelledby="headingSize"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sg_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:m_sg_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFive">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseFive" aria-expanded="false"
+                                                aria-controls="headingFive">
+                                            {% translate 'Pages' %}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:pp_list' %}" class="text-dark">
+                                                    <i class="fas fa-list"></i>
+                                                    {% translate 'List' %}
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="{% url 'account:pp_create' %}" class="text-dark">
+                                                    <i class="fas fa-edit"></i>
+                                                    {% translate 'Create' %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

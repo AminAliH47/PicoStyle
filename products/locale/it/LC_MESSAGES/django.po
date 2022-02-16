@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: products/filters.py:109
+msgid "Title of category"
+msgstr "Titolo della categoria"
+
+#: products/models.py:153 products/templates/products/pages/detail.html:135
+msgid "Dimensions"
+msgstr "Dimensioni"
+
+#: products/templates/products/pages/detail.html:14
+msgid "back"
+msgstr "indietro"
+
+#: products/templates/products/pages/detail.html:60
+msgid "Brand name"
+msgstr "Marchio"
+
+#: products/templates/products/pages/detail.html:67
+#: products/templates/products/pages/detail.html:223
+#: products/templates/products/pages/list.html:113
+msgid "Save"
+msgstr "Salva"
+
+#: products/templates/products/pages/detail.html:76
+msgid "Add to favorite"
+msgstr "Aggiungi ai favoriti"
+
+#: products/templates/products/pages/detail.html:84
+msgid "code"
+msgstr "codice"
+
+#: products/templates/products/pages/detail.html:94
+#: products/templates/products/pages/detail.html:254
+#: products/templates/products/pages/list.html:144
+msgid "Retail price"
+msgstr "Prezzo al dettaglio"
+
+#: products/templates/products/pages/detail.html:103
+msgid "Wholesale price"
+msgstr "Prezzo all'ingrosso"
+
+#: products/templates/products/pages/detail.html:114
+msgid "Size and Dimensions"
+msgstr "Dimensioni e dimensioni"
+
+#: products/templates/products/pages/detail.html:121
+msgid "Available sizes"
+msgstr "Taglie disponibili"
+
+#: products/templates/products/pages/detail.html:142
+msgid "Size more information"
+msgstr "Dimensioni maggiori informazioni"
+
+#: products/templates/products/pages/detail.html:153
+msgid "More detail"
+msgstr "Più dettaglio"
+
+#: products/templates/products/pages/detail.html:158
+#: products/templates/products/pages/list.html:68
+#: products/templates/products/pages/list.html:73
+msgid "Material"
+msgstr "Materiale"
+
+#: products/templates/products/pages/detail.html:161
+msgid "Heel"
+msgstr "Tacco"
+
+#: products/templates/products/pages/detail.html:163
+msgid "Sole"
+msgstr "Suola"
+
+#: products/templates/products/pages/detail.html:166
+msgid "Weight"
+msgstr "Peso"
+
+#: products/templates/products/pages/detail.html:173
+#: products/templates/products/pages/detail.html:180
+msgid "Care and Fabric"
+msgstr "Cura e tessuto"
+
+#: products/templates/products/pages/detail.html:186
+msgid "Care information"
+msgstr "Informazioni sulla cura"
+
+#: products/templates/products/pages/detail.html:192
+msgid "Finer detail"
+msgstr "Dettagli più fini"
+
+#: products/templates/products/pages/detail.html:201
+msgid "Contact us by WhatsApp"
+msgstr "Contattaci tramite WhatsApp"
+
+#: products/templates/products/pages/detail.html:204
+msgid "Wholesale enquiries"
+msgstr "Richieste all'ingrosso"
+
+#: products/templates/products/pages/detail.html:210
+msgid "Related products"
+msgstr "Prodotti correlati"
+
+#: products/templates/products/pages/detail.html:259
+#: products/templates/products/pages/list.html:149
+msgid "Discover"
+msgstr "Scoprire"
+
+#: products/templates/products/pages/detail.html:261
+#: products/templates/products/pages/list.html:151
+#: products/templates/products/pages/search-list.html:42
+msgid "Read more ..."
+msgstr "Per saperne di più ..."
+
+#: products/templates/products/pages/detail.html:273
+msgid "There are currently no related products"
+msgstr "Al momento non ci sono prodotti correlati"
+
+#: products/templates/products/pages/list.html:34
+#: products/templates/products/pages/list.html:40
+msgid "Sub category"
+msgstr "Sottocategoria"
+
+#: products/templates/products/pages/list.html:81
+msgid "Brand"
+msgstr "Marca"
+
+#: products/templates/products/pages/list.html:86
+msgid "Brands"
+msgstr "Marche"
+
+#: products/templates/products/pages/list.html:94
+#: products/templates/products/pages/list.html:99
+msgid "Sort by"
+msgstr "Ordina per"
+
+#: products/templates/products/pages/list.html:160
+#: products/templates/products/pages/search-list.html:51
+#: products/templates/products/pages/x-list.html:46
+msgid "There are currently no products"
+msgstr "Al momento non ci sono prodotti"
+
+#: products/templates/products/pages/list.html:176
+#: products/templates/products/pages/search-list.html:67
+msgid "Previous"
+msgstr "Precedente"
+
+#: products/templates/products/pages/list.html:208
+#: products/templates/products/pages/search-list.html:91
+msgid "Next"
+msgstr "Prossimo"
+
+#: products/templates/products/pages/search-list.html:8
+msgid "Result"
+msgstr "Risultato"
+
+#: products/templates/products/pages/search-list.html:18
+msgid "Result for"
+msgstr "Risultato per"
+
+#: products/templates/products/sections/sidebar.html:8
+msgid "Categories"
+msgstr "Categorie"

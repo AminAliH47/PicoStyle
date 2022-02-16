@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% translate 'Favorite List' %} | PicoStyle
+{% endblock title %}
+
+{% block main %}
+<div class="my-5">
+    <div class="container">
+        <table class="table table-responsive-md">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% translate 'Image' %}</th>
+                <th scope="col">{% translate 'Model' %}</th>
+                <th scope="col">{% translate 'Brand' %}</th>
+                <th scope="col">{% translate 'Price' %}</th>
+                <th scope="col">{% translate 'Quantity' %}</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in favorite %}
+            {% with product=item.product %}
+            <tr>
+                <td class="w-25">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}" width="25%">
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ product.get_absolute_url }}">
+                        <strong>
+                            {{ product.model }}
+                        </strong>
+                    </a>
+                </td>
+                <td>{{ product.seller.brand_name }}</td>
+                <td>{{ product.retail_price_USD }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>
+                    <form action="{% url 'favorite:remove' product.id %}" method="post">{% csrf_token %}
+                        <button class="btn btn-danger" type="submit">
+                            {% translate 'Remove' %}
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endwith %}
+            {% empty %}
+            <tr>
+                <td>
+                    <h4>{% translate 'There are no products in your favorites list' %}</h4>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock main %}
