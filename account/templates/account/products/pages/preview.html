@@ -3,314 +3,314 @@
 {% load i18n %}
 
 {% block title %}
-    {% translate 'Preview' %} {{ product }} | PicoStyle
+{% translate 'Preview' %} {{ product }} | PicoStyle
 {% endblock title %}
 
 {% block main %}
-    <div class="position-relative">
-        <div class="text-left" style="background: #ffecc1;">
-            <div class="pl-3">
-                <h3 class="pt-2">
-                    {% translate 'Preview' %}
-                </h3>
-                <a href="{% url 'account:p_list' %}" class="btn btn-secondary mr-2 mb-3">
-                    {% translate 'Back' %}
-                </a>
-                <a href="{% url 'account:p_update' pk=product.pk %}?next={{ request.get_full_path }}"
-                   class="btn btn-warning mb-3">
-                    {% translate 'Edit' %}
-                </a>
-            </div>
+<div class="position-relative">
+    <div class="text-left" style="background: #ffecc1;">
+        <div class="pl-3">
+            <h3 class="pt-2">
+                {% translate 'Preview' %}
+            </h3>
+            <a href="{% url 'account:p_list' %}" class="btn btn-secondary mr-2 mb-3">
+                {% translate 'Back' %}
+            </a>
+            <a href="{% url 'account:p_update' pk=product.pk %}?next={{ request.get_full_path }}"
+               class="btn btn-warning mb-3">
+                {% translate 'Edit' %}
+            </a>
         </div>
-        <div class="container detail">
-            <div class="row my-5">
-                <div class="col-md-6 col-12 image-container">
-                    <a href="javascript:history.back()" class="back-btn">
-                        <i class="fa fa-arrow-left"></i> {% translate 'back' %}
-                    </a>
-                    <div class="position-relative">
-                        <div id="img-container">
-                            <img class="product-image" src="{{ product.image.url }}" alt="{{ product.code2 }}"
-                                 id="product-img">
-                        </div>
-                        <div class="mt-3">
-                            <div id="imageCarousel" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    {% for images in product_images %}
-                                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                            {% for img in images %}
-                                                <a href="javascript:void(0)" class="mx-2"
-                                                   onclick="change_img(this)">
-                                                    <img src="{{ img.image.url }}" alt="{{ product.title }}"
-                                                         class="product-more-image">
-                                                </a>
-                                            {% endfor %}
-                                            {% if forloop.last %}
-                                                <a href="javascript:void(0)" class="mx-2"
-                                                   onclick="change_img(this)">
-                                                    <img src="{{ product.image.url }}" alt="{{ product.model }}"
-                                                         class="product-more-image">
-                                                </a>
-                                            {% endif %}
-                                        </div>
+    </div>
+    <div class="container detail">
+        <div class="row my-5">
+            <div class="col-md-6 col-12 image-container">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fa fa-arrow-left"></i> {% translate 'back' %}
+                </a>
+                <div class="position-relative">
+                    <div id="img-container">
+                        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.code2 }}"
+                             id="product-img">
+                    </div>
+                    <div class="mt-3">
+                        <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                {% for images in product_images %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    {% for img in images %}
+                                    <a href="javascript:void(0)" class="mx-2"
+                                       onclick="change_img(this)">
+                                        <img src="{{ img.image.url }}" alt="{{ product.title }}"
+                                             class="product-more-image">
+                                    </a>
                                     {% endfor %}
+                                    {% if forloop.last %}
+                                    <a href="javascript:void(0)" class="mx-2"
+                                       onclick="change_img(this)">
+                                        <img src="{{ product.image.url }}" alt="{{ product.model }}"
+                                             class="product-more-image">
+                                    </a>
+                                    {% endif %}
                                 </div>
-                                <a class="carousel-control-prev" href="#imageCarousel" role="button"
-                                   data-slide="prev">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                                <a class="carousel-control-next" href="#imageCarousel" role="button"
-                                   data-slide="next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
+                                {% endfor %}
                             </div>
+                            <a class="carousel-control-prev" href="#imageCarousel" role="button"
+                               data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#imageCarousel" role="button"
+                               data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12">
-                    <div class="row">
-                        <div class="col-md-8 ">
-                            <p class="product-attr"
-                               style="margin-bottom: -4px">
-                                {% translate 'Brand name' %}
-                            </p>
-                            <div class="position-relative">
-                                <h1 class="product-title">{{ product.seller.brand_name }}</h1>
-                                {% if product.check_discount %}
-                                    <span class="product-discount"
-                                          style="position: absolute; bottom: 8px; margin-left: 10px">
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <p class="product-attr"
+                           style="margin-bottom: -4px">
+                            {% translate 'Brand name' %}
+                        </p>
+                        <div class="position-relative">
+                            <h1 class="product-title">{{ product.seller.brand_name }}</h1>
+                            {% if product.check_discount %}
+                            <span class="product-discount"
+                                  style="position: absolute; bottom: 8px; margin-left: 10px">
                                     {% translate 'Save' %} {{ product.check_discount }}%
                                 </span>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-flex align-items-center">
-                            <button type="button" class="btn btn-favorite">
-                                {{ favorite_form }}
-                                {% translate 'Add to favorite' %}
-                                <i class="fa fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <h4 class="mt-2 font-weight-light">{{ product.model }}</h4>
-                    <div class="d-flex align-items-left">
-                        <p class="product-attr">{% translate 'code' %}
-                            <b>{{ product.code2 }}</b>
-                        </p>
-                    </div>
-                    <div class="row my-3">
-
-                        <div class="col-6 text-left">
-                            {% if product.show_retail_price %}
-                                <p class="product-attr"
-                                   style="margin-bottom: -12px">
-                                    {% translate 'Retail price' %}
-                                </p>
-                                <h2 class="product-price">{{ product.retail_price_USD }}</h2>
-                            {% endif %}
-                        </div>
-                        <div class="col-6 text-left">
-                            {% if product.show_wholesale_price %}
-                                <p class="product-attr"
-                                   style="margin-bottom: -12px">
-                                    {% translate 'Wholesale price' %}
-                                </p>
-                                <h2 class="product-price">{{ product.wholesale_price }}</h2>
                             {% endif %}
                         </div>
                     </div>
-                    <hr>
-                    <p>{{ product.description|safe }}</p>
-
-                    <button class="button" type="button" data-toggle="collapse" data-target="#sizeCollapse"
-                            onclick="document.getElementById('ico2').classList.toggle('fa-minus')">
-                        {% translate 'Size and Dimensions' %}
-                        <i class="fa fa-plus" id="ico2"></i>
-                    </button>
-                    <div class="collapse" id="sizeCollapse">
-                        <div class="card card-body">
-                            {% if product.size.all %}
-                                <h6 style="font-size: 14px; margin-bottom: 5px">
-                                    {% translate 'Available sizes' %}
-                                </h6>
-                                <table class="size-table">
-                                    <tbody>
-                                    <tr>
-                                        {% for size in product.size.all %}
-                                            <td>{{ size }}</td>
-                                        {% endfor %}
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                            {% elif product.dimensions %}
-                                <h6 style="font-size: 13px">
-                                    {% translate 'Dimensions' %}
-                                </h6>
-                                <p>{{ product.dimensions }}</p>
-                            {% endif %}
-
-                            {% if product.size_info %}
-                                <h6 style="font-size: 13px;margin-top: 12px">
-                                    {% translate 'Size more information' %}
-                                </h6>
-                                <span>
-                                {{ product.size_info }}
-                            </span>
-                            {% endif %}
-                        </div>
-                    </div>
-
-                    <button class="button" type="button" data-toggle="collapse" data-target="#detailCollapse"
-                            onclick="document.getElementById('ico').classList.toggle('fa-minus')">
-                        {% translate 'More detail' %}
-                        <i class="fa fa-plus" id="ico"></i>
-                    </button>
-                    <div class="collapse" id="detailCollapse">
-                        <div class="card card-body">
-                            <h6 class="product-attr">{% translate 'Material' %}
-                                <b>{{ product.material }}</b></h6>
-                            {% if product.type == "Shoe" %}
-                                <h6 class="product-attr">{% translate 'Heel' %}
-                                    <b>{{ product.heel }} cm</b></h6>
-                                <h6 class="product-attr">{% translate 'Sole' %}
-                                    <b>{{ product.sole }}</b></h6>
-                            {% endif %}
-
-                            {% if product.weight %}
-                                <h6 class="product-attr">{% translate 'Weight' %}
-                                    <b>{{ product.weight }} gr</b></h6>
-                            {% endif %}
-                        </div>
-                    </div>
-
-                    <button class="button" type="button" data-toggle="collapse" data-target="#careCollapse"
-                            onclick="document.getElementById('ico3').classList.toggle('fa-minus')">
-                        {% translate 'Care and Fabric' %}
-                        <i class="fa fa-plus" id="ico3"></i>
-                    </button>
-                    <div class="collapse" id="careCollapse">
-                        <div class="card card-body">
-                            {% if product.care_and_fabric %}
-                                <h6 style="font-size: 14px; margin: 10px 0 6px 0">
-                                    {% translate 'Care and Fabric' %}
-                                </h6>
-                                <p>{{ product.care_and_fabric }}</p>
-                            {% endif %}
-                            {% if product.care_info %}
-                                <h6 style="font-size: 14px; margin: 10px 0 6px 0">
-                                    {% translate 'Care information' %}
-                                </h6>
-                                <p>{{ product.care_info }}</p>
-                            {% endif %}
-                            {% if product.finer_detail %}
-                                <h6 style="font-size: 14px; margin: 10px 0 6px 0">
-                                    {% translate 'Finer detail' %}
-                                </h6>
-                                <p>{{ product.finer_detail }}</p>
-                            {% endif %}
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-12 p-0">
-                        <a href="" class="btn btn-contact">
-                            {% translate 'Contact us by WhatsApp' %}
-                        </a>
-                        <a href="{% url 'pages' slug='wholesale-enquiries' %}" class="btn btn-wholesale">
-                            {% translate 'Wholesale enquiries' %}
-                        </a>
+                    <div class="col-md-4 d-flex align-items-center">
+                        <button type="button" class="btn btn-favorite">
+                            {{ favorite_form }}
+                            {% translate 'Add to favorite' %}
+                            <i class="fa fa-heart"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="col-12 mt-7">
-                    <h4>
-                        {% translate 'Related products' %}
-                    </h4>
-                    <hr>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            {% for products_list in related_products %}
-                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                    <div class="row">
-                                        {% for product in products_list %}
-                                            <div class="col-md-3">
-                                                <div class="product-card">
-                                                    {% if product.check_discount %}
-                                                        <span class="product-discount">
+
+                <h4 class="mt-2 font-weight-light">{{ product.title }}</h4>
+
+                <div class="d-flex align-items-left">
+                    <p class="product-attr">{% translate 'code' %}
+                        <b>{{ product.code2 }}</b>
+                    </p>
+                </div>
+                <div class="row my-3">
+
+                    <div class="col-6 text-left">
+                        {% if product.show_retail_price %}
+                        <p class="product-attr"
+                           style="margin-bottom: -12px">
+                            {% translate 'Retail price' %}
+                        </p>
+                        <h2 class="product-price">{{ product.retail_price_USD }}</h2>
+                        {% endif %}
+                    </div>
+                    <div class="col-6 text-left">
+                        {% if product.show_wholesale_price %}
+                        <p class="product-attr"
+                           style="margin-bottom: -12px">
+                            {% translate 'Wholesale price' %}
+                        </p>
+                        <h2 class="product-price">{{ product.wholesale_price }}</h2>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr>
+                <p>{{ product.description|safe }}</p>
+
+                <button class="button" type="button" data-toggle="collapse" data-target="#sizeCollapse"
+                        onclick="document.getElementById('ico2').classList.toggle('fa-minus')">
+                    {% translate 'Size and Dimensions' %}
+                    <i class="fa fa-plus" id="ico2"></i>
+                </button>
+                <div class="collapse" id="sizeCollapse">
+                    <div class="card card-body">
+                        {% if product.size.all %}
+                        <h6 style="font-size: 14px; margin-bottom: 5px">
+                            {% translate 'Available sizes' %}
+                        </h6>
+                        <table class="size-table">
+                            <tbody>
+                            <tr>
+                                {% for size in product.size.all %}
+                                <td>{{ size }}</td>
+                                {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        {% elif product.dimensions %}
+                        <h6 style="font-size: 13px">
+                            {% translate 'Dimensions' %}
+                        </h6>
+                        <p>{{ product.dimensions }}</p>
+                        {% endif %}
+
+                        {% if product.size_info %}
+                        <h6 style="font-size: 13px;margin-top: 12px">
+                            {% translate 'Size more information' %}
+                        </h6>
+                        <span>
+                                {{ product.size_info }}
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <button class="button" type="button" data-toggle="collapse" data-target="#detailCollapse"
+                        onclick="document.getElementById('ico').classList.toggle('fa-minus')">
+                    {% translate 'More detail' %}
+                    <i class="fa fa-plus" id="ico"></i>
+                </button>
+                <div class="collapse" id="detailCollapse">
+                    <div class="card card-body">
+                        <h6 class="product-attr">{% translate 'Material' %}
+                            <b>{{ product.material }}</b></h6>
+                        {% if product.type == "Shoe" %}
+                        <h6 class="product-attr">{% translate 'Heel' %}
+                            <b>{{ product.heel }} cm</b></h6>
+                        <h6 class="product-attr">{% translate 'Sole' %}
+                            <b>{{ product.sole }}</b></h6>
+                        {% endif %}
+
+                        {% if product.weight %}
+                        <h6 class="product-attr">{% translate 'Weight' %}
+                            <b>{{ product.weight }} gr</b></h6>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <button class="button" type="button" data-toggle="collapse" data-target="#careCollapse"
+                        onclick="document.getElementById('ico3').classList.toggle('fa-minus')">
+                    {% translate 'Care and Fabric' %}
+                    <i class="fa fa-plus" id="ico3"></i>
+                </button>
+                <div class="collapse" id="careCollapse">
+                    <div class="card card-body">
+                        {% if product.care_and_fabric %}
+                        <h6 style="font-size: 14px; margin: 10px 0 6px 0">
+                            {% translate 'Care and Fabric' %}
+                        </h6>
+                        <p>{{ product.care_and_fabric }}</p>
+                        {% endif %}
+                        {% if product.care_info %}
+                        <h6 style="font-size: 14px; margin: 10px 0 6px 0">
+                            {% translate 'Care information' %}
+                        </h6>
+                        <p>{{ product.care_info }}</p>
+                        {% endif %}
+                        {% if product.finer_detail %}
+                        <h6 style="font-size: 14px; margin: 10px 0 6px 0">
+                            {% translate 'Finer detail' %}
+                        </h6>
+                        <p>{{ product.finer_detail }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 p-0">
+                    <a href="" class="btn btn-contact">
+                        {% translate 'Contact us by WhatsApp' %}
+                    </a>
+                    <a href="{% url 'pages' slug='wholesale-enquiries' %}" class="btn btn-wholesale">
+                        {% translate 'Wholesale enquiries' %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 mt-7">
+                <h4>
+                    {% translate 'Related products' %}
+                </h4>
+                <hr>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for products_list in related_products %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="row">
+                                {% for product in products_list %}
+                                <div class="col-md-3">
+                                    <div class="product-card">
+                                        {% if product.check_discount %}
+                                        <span class="product-discount">
                                                         {% translate 'Save' %} {{ product.check_discount }}%
                                                     </span>
-                                                    {% endif %}
-                                                    <div class="product-img-container">
-                                                        <a href="{{ product.get_absolute_url }}">
-                                                            <img class="product-img"
-                                                                 src="{{ product.image.url }}"
-                                                                 alt="{{ product.seller.brand_name }}"
-                                                                 loading="lazy">
-                                                        </a>
-                                                        <div class="img-overlay">
-                                                            <a href="{{ product.get_absolute_url }}">
-                                                                <img class="product-img"
-                                                                     src="{% if product.images.all %}
+                                        {% endif %}
+                                        <div class="product-img-container">
+                                            <a href="{{ product.get_absolute_url }}">
+                                                <img class="product-img"
+                                                     src="{{ product.image.url }}"
+                                                     alt="{{ product.seller.brand_name }}"
+                                                     loading="lazy">
+                                            </a>
+                                            <div class="img-overlay">
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    <img class="product-img"
+                                                         src="{% if product.images.all %}
                                                                 {{ product.images.first.image.url }}
                                                                 {% else %}{{ product.image.url }}
                                                                 {% endif %}"
-                                                                     alt="{{ product.seller.brand_name }}"
-                                                                     loading="lazy">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="p-2">
-                                                        <div class="product-title">
-                                                            <a href="{{ product.get_absolute_url }}">
-                                                                {{ product.code2 }}
-                                                            </a>
-                                                        </div>
-                                                        <p class="product-price">
-                                                            {% if product.show_retail_price %}
-                                                                <span class="product-price-desc">
+                                                         alt="{{ product.seller.brand_name }}"
+                                                         loading="lazy">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="p-2">
+                                            <div class="product-title">
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    {{ product.code2 }}
+                                                </a>
+                                            </div>
+                                            <p class="product-price">
+                                                {% if product.show_retail_price %}
+                                                <span class="product-price-desc">
                                                                 {% translate 'Retail price' %}
                                                             </span>
-                                                                {{ product.retail_price_USD }}
-                                                            {% else %}
-                                                                <span class="product-price-desc">
+                                                {{ product.retail_price_USD }}
+                                                {% else %}
+                                                <span class="product-price-desc">
                                                             {% translate 'Discover' %}
                                                             </span>
-                                                                {% translate 'Read more ...' %}
-                                                            {% endif %}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
+                                                {% translate 'Read more ...' %}
+                                                {% endif %}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            {% empty %}
-                                <div class="col-12 text-center my-4">
-                                    <h3>
-                                        {% translate 'There are currently no related products' %}
-                                    </h3>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                           data-slide="prev"
-                           style="height: fit-content;background: #fff;z-index: 9">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                           data-slide="next"
-                           style="height: fit-content;background: #fff;z-index: 9">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
+                        {% empty %}
+                        <div class="col-12 text-center my-4">
+                            <h3>
+                                {% translate 'There are currently no related products' %}
+                            </h3>
+                        </div>
+                        {% endfor %}
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"
+                       style="height: fit-content;background: #fff;z-index: 9">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"
+                       style="height: fit-content;background: #fff;z-index: 9">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock main %}
 
 {% block custom_js %}
-    <script src="{% static 'js/custom/js-image-zoom.js' %}"></script>
-    <script>
+<script src="{% static 'js/custom/js-image-zoom.js' %}"></script>
+<script>
         function change_img(el) {
             let zoomedIMG = document.querySelector(".js-image-zoom__zoomed-image");
             zoomedIMG.style.backgroundImage = `url("${el.querySelector('img').src}")`;
@@ -323,5 +323,6 @@
             imgStyle: "object-fit: scale-down;"
         };
         new ImageZoom(document.getElementById("img-container"), options);
-    </script>
+
+</script>
 {% endblock custom_js %}
