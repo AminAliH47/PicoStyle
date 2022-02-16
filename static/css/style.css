@@ -2819,6 +2819,12 @@ p.subtitle {
     color: #7c7c7c;
 }
 
+.product-card .product-code {
+    display: block;
+    font-size: 14px;
+    color: #00000050;
+}
+
 .product-card .product-price-desc {
     color: #797979;
     font-size: 12px;
