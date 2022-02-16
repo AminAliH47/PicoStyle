@@ -135,8 +135,11 @@
                                     <div class="p-2">
                                         <div class="product-title">
                                             <a href="{{ product.get_absolute_url }}">
-                                                {{ product.code2 }}
+                                                {{ product.title }}
                                             </a>
+                                            <span class="product-code">
+                                                {{ product.code2 }}
+                                            </span>
                                         </div>
                                         <p class="product-price">
                                             {% if product.show_retail_price %}

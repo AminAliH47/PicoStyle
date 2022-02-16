@@ -20,15 +20,30 @@
                         {% for product in products %}
                             <div class="col-md-3 col-6">
                                 <div class="product-card">
-                                    <a href="{{ product.get_absolute_url }}">
-                                        <img class="product-img"
-                                             src="{{ product.image.url }}"
-                                             alt="{{ product.seller.brand_name }}"
-                                             loading="lazy"
-                                             data-img="{{ product.image.url }}"
-                                             data-img2="
-                                                     {% if product.images.all %}{{ product.images.first.image.url }}{% else %}{{ product.image.url }}{% endif %}">
-                                    </a>
+                                    {% if product.check_discount %}
+                                        <span class="product-discount">
+                                            {% translate 'Save' %} {{ product.check_discount }}%
+                                        </span>
+                                    {% endif %}
+                                    <div class="product-img-container">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <img class="product-img"
+                                                 src="{{ product.image.url }}"
+                                                 alt="{{ product.seller.brand_name }}"
+                                                 loading="lazy">
+                                        </a>
+                                        <div class="img-overlay">
+                                            <a href="{{ product.get_absolute_url }}">
+                                                <img class="product-img"
+                                                     src="{% if product.images.all %}
+                                                            {{ product.images.first.image.url }}
+                                                            {% else %}{{ product.image.url }}
+                                                         {% endif %}"
+                                                     alt="{{ product.seller.brand_name }}"
+                                                     loading="lazy">
+                                            </a>
+                                        </div>
+                                    </div>
                                     <div class="p-2">
                                         <div class="product-title">
                                             <a href="{{ product.get_absolute_url }}">
@@ -36,9 +51,15 @@
                                             </a>
                                         </div>
                                         <p class="product-price">
-                                            {% if product.show_price %}
+                                            {% if product.show_retail_price %}
+                                                <span class="product-price-desc">
+                                                    {% translate 'Retail price' %}
+                                                </span>
                                                 {{ product.retail_price_USD }}
                                             {% else %}
+                                                <span class="product-price-desc">
+                                                            {% translate 'Discover' %}
+                                                        </span>
                                                 {% translate 'Read more ...' %}
                                             {% endif %}
                                         </p>
@@ -58,34 +79,42 @@
                 <div class="col-12 d-flex justify-content-center">
                     <nav>
                         <ul class="pagination">
-                            {% if page_obj.has_previous %}
+                            {% if products.has_previous %}
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="?{% param_replace page=page_obj.previous_page_number %}"
+                                       href="?{% param_replace page=products.previous_page_number %}"
                                        aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                         <span class="sr-only">{% translate 'Previous' %}</span>
                                     </a>
                                 </li>
                             {% endif %}
-                            {% for page in page_obj.paginator.page_range %}
-                                {% if page_obj.number == page %}
+                            {% for page in products.paginator.page_range %}
+                                {% if products.number == page %}
                                     <li class="page-item active">
                                         <a class="page-link" href="javascript:void(0)">{{ page }}</a>
                                     </li>
-                                {% else %}
+                                {% elif page > products.number|add:'-4' and page < products.number|add:'4' %}
                                     <li class="page-item">
-                                        <a class="page-link"
-                                           href="?{% param_replace page=page %}">
+                                        <a class="page-link" href="?{% param_replace page=page %}">
                                             {{ page }}
                                         </a>
                                     </li>
                                 {% endif %}
                             {% endfor %}
-                            {% if page_obj.has_next %}
+
+                            {% if products.paginator.num_pages > products.number|add:'3' %}
+                                <li class="page-item">
+                                    <a class="page-link" role="button">
+                                        &hellip;
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% if products.has_next %}
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="?{% param_replace page=page_obj.next_page_number %}"
+                                       href="?{% param_replace page=products.next_page_number %}"
                                        aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                         <span class="sr-only">{% translate 'Next' %}</span>

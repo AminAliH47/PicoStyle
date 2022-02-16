@@ -92,7 +92,7 @@ products = None
 category = None
 
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def category_list(request, item):
     """ View for products list by category """
     category_slugs = item.split('/')  # get parameter from url
