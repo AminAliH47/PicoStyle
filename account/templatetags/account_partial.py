@@ -12,15 +12,12 @@ def header(context, **kwargs):
     else:
         h_message = []
 
-    def not_read_count():
+    def unread_messages_count():
         messages = Messages.objects.filter(is_read=False, seller=request.user).count()
-        count = 0
-        if messages["count"] is not None:
-            count = int(messages["count"])
-        return count
+        return messages
 
     data = {
         "h_messages": h_message,
-        "not_read_messages": not_read_count,
+        "unread_messages": unread_messages_count,
     }
     return data

@@ -14,8 +14,8 @@
                     <div class="noti-wrap">
                         <div class="noti__item js-item-menu">
                             <i class="zmdi zmdi-comment-more"></i>
-                            {% if var.not_read_messages != 0 %}
-                                <span class="quantity">{{ var.not_read_messages }}</span>
+                            {% if var.unread_messages != 0 %}
+                                <span class="quantity">{{ var.unread_messages }}</span>
                             {% endif %}
                             <div class="mess-dropdown js-dropdown">
                                 {% for message in var.h_messages %}

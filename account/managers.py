@@ -1,5 +1,4 @@
 from django.contrib.auth.models import UserManager
-from django.db import models
 
 
 class CustomUserManager(UserManager):
@@ -17,8 +16,5 @@ class CustomUserManager(UserManager):
 
     # get count of active seller users
     def seller_count(self):
-        reviews = self.filter(is_seller=True, is_active=True).aggregate(count=models.Count('id'))
-        count = 0
-        if reviews["count"] is not None:
-            count = int(reviews["count"])
-        return count
+        sellers = self.filter(is_seller=True, is_active=True).count()
+        return sellers
