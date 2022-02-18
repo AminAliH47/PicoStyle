@@ -22,10 +22,7 @@ class ProductManager(models.Manager):
     # Count published product
     def product_count(self):
         products = self.filter(status="published").count()
-        count = 0
-        if products["count"] is not None:
-            count = int(products["count"])
-        return count
+        return products
 
     # Method for search products by title and tag title
     def search_product(self, query):
@@ -45,7 +42,4 @@ class ProductsCategoryManager(models.Manager):
     # Count active product category
     def category_count(self):
         categories = self.filter(active=True).count()
-        count = 0
-        if categories["count"] is not None:
-            count = int(categories["count"])
-        return count
+        return categories
